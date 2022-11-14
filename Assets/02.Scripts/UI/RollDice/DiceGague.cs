@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DiceGague : MonoBehaviour
 {
-    private readonly int GRADE = 12;
+    private int Grade = 12; // 단계, 등급
     [SerializeField] private Transform center;   // 원의 중심
 
     [SerializeField] private float speed = 3f;   // 똑딱 스피드
@@ -45,11 +45,11 @@ public class DiceGague : MonoBehaviour
         angle = 90f - Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
         // 눈금 생성
-        for (int i = 1; i < GRADE; i++)
+        for (int i = 1; i < Grade; i++)
         {
             GameObject newObj = Instantiate(graduation, transform);
-            newObj.transform.position = GetPos(-angle + (angle * 2 / GRADE) * i);
-            newObj.transform.up = GetDirection(-angle + (angle * 2 / GRADE) * i);
+            newObj.transform.position = GetPos(-angle + (angle * 2 / Grade) * i);
+            newObj.transform.up = GetDirection(-angle + (angle * 2 / Grade) * i);
             newObj.SetActive(true);
         }
 
@@ -110,7 +110,7 @@ public class DiceGague : MonoBehaviour
 
         // 1~GRADE까지 단계가 나온다
         // 0부터 시작하므로 1을 더해줌
-        int grade = (int)(rate / (1 / (float)GRADE)) + 1;
+        int grade = (int)(rate / (1 / (float)Grade)) + 1;
         Debug.Log($"{grade}단계");
     }
 
