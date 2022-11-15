@@ -5,7 +5,6 @@ using UnityEngine;
 public class DiceGague : MonoBehaviour
 {
     private int Grade = 12; // 단계, 등급
-    [SerializeField] private Transform center;   // 원의 중심
 
     [SerializeField] private float speed = 3f;   // 똑딱 스피드
     [SerializeField] private Transform visual;   // 똑딱거리는 오브젝트
@@ -13,9 +12,10 @@ public class DiceGague : MonoBehaviour
     [SerializeField] private GameObject graduation;   // 눈금 프리팹
 
     private bool isLeftMove;    // 현재 왼쪽으로 가고있는지 아닌지
-    private float curAngle;     // 현재 각도
-    public float radius;        // 원의 반지름
-    private float angle;        // 똑딱거릴 최대 각도
+
+    private float curPosX = 0f;
+    private float width = 0f;
+    private float halfWidth = 0f;
 
     private bool isPlaying = true;
     public bool IsPlaying
@@ -26,7 +26,7 @@ public class DiceGague : MonoBehaviour
             if (value)
             {
                 // 초기화하며 시작
-                curAngle = -angle;
+                curPosX = -halfWidth;
             }
             else
             {
@@ -39,17 +39,14 @@ public class DiceGague : MonoBehaviour
 
     private void Start()
     {
-        radius = Vector2.Distance(transform.position, center.position);
-
-        Vector3 direction = transform.position - center.position;
-        angle = 90f - Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        width = GetComponent<RectTransform>().rect.width;
+        halfWidth = width / 2;
 
         // 눈금 생성
         for (int i = 1; i < Grade; i++)
         {
             GameObject newObj = Instantiate(graduation, transform);
-            newObj.transform.position = GetPos(-angle + (angle * 2 / Grade) * i);
-            newObj.transform.up = GetDirection(-angle + (angle * 2 / Grade) * i);
+            newObj.transform.position = GetPos(-halfWidth + (width / Grade) * i);
             newObj.SetActive(true);
         }
 
@@ -60,16 +57,15 @@ public class DiceGague : MonoBehaviour
     {
         if (IsPlaying)
         {
-            curAngle += Time.deltaTime * speed;
+            curPosX += Time.deltaTime * speed;
 
             // 각 끝에 도달했을 때 방향을 바꾼다
-            if (curAngle > angle || curAngle < -angle)
+            if (curPosX > halfWidth || curPosX < -halfWidth)
             {
                 ChangeDirection(!isLeftMove);
             }
 
-            visual.position = GetPos(curAngle);
-            visual.up = GetDirection(curAngle);
+            visual.position = GetPos(curPosX);
         }
     }
 
@@ -79,46 +75,28 @@ public class DiceGague : MonoBehaviour
         this.isLeftMove = isLeftMove;
 
         if (isLeftMove)
-            curAngle = angle;
+            curPosX = halfWidth;
         else
-            curAngle = -angle;
+            curPosX = -halfWidth;
 
         speed *= -1;
     }
 
-    // 현재 angle의 방향
-    private Vector3 GetDirection(float angle)
-    {
-        Vector3 direction = Vector3.zero;
-        direction.x = Mathf.Sin(angle * Mathf.Deg2Rad);
-        direction.y = Mathf.Cos(angle * Mathf.Deg2Rad);
-
-        return direction;
-    }
-
     // 현재 angle의 위치
-    private Vector3 GetPos(float angle)
+    private Vector3 GetPos(float curX)
     {
-        return center.position + GetDirection(angle) * radius;
+        return transform.position + Vector3.right * curX;
     }
 
     // 등급(단계) 판단 함수
     private void CaculateGrade()
     {
-        float rate =  (curAngle + angle) / (angle * 2f);
+        float rate = (curPosX + halfWidth) / width;
         // -angle부터 angle까지 curAngle의 비율
 
         // 1~GRADE까지 단계가 나온다
         // 0부터 시작하므로 1을 더해줌
         int grade = (int)(rate / (1 / (float)Grade)) + 1;
         Debug.Log($"{grade}단계");
-    }
-
-    private void OnDrawGizmosSelected()
-    {
-        radius = Vector2.Distance(transform.position, center.position);
-
-        Gizmos.color = Color.blue;
-        Gizmos.DrawLine(center.transform.position, GetPos(angle));
     }
 }
