@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEditor;
 
 public class DiceControl : MonoBehaviour
 {
@@ -20,7 +21,7 @@ public class DiceControl : MonoBehaviour
     private Vector3 vector = new Vector3(0, 1, 1);
     [SerializeField]
     private float speed = 100f;
-
+    [SerializeField]
     private bool isRotate = false;
     private List<Vector3[]> diceList = new List<Vector3[]>(); //DiceShape enum과 동일한 순서로 넣어줄것
 
@@ -34,7 +35,7 @@ public class DiceControl : MonoBehaviour
         diceList.Add(cubeDice);
     }
 
-    void Update()
+    private void Update()
     {
         if (IsRotate)
         {
@@ -42,4 +43,17 @@ public class DiceControl : MonoBehaviour
         }
     }
 
+    public void DiceNumSelect(DiceShape shape, int grade)
+    {
+        int max = diceList[(int)shape].Length;
+    }
+
+    [ContextMenu("TestSideUp")]
+    public void DiceSideUp(DiceShape shape, int sideIdx)
+    {
+        isRotate = false;
+        Vector3[] vectors = diceList[(int)shape];
+        Vector3 upSide = vectors[sideIdx];
+        transform.DORotate(upSide, speed * Time.deltaTime, RotateMode.Fast);
+    }
 }
