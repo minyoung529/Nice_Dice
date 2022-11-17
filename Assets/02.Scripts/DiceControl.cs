@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using UnityEditor;
+public enum DiceShape
+{
+    Cube,
+    Unknown,
+}
 
 public class DiceControl : MonoBehaviour
 {
-    public enum DiceShape
-    {
-        Cube,
-    }
 
     public bool IsRotate
     {
@@ -18,11 +19,15 @@ public class DiceControl : MonoBehaviour
     }
 
     [SerializeField]
-    private Vector3 vector = new Vector3(0, 1, 1);
+    private Vector3 vector = new Vector3(0, 1.5f, 1.5f);
     [SerializeField]
     private float speed = 100f;
     [SerializeField]
     private bool isRotate = false;
+
+    [SerializeField]
+    private DiceShape diceShape = DiceShape.Unknown;
+
     private List<Vector3[]> diceList = new List<Vector3[]>(); //DiceShape enum과 동일한 순서로 넣어줄것
 
     // 주사위들의 위로 가야하는 지점을 저장해두는 배열 모음 Region 
@@ -43,13 +48,14 @@ public class DiceControl : MonoBehaviour
         }
     }
 
-    public void DiceNumSelect(DiceShape shape, int grade)
+    public int DiceNumSelect(DiceShape shape, int grade)
     {
         int max = diceList[(int)shape].Length;
+        return 0;
     }
 
     [ContextMenu("TestSideUp")]
-    public void DiceSideUp(DiceShape shape, int sideIdx)
+    public void DiceSideUp(DiceShape shape = DiceShape.Cube, int sideIdx = 0)
     {
         isRotate = false;
         Vector3[] vectors = diceList[(int)shape];

@@ -711,9 +711,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f4be2496156ce44992fce5c757d69a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vector: {x: 0, y: 1, z: 1}
+  vector: {x: 0, y: 1.5, z: 1.5}
   speed: 100
-  isRotate: 0
+  isRotate: 1
+  diceShape: 0
 --- !u!1001 &680139404
 PrefabInstance:
   m_ObjectHideFlags: 0
