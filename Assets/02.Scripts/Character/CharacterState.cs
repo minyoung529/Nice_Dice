@@ -3,5 +3,6 @@ public enum CharacterState
     Idle,
     Hit,
     Attack,
-    Die
+    Die,
+    Length
 }
