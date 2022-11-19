@@ -8,15 +8,24 @@ public class Character : MonoBehaviour
 {
     protected Animator animator;
     protected CharacterState state;
-    protected Dictionary<CharacterState, Action> stateActions = new Dictionary<CharacterState, Action>();
+    protected Dictionary<CharacterState, StateBase> stateActions = new Dictionary<CharacterState, StateBase>();
+    protected StateBase currentState;
+
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
+    }
 
     private void Start()
     {
-        animator = GetComponent<Animator>();
+        stateActions.Add(CharacterState.Idle, new IdleState(this));
+        stateActions.Add(CharacterState.Attack, new AttackState(this));
 
-        for (int i = 0; i < (int)CharacterState.Length; i++)
+        ChangeState(CharacterState.Idle);
+
+        foreach (var pair in stateActions)
         {
-            stateActions.Add((CharacterState)i, () => { });
+            pair.Value.OnAwake();
         }
     }
 
@@ -24,11 +33,17 @@ public class Character : MonoBehaviour
     {
         this.state = state;
         animator.Play(state.ToString());
-        stateActions[state]?.Invoke();
+
+        currentState?.OnEnd();
+
+        stateActions[state]?.ReceiveData(currentState?.SendedData);
+        stateActions[state]?.OnStart();
+
+        currentState = stateActions[state];
     }
 
-    public void RegisterAction(CharacterState state, Action action)
+    private void Update()
     {
-        stateActions[state] += action;
+        currentState?.OnUpdate();
     }
 }
