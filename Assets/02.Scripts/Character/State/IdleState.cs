@@ -13,25 +13,24 @@ public class IdleState : StateBase
 
     public IdleState(Character character) : base(character) { }
 
+    public override void OnAwake()
+    {
+        downPos = character.transform.position;
+        upPos = downPos + Vector3.up * FLOATING_DISTANCE;
+    }
+
     public override void OnStart()
     {
         sendedData = character.transform.position;
 
-        upPos = character.transform.position + Vector3.up * FLOATING_DISTANCE;
-        downPos = character.transform.position;
-
         seq = DOTween.Sequence();
-
-        Debug.Log("sdf");
-
-        seq.Append(character.transform.DOMove(upPos,    FLOATING_TIME));
-        seq.Append(character.transform.DOMove(downPos,  FLOATING_TIME));
+        seq.Append(character.transform.DOMove(upPos, FLOATING_TIME));
+        seq.Append(character.transform.DOMove(downPos, FLOATING_TIME));
         seq.SetLoops(-1);
     }
 
     public override void OnEnd()
     {
-        Debug.Log("End");
         seq.Kill();
     }
 }

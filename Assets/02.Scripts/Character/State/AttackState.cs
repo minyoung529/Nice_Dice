@@ -15,7 +15,7 @@ public class AttackState : StateBase
 
         seq.Append(character.transform.DOShakePosition(1f));
         seq.Append(character.transform.DOMove((Vector3)receiveData, 1f));
-        seq.AppendCallback(()=> character.ChangeState(CharacterState.Idle));
+        //seq.AppendCallback(()=> character.ChangeState(CharacterState.Idle));
     }
 
     public override void OnEnd()

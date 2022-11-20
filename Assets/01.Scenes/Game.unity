@@ -476,6 +476,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8ad9a185066ec44c8e0c8b3048c3dde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  materials:
+  - {fileID: 2100000, guid: 63e9e8929ef8ade4c9f15c2eb35d39a9, type: 2}
+  - {fileID: 2100000, guid: 31daffde324e63a49aa52515debcaaf6, type: 2}
+  - {fileID: 2100000, guid: 0446b377256a9bc47a4536ed51dc8653, type: 2}
+  - {fileID: 0}
 --- !u!95 &231334056
 Animator:
   serializedVersion: 4

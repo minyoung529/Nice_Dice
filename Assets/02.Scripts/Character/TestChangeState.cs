@@ -20,12 +20,12 @@ public class TestChangeState : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.F2))
         {
-            character.ChangeState(CharacterState.Die);
+            character.ChangeState(CharacterState.Hit);
         }
 
         if (Input.GetKeyDown(KeyCode.F3))
         {
-            character.ChangeState(CharacterState.Hit);
+            character.ChangeState(CharacterState.Die);
         }
     }
 }

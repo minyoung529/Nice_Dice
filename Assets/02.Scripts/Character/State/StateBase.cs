@@ -23,5 +23,5 @@ public class StateBase
 
     public virtual void OnEnd() { }
 
-    public void ReceiveData(object obj) { receiveData = obj; Debug.Log("receive"); }
+    public void ReceiveData(object obj) { receiveData = obj; }
 }
