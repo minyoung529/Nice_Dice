@@ -33,9 +33,9 @@ public class Character : MonoBehaviour
 
     public void ChangeState(CharacterState state)
     {
-        this.state = state;
-
         currentState?.OnEnd();
+        
+        this.state = state;
         meshRenderer.material = materials[(int)state];
 
         stateActions[state]?.ReceiveData(currentState?.SendedData);

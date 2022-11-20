@@ -22,10 +22,5 @@ public class TestChangeState : MonoBehaviour
         {
             character.ChangeState(CharacterState.Hit);
         }
-
-        if (Input.GetKeyDown(KeyCode.F3))
-        {
-            character.ChangeState(CharacterState.Die);
-        }
     }
 }
