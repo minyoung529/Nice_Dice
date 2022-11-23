@@ -357,7 +357,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-26780
+  m_Name: pb_Mesh27792
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -785,7 +785,7 @@ GameObject:
   - component: {fileID: 438473770}
   - component: {fileID: 438473776}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: CubeDice
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1131,44 +1131,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f4be2496156ce44992fce5c757d69a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateVector: {x: 0, y: 1.5, z: 1.5}
+  rotateVector: {x: 0, y: 2, z: 2}
+  diceshape: 0
   speed: 1
   isRotate: 1
   isDrop: 0
-  curve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 1.0000001
-      outSlope: 1.0000001
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.50139797
-      value: 0.501398
-      inSlope: -0.23681939
-      outSlope: -0.23681939
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.067714
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0.9999999
-      outSlope: 0.9999999
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  diceShape: 0
+  diceData: {fileID: 11400000, guid: 5bc36a57707fe734bb18de7208be6889, type: 2}
 --- !u!1 &484803872
 GameObject:
   m_ObjectHideFlags: 0
