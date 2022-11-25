@@ -7,8 +7,7 @@ public class Character : MonoBehaviour
 {
     protected MeshRenderer meshRenderer;
     [SerializeField]
-    protected Material[] materials = new Material[(int)CharacterState.Length];
-    protected CharacterState state;
+    protected CharacterState state = CharacterState.Idle;
     protected Dictionary<CharacterState, StateBase> stateActions = new Dictionary<CharacterState, StateBase>();
     protected StateBase currentState;
 
@@ -36,7 +35,6 @@ public class Character : MonoBehaviour
         currentState?.OnEnd();
         
         this.state = state;
-        meshRenderer.material = materials[(int)state];
 
         stateActions[state]?.ReceiveData(currentState?.SendedData);
         stateActions[state]?.OnStart();
