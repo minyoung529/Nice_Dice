@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// 모든 상태의 Base Class
+/// </summary>
 public class StateBase
 {
     protected object sendedData;
