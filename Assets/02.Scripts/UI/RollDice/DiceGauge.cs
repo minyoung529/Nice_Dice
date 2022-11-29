@@ -11,6 +11,9 @@ public class DiceGauge : MonoBehaviour
     [SerializeField] private GameObject graduation;   // 눈금 프리팹
     [SerializeField] private RectTransform fillImage;   // 채워지는 Image
     private float fillWidth;
+
+    [SerializeField] private DiceManager diceManager;
+
     private bool isLeftMove;    // 현재 왼쪽으로 가고있는지 아닌지
 
     private float curPosX = 0f;
@@ -30,7 +33,13 @@ public class DiceGauge : MonoBehaviour
             }
             else
             {
-                CaculateGrade();
+                int grade = CaculateGrade();
+                for (int i = 0; i < 3; i++)
+                {
+                    Dice dice = diceManager.SelectedDice[i];
+                    int side = diceManager.DiceSideSelect(dice.DiceShape, grade);
+                    dice.GetComponent<DiceControl>().DiceSideUp(dice.DiceShape, side);
+                }
             }
 
             isPlaying = value;
@@ -94,12 +103,13 @@ public class DiceGauge : MonoBehaviour
     }
 
     // 등급(단계) 판단 함수
-    private void CaculateGrade()
+    private int CaculateGrade()
     {
         // 1~GRADE까지 단계가 나온다
         // 0부터 시작하므로 1을 더해줌
         int grade = (int)(Rate / (1 / (float)Grade)) + 1;
         Debug.Log($"{grade}단계");
+        return grade;
     }
 
     private void ResetData()
