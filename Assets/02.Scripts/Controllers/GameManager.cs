@@ -13,13 +13,19 @@ public class GameManager : MonoSingleton<GameManager>
     private List<ControllerBase> controllers = new List<ControllerBase>();
     #endregion
 
+    #region Game
+    private bool myTurn = true;
+    [SerializeField] private Character player;
+    [SerializeField] private Character enemy;
+    #endregion
+
     private void Awake()
     {
         // controllers에 컨트롤러들을 넣는다.
         controllers.Add(uiManager);
 
         // 각 컨틀롤러들이 재정의한 OnAwake를 실행
-        foreach(ControllerBase controller in controllers)
+        foreach (ControllerBase controller in controllers)
         {
             controller.OnAwake();
         }
@@ -38,6 +44,20 @@ public class GameManager : MonoSingleton<GameManager>
         foreach (ControllerBase controller in controllers)
         {
             controller.OnUpdate();
+        }
+    }
+
+    public void NextTurn()
+    {
+        myTurn = !myTurn;
+
+        if (myTurn)
+        {
+
+        }
+        else
+        {
+            enemy.ChangeState(CharacterState.BeforeRoll);
         }
     }
 }

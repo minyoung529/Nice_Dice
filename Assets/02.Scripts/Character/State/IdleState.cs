@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
+/// <summary>
+/// Idle ป๓ลย
+/// </summary>
 public class IdleState : StateBase
 {
     private Sequence seq;
@@ -23,6 +26,11 @@ public class IdleState : StateBase
     {
         sendedData = character.transform.position;
 
+        character.transform.DOMove(downPos, FLOATING_TIME).OnComplete(Floating);
+    }
+
+    private void Floating()
+    {
         seq = DOTween.Sequence();
         seq.Append(character.transform.DOMove(upPos, FLOATING_TIME));
         seq.Append(character.transform.DOMove(downPos, FLOATING_TIME));
@@ -32,5 +40,6 @@ public class IdleState : StateBase
     public override void OnEnd()
     {
         seq.Kill();
+        character.transform.DOKill();
     }
 }

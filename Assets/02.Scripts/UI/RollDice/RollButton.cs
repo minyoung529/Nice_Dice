@@ -2,13 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
-public class RollButton : MonoBehaviour
+public class RollButton : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
 {
-    private void Start()
+    public Character character;
+    private DiceGauge diceGague;
+    private Button button;
+
+    private void Awake()
     {
         DiceGague diceGague = FindObjectOfType<DiceGague>();
-        DiceManager diceManager = FindObjectOfType<DiceManager>();
         Button button = GetComponent<Button>();
 
         button.onClick.AddListener(() => diceGague.IsPlaying = false);
@@ -16,5 +20,17 @@ public class RollButton : MonoBehaviour
         {
             button.onClick.AddListener(() => diceManager.SelectedDice[i].GetComponent<DiceControl>().IsRotate = true);
         }
+    }
+
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        diceGague.IsPlaying = true;
+        character.ChangeState(CharacterState.BeforeRoll);
+    }
+
+    public void OnPointerUp(PointerEventData eventData)
+    {
+        diceGague.IsPlaying = false;
+        character.ChangeState(CharacterState.Roll);
     }
 }
