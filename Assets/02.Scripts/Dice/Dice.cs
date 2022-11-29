@@ -25,13 +25,15 @@ public enum DiceShape
 
 public class Dice : MonoBehaviour
 {
-    private string diceName = "";
-    private string diceDescription = "";
-    private DiceType diceType = DiceType.Unknown;
-    private DiceShape diceShape = DiceShape.Unknown;
+    [SerializeField] private string diceName = "";
+    [SerializeField] private string diceDescription = "";
+    [SerializeField] private DiceType diceType = DiceType.Unknown;
+    [SerializeField] private DiceShape diceShape = DiceShape.Unknown;
 
+    #region Property
     public string DiceName => diceName;
     public string DiceDescription => diceDescription;
     public DiceType DiceType => diceType;
     public DiceShape DiceShape => diceShape;
+    #endregion
 }
