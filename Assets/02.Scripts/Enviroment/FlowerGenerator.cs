@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
+using CustomLib;
 
 public class FlowerGenerator : MonoBehaviour
 {
@@ -20,16 +22,17 @@ public class FlowerGenerator : MonoBehaviour
             if (Physics.Raycast(ray, out RaycastHit hitinfo, 10f, LayerMask.GetMask("Bottom")))
             {
                 GameObject prefab = flowerPrefabs[Random.Range(0, flowerPrefabs.Length)];
+
                 Vector3 pos = new Vector3(x, hitinfo.point.y, z);
                 Quaternion rot = Quaternion.FromToRotation(Vector3.up, hitinfo.normal);
-
                 Vector3 size = prefab.transform.localScale;
-                size.x /= transform.parent.localScale.x;
-                size.y /= transform.parent.localScale.y;
-                size.z /= transform.parent.localScale.z;
+                size.Divide(transform.parent.localScale);
 
-                Instantiate(prefab, pos, rot, transform.parent).transform.localScale = size;
+                GameObject flower = Instantiate(prefab, pos, rot, transform.parent);
+                flower.transform.localScale = Vector3.zero;
+                flower.transform.DOScale(size * Random.Range(0.5f, 0.6f), 2f);
             }
+
             else i--;
         }
     }
