@@ -20,7 +20,6 @@ public class HitState : StateBase
     {
         character.Animator.SetTrigger(hitHash);
         timer = character.Animator.GetCurrentAnimatorClipInfo(0).Length;
-
     }
 
     public override void OnUpdate()

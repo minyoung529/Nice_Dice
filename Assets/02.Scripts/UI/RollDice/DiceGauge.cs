@@ -38,7 +38,7 @@ public class DiceGauge : MonoBehaviour
                 {
                     Dice dice = diceManager.SelectedDice[i];
                     int side = diceManager.DiceSideSelect(dice.DiceShape, grade);
-                    dice.GetComponent<DiceControl>().DiceSideUp(dice.DiceShape, side);
+                    //dice.GetComponent<DiceControl>().DiceSideUp(dice.DiceShape, side);
                 }
             }
 
