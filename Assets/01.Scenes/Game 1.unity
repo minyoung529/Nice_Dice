@@ -839,7 +839,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh36366
+  m_Name: pb_Mesh29320
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1218,8 +1218,8 @@ MonoBehaviour:
   diceData: {fileID: 11400000, guid: 5bc36a57707fe734bb18de7208be6889, type: 2}
   isRotate: 0
   isDrop: 0
-  rotateVector: {x: 0, y: 2, z: 2}
-  rotateSpeed: 1
+  rotateVector: {x: 0, y: 2.5, z: 2.5}
+  rotateSpeed: 2
   endValue: {x: 0, y: 0, z: 4.5}
   throwPower: 3
 --- !u!64 &1462895108

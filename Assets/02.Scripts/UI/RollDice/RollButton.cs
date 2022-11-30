@@ -18,10 +18,6 @@ public class RollButton : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
         diceManager = FindObjectOfType<DiceManager>();
 
         button.onClick.AddListener(() => diceGague.IsPlaying = false);
-        //for (int i = 0; i < 3; i++)
-        //{
-        //    button.onClick.AddListener(() => diceManager.SelectedDice[i].GetComponent<DiceControl>().IsRotate = true);
-        //}
     }
 
     public void OnPointerDown(PointerEventData eventData)

@@ -79,6 +79,7 @@ public class Dice : ScriptableObject
     [SerializeField] private string diceDescription = "";
     [SerializeField] private DiceShape diceShape = DiceShape.Unknown;
     [SerializeField] private DiceType diceType = DiceType.Unknown;
+    [SerializeField] private GameObject dicePrefab = null;
 
     [Separator("Dice Sides")]
 
@@ -92,6 +93,7 @@ public class Dice : ScriptableObject
     public string DiceDescription { get => diceDescription; set => diceDescription = value; }
     public DiceType DiceType { get => diceType; set => diceType = value; }
     public DiceShape DiceShape { get => diceShape; set => diceShape = value; }
+    public GameObject DicePrefab => dicePrefab;
     #endregion
 
     public Dice(string diceName, string diceDescription, DiceType diceType, DiceShape diceShape)
@@ -133,11 +135,11 @@ public class Dice : ScriptableObject
             diceName = name;
         }
 
-        if(diceType == DiceType.Skill && (skills==null || skills.Count != (int)diceShape))
+        if (diceType == DiceType.Skill && (skills == null || skills.Count != (int)diceShape))
         {
             skills = new VisibleList<int>((int)diceShape);
         }
-        else if((diceType == DiceType.Number || diceType == DiceType.Multiply) &&
+        else if ((diceType == DiceType.Number || diceType == DiceType.Multiply) &&
             (numbers == null || numbers.Count != (int)diceShape))
         {
             numbers = new VisibleList<int>((int)diceShape);

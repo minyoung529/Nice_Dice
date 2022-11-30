@@ -15,7 +15,7 @@ public class DiceControl : MonoBehaviour
 
     [Header("Rotate")]
     [SerializeField]
-    private Vector3 rotateVector = new Vector3(0, 2f, 2f);
+    private Vector3 rotateVector = new Vector3(0, 2.5f, 2.5f);
     [SerializeField]
     private float rotateSpeed = 1f;
 
