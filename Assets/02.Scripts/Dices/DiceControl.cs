@@ -7,23 +7,32 @@ using UnityEditor;
 public class DiceControl : MonoBehaviour
 {
     [SerializeField]
-    private Vector3 rotateVector = new Vector3(0, 2f, 2f);
-    [SerializeField]
-    private float speed = 1f;
+    private DiceData diceData = null; // SO
     [SerializeField]
     private bool isRotate = false; // 회전 중인지 아닌지 
     [SerializeField]
     private bool isDrop = false; // 낙인지 아닌지 
-    [SerializeField]
-    private DiceData diceData = null; // SO
 
-    private Sequence sequence = null;
+    [Header("Rotate")]
+    [SerializeField]
+    private Vector3 rotateVector = new Vector3(0, 2f, 2f);
+    [SerializeField]
+    private float rotateSpeed = 1f;
+
+    [Header("Throw")]
+    [SerializeField]
+    private Vector3 endValue = new Vector3(0f, 0f, 4.5f);
+    [SerializeField]
+    private float throwPower = 3f;
+    private Sequence throwSequence;
 
     public bool IsRotate { get { return isRotate; } set { isRotate = value; } }
     public bool IsDrop => isDrop;
 
     private void Start()
     {
+        throwSequence = DOTween.Sequence().Pause()
+            .Append(transform.DOJump(transform.position - endValue, throwPower, 1, 1f, false));
     }
 
     private void Update()
@@ -44,12 +53,13 @@ public class DiceControl : MonoBehaviour
         isRotate = false;
         Vector3[] vectors = diceData.DiceShapeList[(int)shape];
         Vector3 upSide = vectors[sideIdx];
-        transform.DORotate(upSide, speed, RotateMode.Fast);
+        transform.DORotate(upSide, rotateSpeed, RotateMode.Fast);
         Debug.Log($"{sideIdx} side is Up");
     }
-        
+
+    [ContextMenu("Throw")]
     public void DiceThrow()
     {
-
+        throwSequence.Restart();
     }
 }
