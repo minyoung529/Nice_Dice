@@ -17,8 +17,14 @@ public class DiceControl : MonoBehaviour
     [SerializeField]
     private DiceData diceData = null; // SO
 
+    private Sequence sequence = null;
+
     public bool IsRotate { get { return isRotate; } set { isRotate = value; } }
     public bool IsDrop => isDrop;
+
+    private void Start()
+    {
+    }
 
     private void Update()
     {
@@ -40,5 +46,10 @@ public class DiceControl : MonoBehaviour
         Vector3 upSide = vectors[sideIdx];
         transform.DORotate(upSide, speed, RotateMode.Fast);
         Debug.Log($"{sideIdx} side is Up");
+    }
+        
+    public void DiceThrow()
+    {
+
     }
 }

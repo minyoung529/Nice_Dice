@@ -22,9 +22,11 @@ public class DiceData : ScriptableObject
     [ContextMenu("Setting")]
     public void SettingData()
     {
+        diceShapeList.Clear();
         diceShapeList.Add(cubeDice);
         diceShapeList.Add(tetrahedronDice);
         diceShapeList.Add(octahedronDice);
+        EditorUtility.SetDirty(this);
         AssetDatabase.SaveAssets();
     }
 
