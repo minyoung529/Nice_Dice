@@ -9,12 +9,12 @@ public class RollButton : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
     public Character character;
     private DiceGauge diceGague;
     private Button button;
-    private DiceManager diceManager;
+
     private void Awake()
     {
-        DiceGauge diceGague = FindObjectOfType<DiceGauge>();
-        Button button = GetComponent<Button>();
-        diceManager = FindObjectOfType<DiceManager>();
+	diceGague = FindObjectOfType<DiceGague>();
+	button = GetComponent<Button>();
+	diceManager = FindObjectOfType<DiceManager>();
 
         button.onClick.AddListener(() => diceGague.IsPlaying = false);
         for (int i = 0; i < 3; i++)

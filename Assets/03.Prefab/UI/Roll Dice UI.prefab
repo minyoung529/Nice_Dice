@@ -231,9 +231,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 20.921997, y: -0.0000030398}
+  m_AnchoredPosition: {x: -3.921753, y: -1.2065592}
   m_SizeDelta: {x: 41.8436, y: 57.5281}
-  m_Pivot: {x: 1, y: 0.5}
+  m_Pivot: {x: 0.50000125, y: 0.47902715}
 --- !u!222 &1965375053781322289
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -379,6 +379,7 @@ GameObject:
   - component: {fileID: 1965375054643226506}
   - component: {fileID: 1965375054643226505}
   - component: {fileID: 1965375054643226504}
+  - component: {fileID: 1620099153}
   m_Layer: 5
   m_Name: Roll Button
   m_TagString: Untagged
@@ -502,6 +503,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: {fileID: 0}
+--- !u!114 &1620099153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1965375054643226502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 1, g: 1, b: 1, a: 0.1764706}
+  m_EffectDistance: {x: 7.07, y: -1}
+  m_UseGraphicAlpha: 1
 --- !u!1 &2196288157074653319
 GameObject:
   m_ObjectHideFlags: 0
