@@ -17,6 +17,12 @@ public class GameManager : MonoSingleton<GameManager>
     private bool myTurn = true;
     [SerializeField] private Character player;
     [SerializeField] private Character enemy;
+
+    [SerializeField] private List<Dice> inventory = new List<Dice>();
+    [SerializeField] private List<Dice> deck = new List<Dice>();
+
+    public List<Dice> Inventory => inventory;
+    public List<Dice> Deck => deck;
     #endregion
 
     private void Awake()
