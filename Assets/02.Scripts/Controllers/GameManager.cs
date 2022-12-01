@@ -6,7 +6,10 @@ public class GameManager : MonoSingleton<GameManager>
 {
     #region Contoller
     private UIManager uiManager = new UIManager();
+
+    #region Property
     public UIManager UI => uiManager;
+    #endregion
 
     // 컨트롤러들(UI, InputManageR)을 모아놓는 곳
     // 한번에 재정의한 함수들을 사용하기 위함
