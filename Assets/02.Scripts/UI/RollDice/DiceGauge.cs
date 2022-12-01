@@ -38,7 +38,7 @@ public class DiceGauge : MonoBehaviour
                 {
                     Dice dice = diceManager.SelectedDice[i];
                     int side = diceManager.DiceSideSelect(dice.DiceShape, grade);
-                    //dice.GetComponent<DiceControl>().DiceSideUp(dice.DiceShape, side);
+                    dice.DicePrefab.GetComponent<DiceControl>().DiceSideUp(dice.DiceShape, side);
                 }
             }
 
@@ -50,6 +50,7 @@ public class DiceGauge : MonoBehaviour
 
     private void Start()
     {
+        diceManager = FindObjectOfType<DiceManager>();
         width = GetComponent<RectTransform>().rect.width;
         halfWidth = width / 2;
         fillWidth = fillImage.rect.width;

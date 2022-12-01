@@ -26,13 +26,29 @@ public class DiceControl : MonoBehaviour
     private float throwPower = 3f;
     private Sequence throwSequence;
 
+    private ParticleSystem particle = null;
+
     public bool IsRotate { get { return isRotate; } set { isRotate = value; } }
     public bool IsDrop => isDrop;
+
+    private void Awake()
+    {
+        particle = GetComponentInChildren<ParticleSystem>();
+    }
 
     private void Start()
     {
         throwSequence = DOTween.Sequence().Pause()
-            .Append(transform.DOJump(transform.position - endValue, throwPower, 1, 1f, false));
+            .Append(transform.DOJump(transform.position - endValue, throwPower, 1, 0.7f, false))
+            .OnPlay(() =>
+            {
+                IsRotate = true;
+                particle.Play();
+            })
+            .OnComplete(() =>
+            {
+                particle.Stop();
+            });
     }
 
     private void Update()
@@ -51,7 +67,7 @@ public class DiceControl : MonoBehaviour
     public void DiceSideUp(DiceShape shape = DiceShape.Cube, int sideIdx = 0)
     {
         isRotate = false;
-        Vector3[] vectors = diceData.DiceShapeList[(int)shape];
+        Vector3[] vectors = diceData.DiceShapeDict[(int)shape];
         Vector3 upSide = vectors[sideIdx];
         transform.DORotate(upSide, rotateSpeed, RotateMode.Fast);
         Debug.Log($"{sideIdx} side is Up");

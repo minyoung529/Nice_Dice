@@ -7,8 +7,8 @@ public class DiceManager : MonoBehaviour
     [SerializeField]
     private DiceData diceData = null;
 
-    private List<Dice> diceDeck = new List<Dice>();
-    private List<Dice> selectedDice = new List<Dice>();
+    [SerializeField] private List<Dice> diceDeck = new List<Dice>();
+    [SerializeField] private List<Dice> selectedDice = new List<Dice>();
 
     private const int MAX_PERCENTAGE = 100;
     private const int SKILL_PERCENTAGE = 20;
@@ -18,6 +18,11 @@ public class DiceManager : MonoBehaviour
     public IReadOnlyList<Dice> DiceDeck => diceDeck;
     public IReadOnlyList<Dice> SelectedDice => selectedDice;
     #endregion
+
+    private void Start()
+    {
+        diceData.SettingData();
+    }
 
     [ContextMenu("DiceSelect")]
     public void DiceSelect()
@@ -31,8 +36,8 @@ public class DiceManager : MonoBehaviour
             {
                 n = Random.Range(0, 6);
             }
-            arr[i] = n;
-            selectedDice[i] = diceDeck[n];
+            arr.Add(n);
+            selectedDice.Add(diceDeck[n]);
         }
     }
 
@@ -45,7 +50,7 @@ public class DiceManager : MonoBehaviour
     /// <returns></returns>
     public int DiceSideSelect(DiceShape shape, int grade, int MAX_GRADE = 12)
     {
-        int max = diceData.DiceShapeList[(int)shape].Length; // 최대로 나올 면 인덱스 
+        int max = diceData.DiceShapeDict[(int)shape].Length; // 최대로 나올 면 인덱스 
 
         int section = MAX_GRADE / max; // 구간 
         grade += section - 1; // 나눗셈을 통해 올릴 면을 구할 예정. 계산을 위해 더해줌
