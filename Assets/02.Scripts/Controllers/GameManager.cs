@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using CustomLib;
 
 public class GameManager : MonoSingleton<GameManager>
 {
@@ -17,7 +18,7 @@ public class GameManager : MonoSingleton<GameManager>
     #endregion
 
     #region Game
-    private bool myTurn = true;
+    private bool myTurn = false;
     [SerializeField] private Character player;
     [SerializeField] private Character enemy;
 
@@ -26,6 +27,7 @@ public class GameManager : MonoSingleton<GameManager>
 
     public List<Dice> Inventory => inventory;
     public List<Dice> Deck => deck;
+    public IReadOnlyList<Dice> SelectedDices { get; private set; }
     #endregion
 
     private void Awake()
@@ -46,6 +48,8 @@ public class GameManager : MonoSingleton<GameManager>
         {
             controller.OnStart();
         }
+
+        NextTurn();
     }
 
     private void Update()
@@ -59,14 +63,16 @@ public class GameManager : MonoSingleton<GameManager>
     public void NextTurn()
     {
         myTurn = !myTurn;
+        SelectedDices = deck.RandomSelect(Define.DICE_SELECT_COUNT);
 
+        // 현재는 플레이어의 덱에서만 꺼내온다
         if (myTurn)
         {
-
+            EventManager.TriggerEvent(Define.ON_START_PLAYER_TURN);
         }
         else
         {
-            enemy.ChangeState(CharacterState.BeforeRoll);
+            EventManager.TriggerEvent(Define.ON_START_MONSTER_TURN);
         }
     }
 }

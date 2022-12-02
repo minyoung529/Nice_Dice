@@ -13,34 +13,48 @@ namespace CustomLib
             curVec.z /= vec.z;
         }
 
-		/// <summary>
-		/// Is array null or empty
-		/// </summary>
-		public static bool IsNullOrEmpty<T>(this T[] collection) => collection == null || collection.Length == 0;
+        public static List<T> RandomSelect<T>(this List<T> list, int count)
+        {
+            List<T> newList = new List<T>();
 
-		/// <summary>
-		/// Is list null or empty
-		/// </summary>
-		public static bool IsNullOrEmpty<T>(this IList<T> collection) => collection == null || collection.Count == 0;
+            for(int i = 0; i < count; i++)
+            {
+                int rand = Random.Range(0, list.Count);
+                newList.Add(list[rand]);
+                list.RemoveAt(rand);
+            }
 
-		/// <summary>
-		/// Is collection null or empty. IEnumerable is relatively slow. Use Array or List implementation if possible
-		/// </summary>
-		public static bool IsNullOrEmpty<T>(this IEnumerable<T> collection) => collection == null /*|| !collection.Any()*/;
+            return newList;
+        }
 
-		/// <summary>
-		/// Collection is not null or empty
-		/// </summary>
-		public static bool NotNullOrEmpty<T>(this T[] collection) => !collection.IsNullOrEmpty();
+        /// <summary>
+        /// Is array null or empty
+        /// </summary>
+        public static bool IsNullOrEmpty<T>(this T[] collection) => collection == null || collection.Length == 0;
 
-		/// <summary>
-		/// Collection is not null or empty
-		/// </summary>
-		public static bool NotNullOrEmpty<T>(this IList<T> collection) => !collection.IsNullOrEmpty();
+        /// <summary>
+        /// Is list null or empty
+        /// </summary>
+        public static bool IsNullOrEmpty<T>(this IList<T> collection) => collection == null || collection.Count == 0;
 
-		/// <summary>
-		/// Collection is not null or empty
-		/// </summary>
-		public static bool NotNullOrEmpty<T>(this IEnumerable<T> collection) => !collection.IsNullOrEmpty();
-	}
+        /// <summary>
+        /// Is collection null or empty. IEnumerable is relatively slow. Use Array or List implementation if possible
+        /// </summary>
+        public static bool IsNullOrEmpty<T>(this IEnumerable<T> collection) => collection == null /*|| !collection.Any()*/;
+
+        /// <summary>
+        /// Collection is not null or empty
+        /// </summary>
+        public static bool NotNullOrEmpty<T>(this T[] collection) => !collection.IsNullOrEmpty();
+
+        /// <summary>
+        /// Collection is not null or empty
+        /// </summary>
+        public static bool NotNullOrEmpty<T>(this IList<T> collection) => !collection.IsNullOrEmpty();
+
+        /// <summary>
+        /// Collection is not null or empty
+        /// </summary>
+        public static bool NotNullOrEmpty<T>(this IEnumerable<T> collection) => !collection.IsNullOrEmpty();
+    }
 }
