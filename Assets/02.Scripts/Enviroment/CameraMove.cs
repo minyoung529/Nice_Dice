@@ -15,7 +15,6 @@ public class CameraMove : MonoBehaviour
     private void Awake()
     {
         EventManager.StartListening(Define.ON_START_DRAW, MoveDrawPos);
-        EventManager.StartListening(Define.ON_START_DRAW, MoveDrawPos);
         EventManager.StartListening(Define.ON_END_DRAW, MoveOriginalPos);
     }
 
@@ -58,7 +57,6 @@ public class CameraMove : MonoBehaviour
 
     private void OnDestroy()
     {
-        EventManager.StopListening(Define.ON_START_DRAW, MoveDrawPos);
         EventManager.StopListening(Define.ON_START_DRAW, MoveDrawPos);
         EventManager.StopListening(Define.ON_END_DRAW, MoveOriginalPos);
     }

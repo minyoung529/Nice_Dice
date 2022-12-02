@@ -11,7 +11,7 @@ public class RandomDiceObject : MonoBehaviour
 
         for (int i = 0; i < positions.Length; i++)
         {
-            seq.Append(transform.DOMove(positions[i].position, 0.15f)).SetEase(Ease.Linear);
+            seq.Append(transform.DOMove(positions[i].position, 0.1f)).SetEase(Ease.Linear);
         }
 
         //seq.Append(transform.DOMove(lastPos.position, 0.7f));

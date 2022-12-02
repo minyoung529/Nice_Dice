@@ -18,6 +18,9 @@ public class RandomMachine : MonoBehaviour
     [SerializeField] private Transform[] lastPointa;
     #endregion // DICE
 
+    [SerializeField]
+    private ParticleSystem particle;
+
     void Awake()
     {
         transform.position = ORIGIANL_POS;
@@ -29,6 +32,7 @@ public class RandomMachine : MonoBehaviour
         Sequence seq = DOTween.Sequence();
 
         seq.Append(transform.DOMove(TARGET_POS, 1f).SetEase(Ease.InFlash));
+        seq.AppendCallback(() => particle.Play());
         seq.AppendInterval(0.6f);
         seq.AppendCallback(()=> EventManager.TriggerEvent(Define.ON_START_DRAW));
         
@@ -46,6 +50,8 @@ public class RandomMachine : MonoBehaviour
 
     private IEnumerator DrawCoroutine()
     {
+        yield return new WaitForSeconds(0.6f);
+
         for (int i = 0; i < Define.DICE_SELECT_COUNT; i++)
         {
             yield return new WaitForSeconds(1f);

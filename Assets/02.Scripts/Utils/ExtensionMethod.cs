@@ -16,12 +16,13 @@ namespace CustomLib
         public static List<T> RandomSelect<T>(this List<T> list, int count)
         {
             List<T> newList = new List<T>();
+            List<T> copyList = new List<T>(list);
 
-            for(int i = 0; i < count; i++)
+            for (int i = 0; i < count; i++)
             {
-                int rand = Random.Range(0, list.Count);
-                newList.Add(list[rand]);
-                list.RemoveAt(rand);
+                int rand = Random.Range(0, copyList.Count);
+                newList.Add(copyList[rand]);
+                copyList.RemoveAt(rand);
             }
 
             return newList;

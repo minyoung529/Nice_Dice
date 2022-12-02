@@ -12,10 +12,13 @@ public class Define
     #endregion
 
     #region EVENT
-    public const short ON_START_PLAYER_TURN = 1000;
-    public const short ON_START_MONSTER_TURN = 1001;
-    public const short ON_START_DRAW = 1002;
-    public const short ON_END_DRAW = 1003;
+    public const int ON_START_PLAYER_TURN = 100;
+    public const int ON_START_MONSTER_TURN = 101;
+
+    public const int ON_START_DRAW = 1002;
+    public const int ON_END_DRAW = 1003;
+
+    public const int ON_END_ROLL = 2000;
     #endregion
 
     public const int MAX_NUMBER_DICE = 4;
