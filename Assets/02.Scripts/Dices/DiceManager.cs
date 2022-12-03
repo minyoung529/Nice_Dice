@@ -7,15 +7,13 @@ public class DiceManager : MonoBehaviour
     [SerializeField]
     private DiceData diceData = null;
 
-    [SerializeField] private List<Dice> diceDeck = new List<Dice>();
-    [SerializeField] private List<Dice> selectedDice = new List<Dice>();
+    private List<Dice> selectedDice = new List<Dice>();
 
     private const int MAX_PERCENTAGE = 100;
     private const int SKILL_PERCENTAGE = 20;
     private const int MULTIPLY_PERCENTAGE = 10;
 
     #region Property
-    public IReadOnlyList<Dice> DiceDeck => diceDeck;
     public IReadOnlyList<Dice> SelectedDice => selectedDice;
     #endregion
 
@@ -36,8 +34,9 @@ public class DiceManager : MonoBehaviour
             {
                 n = Random.Range(0, 6);
             }
+
             arr.Add(n);
-            selectedDice.Add(diceDeck[n]);
+            selectedDice.Add(GameManager.Instance.Deck[n]);
         }
     }
 

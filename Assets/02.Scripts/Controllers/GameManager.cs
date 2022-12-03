@@ -6,7 +6,10 @@ public class GameManager : MonoSingleton<GameManager>
 {
     #region Contoller
     private UIManager uiManager = new UIManager();
+
+    #region Property
     public UIManager UI => uiManager;
+    #endregion
 
     // 컨트롤러들(UI, InputManageR)을 모아놓는 곳
     // 한번에 재정의한 함수들을 사용하기 위함
@@ -17,6 +20,12 @@ public class GameManager : MonoSingleton<GameManager>
     private bool myTurn = true;
     [SerializeField] private Character player;
     [SerializeField] private Character enemy;
+
+    [SerializeField] private List<Dice> inventory = new List<Dice>();
+    [SerializeField] private List<Dice> deck = new List<Dice>();
+
+    public List<Dice> Inventory => inventory;
+    public List<Dice> Deck => deck;
     #endregion
 
     private void Awake()

@@ -22,6 +22,11 @@ public enum DiceShape
     /// 정팔면체
     /// </summary>
     Octahedron = 8,
+    /// <summary>
+    /// 정이십면체
+    /// </summary>
+    Icosahedron = 20,
+
     Unknown
 }
 
@@ -93,7 +98,7 @@ public class Dice : ScriptableObject
     public string DiceDescription { get => diceDescription; set => diceDescription = value; }
     public DiceType DiceType { get => diceType; set => diceType = value; }
     public DiceShape DiceShape { get => diceShape; set => diceShape = value; }
-    public GameObject DicePrefab => dicePrefab;
+    public GameObject DicePrefab { get => dicePrefab; }
     #endregion
 
     public Dice(string diceName, string diceDescription, DiceType diceType, DiceShape diceShape)
@@ -135,11 +140,11 @@ public class Dice : ScriptableObject
             diceName = name;
         }
 
-        if (diceType == DiceType.Skill && (skills == null || skills.Count != (int)diceShape))
+        if(diceType == DiceType.Skill && (skills==null || skills.Count != (int)diceShape))
         {
             skills = new VisibleList<int>((int)diceShape);
         }
-        else if ((diceType == DiceType.Number || diceType == DiceType.Multiply) &&
+        else if((diceType == DiceType.Number || diceType == DiceType.Multiply) &&
             (numbers == null || numbers.Count != (int)diceShape))
         {
             numbers = new VisibleList<int>((int)diceShape);

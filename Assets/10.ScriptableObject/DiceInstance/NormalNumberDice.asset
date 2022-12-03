@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 865b169f0e241464b85690937955c768, type: 3}
   m_Name: NormalNumberDice
   m_EditorClassIdentifier: 
-  diceName: NormalNumberDice
+  diceName: "\uC77C\uBC18 \uC8FC\uC0AC\uC704"
   diceDescription: ' '
   diceShape: 6
   diceType: 0
-  dicePrefab: {fileID: 5327880796884024518, guid: 1b836a59ac061ac4ab4e470c591b39b0, type: 3}
+  dicePrefab: {fileID: 938341418012553827, guid: a04edb2823c9ccb4098a62e866ceaa77, type: 3}
   numbers:
     list: 000000000000000000000000000000000000000000000000
   skills:
-    list: 000000000000000000000000000000000000000000000000
+    list: 010000000200000003000000040000000500000006000000

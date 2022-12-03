@@ -34,6 +34,7 @@ public class DiceGauge : MonoBehaviour
             else
             {
                 int grade = CaculateGrade();
+
                 for (int i = 0; i < 3; i++)
                 {
                     Dice dice = diceManager.SelectedDice[i];
