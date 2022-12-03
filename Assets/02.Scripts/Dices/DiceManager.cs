@@ -8,6 +8,7 @@ public class DiceManager : MonoBehaviour
     private DiceData diceData = null;
 
     private List<Dice> selectedDice = new List<Dice>();
+    private List<GameObject> diceObjects = new List<GameObject>();
 
     private const int MAX_PERCENTAGE = 100;
     private const int SKILL_PERCENTAGE = 20;
@@ -15,6 +16,7 @@ public class DiceManager : MonoBehaviour
 
     #region Property
     public IReadOnlyList<Dice> SelectedDice => selectedDice;
+    public IReadOnlyList<GameObject> DiceObjects => diceObjects;
     #endregion
 
     private void Start()
@@ -60,11 +62,37 @@ public class DiceManager : MonoBehaviour
 
         Debug.Assert(!(sideIdx >= max) || sideIdx > 0, $"val({sideIdx}) is out of index. grade({grade}), section({section})"); // 인덱스에서 벗어나는 경우의 예외처리
 
-        if (Random.Range(0, 2) != 0)
+        if (Random.Range(0, 100) > 30)
         {
             sideIdx = Random.Range(0, max);
         }
 
         return sideIdx;
+    }
+
+    private void DiceCreate()
+    {
+        diceObjects.Clear();
+
+        Vector3 position = new Vector3(1.7f, -2.3f, 6.6f);
+
+        for (int i = 0; i < 3; i++)
+        {
+            position.x += (i % 2 == 0 ? 1 : -1) * Random.Range(0f, 2.5f);
+            position.z -= i != 2 ? i * 2 : i * 1.3f;
+
+            GameObject dice = Instantiate(SelectedDice[i].DicePrefab, position, Quaternion.identity);
+            diceObjects.Add(dice);
+        }
+    }
+
+    public void DiceThrow()
+    {
+        DiceCreate();
+        for (int i = 0; i < diceObjects.Count; i++)
+        {
+            DiceControl control = diceObjects[i].GetComponent<DiceControl>();
+            control.DiceThrow();
+        }
     }
 }

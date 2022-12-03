@@ -17,21 +17,13 @@ public class RollButton : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
         button = GetComponent<Button>();
         diceManager = FindObjectOfType<DiceManager>();
 
-        button.onClick.AddListener(() => diceGague.IsPlaying = false);
-
-        for (int i = 0; i < 3; i++)
-        {
-            button.onClick.AddListener(() =>
-            {
-                GameObject dice = Instantiate(diceManager.SelectedDice[i].DicePrefab);
-                dice.GetComponent<DiceControl>().DiceThrow();
-            });
-        }
+        //button.onClick.AddListener(() => diceGague.IsPlaying = false);
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
         diceManager.DiceSelect();
+        diceManager.DiceThrow();
         diceGague.IsPlaying = true;
         character.ChangeState(CharacterState.BeforeRoll);
     }

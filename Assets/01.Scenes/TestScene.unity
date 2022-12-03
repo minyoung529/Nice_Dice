@@ -154,6 +154,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 5866666021952147288}
   enemy: {fileID: 1100731240}
+  inventory: []
+  deck:
+  - {fileID: 11400000, guid: 8ca776f5fe0000c4d8e192c18996bf5f, type: 2}
+  - {fileID: 11400000, guid: 8ca776f5fe0000c4d8e192c18996bf5f, type: 2}
+  - {fileID: 11400000, guid: 8ca776f5fe0000c4d8e192c18996bf5f, type: 2}
+  - {fileID: 11400000, guid: 8ca776f5fe0000c4d8e192c18996bf5f, type: 2}
+  - {fileID: 11400000, guid: 8ca776f5fe0000c4d8e192c18996bf5f, type: 2}
+  - {fileID: 11400000, guid: 8ca776f5fe0000c4d8e192c18996bf5f, type: 2}
 --- !u!4 &288975932
 Transform:
   m_ObjectHideFlags: 0
@@ -236,7 +244,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Monster
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1100731240, guid: 8d791e7885d8c11418ff9fcd9552c337, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 8d791e7885d8c11418ff9fcd9552c337, type: 3}
 --- !u!1 &470648784
 GameObject:
@@ -396,7 +405,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-62670
+  m_Name: pb_Mesh-6362
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -883,17 +892,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   diceData: {fileID: 11400000, guid: 5bc36a57707fe734bb18de7208be6889, type: 2}
-  diceDeck:
-  - {fileID: 11400000, guid: 8ca776f5fe0000c4d8e192c18996bf5f, type: 2}
-  - {fileID: 11400000, guid: 8ca776f5fe0000c4d8e192c18996bf5f, type: 2}
-  - {fileID: 11400000, guid: 8ca776f5fe0000c4d8e192c18996bf5f, type: 2}
-  - {fileID: 11400000, guid: 8ca776f5fe0000c4d8e192c18996bf5f, type: 2}
-  - {fileID: 11400000, guid: 8ca776f5fe0000c4d8e192c18996bf5f, type: 2}
-  - {fileID: 11400000, guid: 8ca776f5fe0000c4d8e192c18996bf5f, type: 2}
-  selectedDice:
-  - {fileID: 11400000, guid: 8ca776f5fe0000c4d8e192c18996bf5f, type: 2}
-  - {fileID: 11400000, guid: 8ca776f5fe0000c4d8e192c18996bf5f, type: 2}
-  - {fileID: 11400000, guid: 8ca776f5fe0000c4d8e192c18996bf5f, type: 2}
 --- !u!4 &786473400
 Transform:
   m_ObjectHideFlags: 0
@@ -1732,7 +1730,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5866666021952147288, guid: 41b8e179844410d469a961f1a2739890, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 41b8e179844410d469a961f1a2739890, type: 3}
 --- !u!1001 &5327880797570973383
 PrefabInstance:
@@ -1752,6 +1751,10 @@ PrefabInstance:
     - target: {fileID: 5327880796884024518, guid: 1b836a59ac061ac4ab4e470c591b39b0, type: 3}
       propertyPath: m_Name
       value: CubeDice
+      objectReference: {fileID: 0}
+    - target: {fileID: 5327880796884024518, guid: 1b836a59ac061ac4ab4e470c591b39b0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5327880796884024526, guid: 1b836a59ac061ac4ab4e470c591b39b0, type: 3}
       propertyPath: m_RootOrder

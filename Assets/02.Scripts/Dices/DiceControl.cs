@@ -36,21 +36,6 @@ public class DiceControl : MonoBehaviour
         particle = GetComponentInChildren<ParticleSystem>();
     }
 
-    private void Start()
-    {
-        throwSequence = DOTween.Sequence().Pause()
-            .Append(transform.DOJump(transform.position - endValue, throwPower, 1, 0.7f, false))
-            .OnPlay(() =>
-            {
-                IsRotate = true;
-                particle.Play();
-            })
-            .OnComplete(() =>
-            {
-                particle.Stop();
-            });
-    }
-
     private void Update()
     {
         if (IsRotate)
@@ -76,6 +61,16 @@ public class DiceControl : MonoBehaviour
     [ContextMenu("Throw")]
     public void DiceThrow()
     {
-        throwSequence.Restart();
+        throwSequence = DOTween.Sequence()
+           .Append(transform.DOJump(transform.position - endValue, throwPower, 1, 0.7f, false))
+           .OnPlay(() =>
+           {
+               IsRotate = true;
+               particle.Play();
+           })
+           .OnComplete(() =>
+           {
+               particle.Stop();
+           });
     }
 }
