@@ -84,7 +84,7 @@ public class Dice : ScriptableObject
     [SerializeField] private string diceDescription = "";
     [SerializeField] private DiceShape diceShape = DiceShape.Unknown;
     [SerializeField] private DiceType diceType = DiceType.Unknown;
-    [SerializeField] private GameObject dicePrefab;
+    [SerializeField] private GameObject dicePrefab = null;
 
     [Separator("Dice Sides")]
 

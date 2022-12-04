@@ -13,33 +13,36 @@ public class DiceData : ScriptableObject
     private Vector3[] octahedronDice = new Vector3[] { }; // 정팔면체
     #endregion
 
-    private List<Vector3[]> diceShapeList = new List<Vector3[]>(); //DiceShape enum과 동일한 순서로 넣어줄것
+    //private List<Vector3[]> diceShapeList = new List<Vector3[]>(); //DiceShape enum과 동일한 순서로 넣어줄것
+    private Dictionary<int, Vector3[]> diceShapeDict = new Dictionary<int, Vector3[]>();
 
-    public IReadOnlyList<Vector3[]> DiceShapeList => diceShapeList;
-
-#if UNITY_EDITOR
+    //public IReadOnlyList<Vector3[]> DiceShapeList => diceShapeList;
+    public IReadOnlyDictionary<int, Vector3[]> DiceShapeDict => diceShapeDict;
 
     [ContextMenu("Setting")]
     public void SettingData()
     {
-        diceShapeList.Add(cubeDice);
-        diceShapeList.Add(tetrahedronDice);
-        diceShapeList.Add(octahedronDice);
+        diceShapeDict.Clear();
+        diceShapeDict.Add((int)DiceShape.Cube, cubeDice);
+        diceShapeDict.Add((int)DiceShape.Tetrahedron, tetrahedronDice);
+        diceShapeDict.Add((int)DiceShape.Octahedron, octahedronDice);
+        EditorUtility.SetDirty(this);
         AssetDatabase.SaveAssets();
+        AssetDatabase.Refresh();
     }
 
     [ContextMenu("View")]
     public void ViewData()
     {
-        foreach (var item in DiceShapeList)
+        foreach (var item in DiceShapeDict)
         {
             string str = "";
-            for (int i = 0; i < item.Length; i++)
+            str += item.Key.ToString() + " ";
+            for (int i = 0; i < item.Value.Length; i++)
             {
-                str += item[i] + " ";
+                str += item.Value[i] + " ";
             }
             Debug.Log(str);
         }
     }
-#endif
 }
