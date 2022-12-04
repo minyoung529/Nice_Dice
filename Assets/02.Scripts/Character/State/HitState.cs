@@ -29,6 +29,7 @@ public class HitState : StateBase
         if (timer < 0)
         {
             GameManager.Instance.NextTurn();
+            character.ChangeState(CharacterState.Idle);
         }
     }
 

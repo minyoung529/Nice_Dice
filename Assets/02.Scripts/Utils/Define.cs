@@ -25,4 +25,6 @@ public class Define
     public const int MAX_SKILL_DICE = 1;
     public const int MAX_MULTIPLY_DICE = 1;
     public const int DICE_SELECT_COUNT = 3;
+
+    public const int MAX_DECK_COUNT = 4;
 }

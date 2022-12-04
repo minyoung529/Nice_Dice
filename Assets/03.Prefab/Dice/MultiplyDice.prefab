@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2786612504214878693}
   - component: {fileID: 4570421374597782995}
   m_Layer: 0
-  m_Name: NormalDice
+  m_Name: MultiplyDice
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: be1a2d924e3d30640874638d1e06b883, type: 2}
+  - {fileID: 2100000, guid: 85365a8461772fe4eaf87b4e2327e9f8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

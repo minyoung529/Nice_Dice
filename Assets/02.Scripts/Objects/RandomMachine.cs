@@ -50,21 +50,19 @@ public class RandomMachine : MonoBehaviour
 
     private IEnumerator DrawCoroutine()
     {
-        yield return new WaitForSeconds(0.6f);
+        yield return new WaitForSeconds(1.2f);
 
         for (int i = 0; i < Define.DICE_SELECT_COUNT; i++)
         {
-            yield return new WaitForSeconds(1f);
-
-            GameObject dice = Instantiate(GameManager.Instance.SelectedDices[i].DicePrefab, diceSpawn.position, Quaternion.identity, transform);
+            GameObject dice = Instantiate(GameManager.Instance.Dice.SelectedDice[i].DicePrefab, diceSpawn.position, Quaternion.identity, transform);
             dice.transform.localScale = DICE_SCALE;
 
             dice.AddComponent<RandomDiceObject>().Init(wayPoints, lastPointa[i]);
             
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(1f);
         }
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
         Inactive();
     }
 

@@ -7,9 +7,11 @@ public class GameManager : MonoSingleton<GameManager>
 {
     #region Contoller
     private UIManager uiManager = new UIManager();
+    private DiceManager diceManager;
 
     #region Property
     public UIManager UI => uiManager;
+    public DiceManager Dice => diceManager;
     #endregion
 
     // 컨트롤러들(UI, InputManageR)을 모아놓는 곳
@@ -27,13 +29,13 @@ public class GameManager : MonoSingleton<GameManager>
 
     public List<Dice> Inventory => inventory;
     public List<Dice> Deck => deck;
-    public IReadOnlyList<Dice> SelectedDices { get; private set; }
     #endregion
 
     private void Awake()
     {
         // controllers에 컨트롤러들을 넣는다.
         controllers.Add(uiManager);
+        diceManager = FindObjectOfType<DiceManager>();
 
         // 각 컨틀롤러들이 재정의한 OnAwake를 실행
         foreach (ControllerBase controller in controllers)
@@ -63,7 +65,8 @@ public class GameManager : MonoSingleton<GameManager>
     public void NextTurn()
     {
         myTurn = !myTurn;
-        SelectedDices = deck.RandomSelect(Define.DICE_SELECT_COUNT);
+        //SelectedDices = deck.RandomSelect(Define.DICE_SELECT_COUNT);
+        Dice.DiceSelect();
 
         // 현재는 플레이어의 덱에서만 꺼내온다
         if (myTurn)

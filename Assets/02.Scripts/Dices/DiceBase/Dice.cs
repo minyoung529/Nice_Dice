@@ -13,19 +13,19 @@ public enum DiceType
 }
 public enum DiceShape
 {
-    Cube /*= 6*/,
+    Cube = 6,
     /// <summary>
     /// 정사면체
     /// </summary>
-    Tetrahedron /*= 4*/,
+    Tetrahedron = 4,
     /// <summary>
     /// 정팔면체
     /// </summary>
-    Octahedron /*= 8*/,
+    Octahedron = 8,
     /// <summary>
     /// 정이십면체
     /// </summary>
-    Icosahedron /*= 20*/,
+    Icosahedron = 20,
 
     Unknown
 }

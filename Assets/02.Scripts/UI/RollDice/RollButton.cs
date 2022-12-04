@@ -8,29 +8,44 @@ public class RollButton : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
 {
     public Character character;
     private DiceGauge diceGague;
-    private Button button;
     private DiceManager diceManager = null;
+    private bool canRoll = false;
 
     private void Awake()
     {
         diceGague = FindObjectOfType<DiceGauge>();
-        button = GetComponent<Button>();
         diceManager = FindObjectOfType<DiceManager>();
-
-        //button.onClick.AddListener(() => diceGague.IsPlaying = false);
+        EventManager.StartListening(Define.ON_START_PLAYER_TURN, OnTurn);
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        diceManager.DiceSelect();
-        diceManager.DiceThrow();
-        diceGague.IsPlaying = true;
-        character.ChangeState(CharacterState.BeforeRoll);
+        if (canRoll)
+        {
+            //diceManager.DiceSelect();
+            diceManager.DiceThrow();
+            diceGague.IsPlaying = true;
+            character.ChangeState(CharacterState.BeforeRoll);
+        }
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        diceGague.IsPlaying = false;
-        character.ChangeState(CharacterState.Roll);
+        if (canRoll)
+        {
+            diceGague.IsPlaying = false;
+            character.ChangeState(CharacterState.Roll);
+            canRoll = false;
+        }
+    }
+
+    private void OnTurn()
+    {
+        canRoll = true;
+    }
+
+    private void OnDestroy()
+    {
+        EventManager.StopListening(Define.ON_START_PLAYER_TURN, OnTurn);
     }
 }

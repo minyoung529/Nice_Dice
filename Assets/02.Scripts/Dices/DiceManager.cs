@@ -29,12 +29,13 @@ public class DiceManager : MonoBehaviour
     {
         selectedDice.Clear();
         List<int> arr = new List<int>();
-        for (int i = 0; i < 3; i++)
+
+        for (int i = 0; i < Define.DICE_SELECT_COUNT; i++)
         {
-            int n = Random.Range(0, 6);
+            int n = Random.Range(0, Define.MAX_DECK_COUNT);
             while (arr.Contains(n))
             {
-                n = Random.Range(0, 6);
+                n = Random.Range(0, Define.MAX_DECK_COUNT);
             }
 
             arr.Add(n);

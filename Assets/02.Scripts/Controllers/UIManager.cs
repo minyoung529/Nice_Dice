@@ -10,38 +10,45 @@ public class UIManager : ControllerBase
 {
     public override void OnAwake()
     {
-        EventManager<List<object>>.StartListening(Define.ON_END_ROLL, CreateDamageEquation);
+        EventManager<List<KeyValuePair<Dice, int>>>.StartListening(Define.ON_END_ROLL, CreateDamageEquation);
     }
 
-    private void CreateDamageEquation(List<object> sides)
+    private void CreateDamageEquation(List<KeyValuePair<Dice, int>> sides)
     {
-        IReadOnlyList<Dice> selected = GameManager.Instance.SelectedDices;
         List<int> numbers = new List<int>();
         int multiply = -1;
 
         for (int i = 0; i < sides.Count; i++)
         {
+            Dice dice = sides[i].Key;
             try
             {
-                int num = (int)sides[i];
+                Debug.Log(dice.DiceType + ", " + dice.numbers[sides[i].Value]);
 
-                if (selected[i].DiceType == DiceType.Number)
-                    numbers.Add(num);
-                else
-                    multiply = num;
+                if (dice.DiceType == DiceType.Number)
+                    numbers.Add(dice.numbers[sides[i].Value]);
+                else if (dice.DiceType == DiceType.Multiply)
+                    multiply = dice.numbers[sides[i].Value];
             }
             catch { }
         }
 
         // 일반 숫자가 1이 아니고, 곱하기가 하나라도 없을 경우
         // -> 괄호를 쓰지 않는다.
-        if (numbers.Count != 1 && multiply != -1)
+        if (multiply == -1)
         {
             Debug.Log(string.Join("+", numbers));
         }
         else
         {
-            Debug.Log("(" + string.Join("+", numbers) + ") X " + multiply);
+            if (numbers.Count == 1)
+            {
+                Debug.Log(numbers[0] + " x " + multiply);
+            }
+            else
+            {
+                Debug.Log("(" + string.Join("+", numbers) + ") x " + multiply);
+            }
         }
     }
 

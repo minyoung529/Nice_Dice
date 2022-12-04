@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   diceName: "\uACF1\uC148 \uC8FC\uC0AC\uC704"
   diceDescription: 
-  diceShape: 4
+  diceShape: 6
   diceType: 1
-  dicePrefab: {fileID: 938341418012553827, guid: a04edb2823c9ccb4098a62e866ceaa77, type: 3}
+  dicePrefab: {fileID: 938341418012553827, guid: 43def41245a72864c8839fd15ca0c7e9, type: 3}
   numbers:
-    list: 02000000040000000600000008000000
+    list: 060000000400000002000000050000000300000001000000
   skills:
     list: 
