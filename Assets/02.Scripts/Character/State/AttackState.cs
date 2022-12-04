@@ -19,6 +19,8 @@ public class AttackState : StateBase
         character.Animator.SetTrigger(attackHash);
     }
 
+    protected virtual void ChildStart() { }
+
     public override void OnUpdate()
     {
         base.OnUpdate();
@@ -29,6 +31,8 @@ public class AttackState : StateBase
         {
             character.Enemy.ChangeState(CharacterState.Hit);
             character.ChangeState(CharacterState.Idle);
+
+            Debug.Log("ATTACK");
         }
     }
 

@@ -20,7 +20,7 @@ public class Character : MonoBehaviour
         Animator = GetComponent<Animator>();
     }
 
-    private void Start()
+    protected virtual void Start()
     {
         stateActions.Add(CharacterState.Idle, new IdleState(this));
         stateActions.Add(CharacterState.Attack, new AttackState(this));
@@ -38,6 +38,8 @@ public class Character : MonoBehaviour
 
     public void ChangeState(CharacterState state)
     {
+        if (state == CharacterState.Idle)
+            Debug.Log("IDLE");
         currentState?.OnEnd();
         
         this.state = state;

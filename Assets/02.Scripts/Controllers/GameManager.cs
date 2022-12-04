@@ -64,6 +64,7 @@ public class GameManager : MonoSingleton<GameManager>
 
     public void NextTurn()
     {
+        Debug.Log("NEXT TURN!!!!!!!!!!!!!!!!!");
         myTurn = !myTurn;
         //SelectedDices = deck.RandomSelect(Define.DICE_SELECT_COUNT);
         Dice.DiceSelect();

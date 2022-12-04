@@ -25,7 +25,6 @@ public class CameraMove : MonoBehaviour
 
     private void MoveOriginalPos()
     {
-        Debug.Log("MoveOriginalPos");
         Move(ORIGINAL_POS, 1f);
         Rotate(ORIGINAL_ROT, 1f);
         Zoom(4f, 1f);
