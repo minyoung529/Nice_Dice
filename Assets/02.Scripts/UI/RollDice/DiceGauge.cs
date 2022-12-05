@@ -12,7 +12,7 @@ public class DiceGauge : MonoBehaviour
     [SerializeField] private RectTransform fillImage;   // 채워지는 Image
     private float fillWidth;
 
-    [SerializeField] private DiceManager diceManager;
+    private DiceManager diceManager;
 
     private bool isLeftMove;    // 현재 왼쪽으로 가고있는지 아닌지
 
@@ -34,6 +34,7 @@ public class DiceGauge : MonoBehaviour
             else
             {
                 int grade = CaculateGrade();
+
                 List<KeyValuePair<Dice, int>> selectedSides = new List<KeyValuePair<Dice, int>>();
 
                 for (int i = 0; i < 3; i++)
@@ -57,7 +58,7 @@ public class DiceGauge : MonoBehaviour
 
     private void Start()
     {
-        diceManager = FindObjectOfType<DiceManager>();
+        diceManager = GameManager.Instance.Dice;
         width = GetComponent<RectTransform>().rect.width;
         halfWidth = width / 2;
         fillWidth = fillImage.rect.width;

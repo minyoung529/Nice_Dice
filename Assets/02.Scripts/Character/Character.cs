@@ -15,6 +15,13 @@ public class Character : MonoBehaviour
     [field:SerializeField]
     public Character Enemy { get; set; }
 
+    [SerializeField] private int hp;
+    public int Hp { get => hp; set => hp = value; }
+
+    [field:SerializeField]
+    public bool IsPlayer { get; set; }
+
+
     private void Awake()
     {
         Animator = GetComponent<Animator>();
@@ -53,5 +60,13 @@ public class Character : MonoBehaviour
     private void Update()
     {
         currentState?.OnUpdate();
+    }
+
+    private void OnDestroy()
+    {
+        foreach (var pair in stateActions)
+        {
+            pair.Value.OnDestroy();
+        }
     }
 }

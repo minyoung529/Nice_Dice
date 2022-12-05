@@ -26,5 +26,7 @@ public class StateBase
 
     public virtual void OnEnd() { }
 
+    public virtual void OnDestroy() { }
+
     public void ReceiveData(object obj) { receiveData = obj; }
 }

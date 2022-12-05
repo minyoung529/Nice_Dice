@@ -23,7 +23,7 @@ public class RollUI : MonoBehaviour
         transform.DOMove(originalPos, 1f);
     }
 
-    private void Inactive()
+    public void Inactive()
     {
         transform.DOMove(targetPos, 1f);
     }

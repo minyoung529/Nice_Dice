@@ -12,6 +12,7 @@ public class GameManager : MonoSingleton<GameManager>
     #region Property
     public UIManager UI => uiManager;
     public DiceManager Dice => diceManager;
+    public bool PlayerTurn => playerTurn;
     #endregion
 
     // 컨트롤러들(UI, InputManageR)을 모아놓는 곳
@@ -20,7 +21,7 @@ public class GameManager : MonoSingleton<GameManager>
     #endregion
 
     #region Game
-    private bool myTurn = false;
+    private bool playerTurn = false;
     [SerializeField] private Character player;
     [SerializeField] private Character enemy;
 
@@ -65,12 +66,12 @@ public class GameManager : MonoSingleton<GameManager>
     public void NextTurn()
     {
         Debug.Log("NEXT TURN!!!!!!!!!!!!!!!!!");
-        myTurn = !myTurn;
+        playerTurn = !playerTurn;
         //SelectedDices = deck.RandomSelect(Define.DICE_SELECT_COUNT);
         Dice.DiceSelect();
 
         // 현재는 플레이어의 덱에서만 꺼내온다
-        if (myTurn)
+        if (playerTurn)
         {
             EventManager.TriggerEvent(Define.ON_START_PLAYER_TURN);
         }

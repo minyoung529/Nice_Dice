@@ -34,6 +34,9 @@ public class DiceControl : MonoBehaviour
     private void Awake()
     {
         particle = GetComponentInChildren<ParticleSystem>();
+
+        EventManager.StartListening(Define.ON_START_MONSTER_TURN, DiceDestroy);
+        EventManager.StartListening(Define.ON_START_PLAYER_TURN, DiceDestroy);
     }
 
     private void Update()
@@ -72,5 +75,16 @@ public class DiceControl : MonoBehaviour
            {
                particle.Stop();
            });
+    }
+
+    private void DiceDestroy()
+    {
+        Destroy(gameObject);
+    }
+
+    private void OnDestroy()
+    {
+        EventManager.StopListening(Define.ON_START_MONSTER_TURN, DiceDestroy);
+        EventManager.StopListening(Define.ON_START_PLAYER_TURN, DiceDestroy);
     }
 }

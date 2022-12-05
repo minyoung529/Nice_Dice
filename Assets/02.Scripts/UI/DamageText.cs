@@ -21,6 +21,7 @@ public class DamageText : MonoBehaviour
     private IEnumerator TextCoroutine(string text)
     {
         damageText.text = text;
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(2.7f);
+        damageText.text = "";
     }
 }
