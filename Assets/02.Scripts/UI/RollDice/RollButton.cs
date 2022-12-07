@@ -22,8 +22,6 @@ public class RollButton : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
     {
         if (canRoll)
         {
-            //diceManager.DiceSelect();
-            diceManager.DiceThrow();
             diceGague.IsPlaying = true;
             character.ChangeState(CharacterState.BeforeRoll);
         }
@@ -33,6 +31,7 @@ public class RollButton : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
     {
         if (canRoll)
         {
+            diceManager.DiceCreate();
             diceGague.IsPlaying = false;
             character.ChangeState(CharacterState.Roll);
             canRoll = false;

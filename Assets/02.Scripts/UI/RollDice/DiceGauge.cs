@@ -1,10 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using DG.Tweening;
 public class DiceGauge : MonoBehaviour
 {
-    private int Grade = 12; // 단계, 등급
+    private int grade = 12; // 단계, 등급
 
     [SerializeField] private float speed = 3f;   // 똑딱 스피드
 
@@ -40,7 +40,9 @@ public class DiceGauge : MonoBehaviour
                 {
                     DiceShape shape = diceManager.SelectedDice[i].DiceShape;
                     int side = diceManager.DiceSideSelect(shape, grade);
-                    diceManager.DiceObjects[i].GetComponent<DiceControl>().DiceSideUp(shape, side);
+                    diceManager.DiceObjects[i].GetComponent<DiceControl>().DiceThrow(shape, side);
+
+                    //diceManager.DiceObjects[i].GetComponent<DiceControl>().DiceSideUp(shape, side);
 
                     selectedSides.Add(new KeyValuePair<Dice, int>(diceManager.SelectedDice[i], side));
                 }
@@ -65,10 +67,10 @@ public class DiceGauge : MonoBehaviour
         ResetData();
 
         // 눈금 생성
-        for (int i = 1; i < Grade; i++)
+        for (int i = 1; i < grade; i++)
         {
             GameObject newObj = Instantiate(graduation, transform);
-            newObj.transform.position = GetPos(-halfWidth + (width / Grade) * i);
+            newObj.transform.position = GetPos(-halfWidth + (width / grade) * i);
             newObj.SetActive(true);
         }
     }
@@ -115,7 +117,7 @@ public class DiceGauge : MonoBehaviour
     {
         // 1~GRADE까지 단계가 나온다
         // 0부터 시작하므로 1을 더해줌
-        int grade = (int)(Rate / (1 / (float)Grade)) + 1;
+        int grade = (int)(Rate / (1 / (float)this.grade)) + 1;
         Debug.Log($"{grade}단계");
         return grade;
     }

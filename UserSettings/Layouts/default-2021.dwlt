@@ -101,7 +101,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 104
+  controlID: 111
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -197,7 +197,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 102
+  controlID: 134
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -222,7 +222,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 103
+  controlID: 110
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -247,7 +247,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 45
+  controlID: 52
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -487,8 +487,8 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 1
-      snapOffset: {x: -100, y: -25.600006}
-      snapOffsetDelta: {x: 0, y: 0}
+      snapOffset: {x: 0, y: 0}
+      snapOffsetDelta: {x: -100, y: -25.600006}
       snapCorner: 3
       id: Tool Settings
       index: 0
@@ -498,9 +498,9 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 1
-      snapOffset: {x: -141, y: -179.79999}
+      snapOffset: {x: -141, y: 149}
       snapOffsetDelta: {x: 0, y: 0}
-      snapCorner: 3
+      snapCorner: 1
       id: unity-grid-and-snap-toolbar
       index: 1
       layout: 1
@@ -509,7 +509,7 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 1
-      snapOffset: {x: 0, y: 24.8}
+      snapOffset: {x: 0, y: 0}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
       id: unity-scene-view-toolbar
@@ -663,7 +663,7 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 0
-      snapOffset: {x: 0, y: 24.8}
+      snapOffset: {x: 0, y: 0}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
       id: Scene View/Particles
@@ -679,9 +679,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -47.086975, y: 25.60377, z: -5.467004}
+    m_Target: {x: 960, y: 190, z: 0}
     speed: 2
-    m_Value: {x: -47.086975, y: 25.60377, z: -5.467004}
+    m_Value: {x: 960, y: 190, z: 0}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -728,13 +728,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.17044723, y: -0.68511057, z: 0.16983892, w: -0.6875721}
+    m_Target: {x: -0.12300716, y: -0.009225905, z: 0.0010829017, w: -0.9924787}
     speed: 2
-    m_Value: {x: -0.17044473, y: -0.6851005, z: 0.16983643, w: -0.68756205}
+    m_Value: {x: -0.122992955, y: -0.0092248395, z: 0.0010827767, w: -0.9923641}
   m_Size:
-    m_Target: 1.1086811
+    m_Target: 1309.0836
     speed: 2
-    m_Value: 1.1086811
+    m_Value: 1309.0836
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -790,23 +790,23 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: f68b0000
-      m_LastClickedID: 35830
-      m_ExpandedIDs: e647f5fff257fdff8896ffff4e97ffff40f3ffff06fbffff1efbffff26fbffff32fbffff34fbffff067800004e780000588c0000608c0000
+      m_SelectedIDs: 
+      m_LastClickedID: 0
+      m_ExpandedIDs: 4ab7ffffd8baffff30fbffffea75000046960000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: Damage
-        m_OriginalName: Damage
+        m_Name: 
+        m_OriginalName: 
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 35928
+        m_UserData: 0
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 0
+        m_OriginalEventType: 11
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 11}
       m_SearchString: 
@@ -949,33 +949,33 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/OtherAssets/Hits/HitFolder/Prefabs
+    - Assets/01.Scenes
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 50
   m_LastFolders:
-  - Assets/OtherAssets/Hits/HitFolder/Prefabs
+  - Assets/01.Scenes
   m_LastFoldersGridSize: 50
-  m_LastProjectPath: C:\Users\USER\Documents\GitHub\Nice_Dice
+  m_LastProjectPath: D:\Unity\NiceDice
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 488.6}
-    m_SelectedIDs: 5a640100
-    m_LastClickedID: 91226
-    m_ExpandedIDs: 000000006a7700006c7700006e770000707700007277000074770000767700007c7700007e77000080770000827700008477000086770000887700008a7700008c7700008e770000a6770000ac770000ce770000b88b0000f68d00004a630100c064010000ca9a3b
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: 767c0000
+    m_LastClickedID: 31862
+    m_ExpandedIDs: 00000000507c0000527c0000547c0000567c0000787c000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: 07.Sprites
-      m_OriginalName: 07.Sprites
+      m_Name: 01.Scenes
+      m_OriginalName: 01.Scenes
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 30652
+      m_UserData: 31862
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
       m_OriginalEventType: 0
@@ -992,7 +992,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000006a7700006c7700006e77000070770000727700007477000076770000787700007a7700007c7700007e77000080770000827700008477000086770000887700008a7700008c7700008e77000090770000
+    m_ExpandedIDs: 00000000507c0000527c0000547c0000567c0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1017,8 +1017,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: f68b0000
-    m_LastClickedInstanceID: 35830
+    m_SelectedInstanceIDs: 84b6ffff
+    m_LastClickedInstanceID: -18812
     m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c6230000246b00009c8d000098870000969b0000c87600006491000000000000be76000072a20000ac8b0000
     m_RenameOverlay:
@@ -1044,7 +1044,7 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
-    m_ScrollPosition: {x: 0, y: 32.600006}
+    m_ScrollPosition: {x: 0, y: 0}
     m_GridSize: 50
   m_SkipHiddenPackages: 0
   m_DirectoriesAreaWidth: 207

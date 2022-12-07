@@ -13,10 +13,8 @@ public class DiceData : ScriptableObject
     private Vector3[] octahedronDice = new Vector3[] { }; // 정팔면체
     #endregion
 
-    //private List<Vector3[]> diceShapeList = new List<Vector3[]>(); //DiceShape enum과 동일한 순서로 넣어줄것
-    private Dictionary<int, Vector3[]> diceShapeDict = new Dictionary<int, Vector3[]>();
+    private Dictionary<int, Vector3[]> diceShapeDict = new Dictionary<int, Vector3[]>(); //DiceShape enum과 동일한 순서로 넣어줄것
 
-    //public IReadOnlyList<Vector3[]> DiceShapeList => diceShapeList;
     public IReadOnlyDictionary<int, Vector3[]> DiceShapeDict => diceShapeDict;
 
     [ContextMenu("Setting")]
@@ -31,6 +29,7 @@ public class DiceData : ScriptableObject
         AssetDatabase.Refresh();
     }
 
+#if UNITY_EDITOR
     [ContextMenu("View")]
     public void ViewData()
     {
@@ -45,4 +44,5 @@ public class DiceData : ScriptableObject
             Debug.Log(str);
         }
     }
+#endif
 }
