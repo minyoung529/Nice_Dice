@@ -448,6 +448,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Enemy>k__BackingField: {fileID: 0}
+  hp: 100
+  maxHp: 100
+  <IsPlayer>k__BackingField: 0
 --- !u!1 &9011648103021171509
 GameObject:
   m_ObjectHideFlags: 0

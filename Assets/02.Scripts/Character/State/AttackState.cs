@@ -31,8 +31,6 @@ public class AttackState : StateBase
         {
             character.Enemy.ChangeState(CharacterState.Hit);
             character.ChangeState(CharacterState.Idle);
-
-            Debug.Log("ATTACK");
         }
     }
 

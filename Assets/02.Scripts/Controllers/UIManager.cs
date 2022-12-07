@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using CustomLib;
+using System.Text;
 
 /// <summary>
 /// UI를 관리하는 컨트롤러 (약간 윤지쌤 방식)
@@ -16,14 +17,14 @@ public class UIManager : ControllerBase
         EventManager<List<KeyValuePair<Dice, int>>>.StartListening(Define.ON_END_ROLL, CreateDamageEquation);
 
         // 구조 고치기
-        equationText = GameObject.Find("EquationText").GetComponent<DamageText>();
-        damageText = GameObject.Find("DamageText").GetComponent<DamageText>();
+        equationText = GameObject.Find("EquationText")?.GetComponent<DamageText>();
+        damageText = GameObject.Find("DamageText")?.GetComponent<DamageText>();
     }
 
     private void CreateDamageEquation(List<KeyValuePair<Dice, int>> sides)
     {
         List<int> numbers = new List<int>();
-        string result = "";
+        StringBuilder result = new StringBuilder();
         int multiply = -1;
         int damage = 0;
 
@@ -49,23 +50,31 @@ public class UIManager : ControllerBase
         // -> 괄호를 쓰지 않는다.
         if (multiply == -1)
         {
-            result = string.Join("+", numbers);
+            result.Append(string.Join('+', numbers));
         }
         else
         {
             if (numbers.Count == 1)
             {
-                result = numbers[0] + " x " + multiply;
+                result.Append(numbers[0]);
+                result.Append(" x ");
+                result.Append(multiply);
             }
             else
             {
-                result = "(" + string.Join("+", numbers) + ") x " + multiply;
+                result.Append('(');
+                result.Append(string.Join('+', numbers));
+                result.Append(") x ");
+                result.Append(multiply);
             }
 
             damage *= multiply;
         }
 
-        equationText.Text(result);
+        equationText ??= GameObject.Find("EquationText")?.GetComponent<DamageText>();
+        damageText ??= GameObject.Find("DamageText")?.GetComponent<DamageText>();
+
+        equationText.Text(result.ToString());
         damageText.Text(damage.ToString());
 
         EventManager<int>.TriggerEvent(Define.ON_END_ROLL, damage);

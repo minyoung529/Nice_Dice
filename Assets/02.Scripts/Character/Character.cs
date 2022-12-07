@@ -18,6 +18,9 @@ public class Character : MonoBehaviour
     [SerializeField] private int hp;
     public int Hp { get => hp; set => hp = value; }
 
+    [SerializeField] private int maxHp;
+    public int MaxHp { get => maxHp;}
+
     [field:SerializeField]
     public bool IsPlayer { get; set; }
 

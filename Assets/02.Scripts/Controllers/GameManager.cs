@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using CustomLib;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoSingleton<GameManager>
 {
@@ -11,7 +12,16 @@ public class GameManager : MonoSingleton<GameManager>
 
     #region Property
     public UIManager UI => uiManager;
-    public DiceManager Dice => diceManager;
+    public DiceManager Dice
+    {
+        get
+        {
+            if(!diceManager)
+                return FindObjectOfType<DiceManager>();
+            return diceManager;
+        }
+    }
+
     public bool PlayerTurn => playerTurn;
     #endregion
 
@@ -52,7 +62,7 @@ public class GameManager : MonoSingleton<GameManager>
             controller.OnStart();
         }
 
-        NextTurn();
+        //NextTurn();
     }
 
     private void Update()

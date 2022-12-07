@@ -6,8 +6,8 @@ using DG.Tweening;
 public class CameraMove : MonoBehaviour
 {
     new Camera camera;
-    private readonly Vector3 ORIGINAL_POS = new Vector3(-47f, 24.6f, 0f);
-    private readonly Vector3 ORIGINAL_ROT = new Vector3(27f, 90f);
+    private Vector3 originalPos;
+    private Vector3 originalRot;
 
     private readonly Vector3 DRAW_POS = new Vector3(-47f, -1f, 0f);
     private readonly Vector3 DRAW_ROT = new Vector3(0f, 90f, 0f);
@@ -21,12 +21,14 @@ public class CameraMove : MonoBehaviour
     void Start()
     {
         camera = GetComponent<Camera>();
+        originalPos = transform.position;
+        originalRot = transform.eulerAngles;
     }
 
     private void MoveOriginalPos()
     {
-        Move(ORIGINAL_POS, 1f);
-        Rotate(ORIGINAL_ROT, 1f);
+        Move(originalPos, 1f);
+        Rotate(originalRot, 1f);
         Zoom(4f, 1f);
     }
 
