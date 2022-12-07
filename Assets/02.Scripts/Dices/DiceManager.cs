@@ -24,6 +24,9 @@ public class DiceManager : MonoBehaviour
         diceData.SettingData();
     }
 
+    /// <summary>
+    /// Dice를 덱에서 골라주는 함수. 스킬, 가중치 주사위 확률 적용 필요. 
+    /// </summary>
     [ContextMenu("DiceSelect")]
     public void DiceSelect()
     {
@@ -71,29 +74,22 @@ public class DiceManager : MonoBehaviour
         return sideIdx;
     }
 
-    private void DiceCreate()
+    /// <summary>
+    /// 선택된 Dice 오브젝트들을 생성하고, 생성된 오브젝트를 리스트에 넣어주어 관리할 수 있도록 만들어주는 함수
+    /// </summary>
+    public void DiceCreate()
     {
         diceObjects.Clear();
 
-        Vector3 position = new Vector3(1.7f, -2.3f, 6.6f);
+        Vector3 position = new Vector3(1.7f, -2.3f, 6.6f); // 던지기 시작하는 포지션. 플레이어보다 왼쪽에 위치.
 
         for (int i = 0; i < 3; i++)
         {
-            position.x += (i % 2 == 0 ? 1 : -1) * Random.Range(0f, 2.5f);
-            position.z -= i != 2 ? i * 2 : i * 1.3f;
+            position.x += (i % 2 == 0 ? 1 : -1) * Random.Range(0f, 2.5f); // 홀 짝에 따라 움직일 방향 결정, 랜덤으로 x값(앞/뒤) 조정 
+            position.z -= i != 2 ? i * 2 : i * 1.3f; // i값에 따라 적당히 z(좌/우) 조정 
 
             GameObject dice = Instantiate(SelectedDice[i].DicePrefab, position, Quaternion.identity);
             diceObjects.Add(dice);
-        }
-    }
-
-    public void DiceThrow()
-    {
-        DiceCreate();
-        for (int i = 0; i < diceObjects.Count; i++)
-        {
-            DiceControl control = diceObjects[i].GetComponent<DiceControl>();
-            control.DiceThrow();
         }
     }
 }
