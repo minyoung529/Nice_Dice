@@ -75,7 +75,7 @@ public class DiceManager : MonoBehaviour
     }
 
     /// <summary>
-    /// 선택된 Dice들을 생성하고, 생성된 오브젝트를 리스트에 넣어주어 관리할 수 있도록 만들어주는 함수
+    /// 선택된 Dice 오브젝트들을 생성하고, 생성된 오브젝트를 리스트에 넣어주어 관리할 수 있도록 만들어주는 함수
     /// </summary>
     public void DiceCreate()
     {
@@ -90,19 +90,6 @@ public class DiceManager : MonoBehaviour
 
             GameObject dice = Instantiate(SelectedDice[i].DicePrefab, position, Quaternion.identity);
             diceObjects.Add(dice);
-        }
-    }
-
-    /// <summary>
-    /// RollButton에서 쓸 용도로 만든 연결용 함수
-    /// </summary>
-    public void DiceThrow()
-    {
-        DiceCreate();
-        for (int i = 0; i < diceObjects.Count; i++)
-        {
-            DiceControl control = diceObjects[i].GetComponent<DiceControl>();
-            control.DiceThrow();
         }
     }
 }

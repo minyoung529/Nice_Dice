@@ -33,6 +33,24 @@ public class RollButton : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
         {
             diceManager.DiceCreate();
             diceGague.IsPlaying = false;
+
+            List<KeyValuePair<Dice, int>> selectedSides = new List<KeyValuePair<Dice, int>>();
+
+            for (int i = 0; i < 3; ++i)
+            {
+                DiceShape shape = diceManager.SelectedDice[i].DiceShape;
+                int side = diceManager.DiceSideSelect(shape, diceGague.RollGrade);
+
+                DiceControl control = diceManager.DiceObjects[i].GetComponent<DiceControl>();
+                control.SetValue(shape, side);
+                control.DiceThrow();
+
+                selectedSides.Add(new KeyValuePair<Dice, int>(diceManager.SelectedDice[i], side));
+            }
+
+            // 주사위와 면 이벤트로 보내기
+            EventManager<List<KeyValuePair<Dice, int>>>.TriggerEvent(Define.ON_END_ROLL, selectedSides);
+
             character.ChangeState(CharacterState.Roll);
             canRoll = false;
         }

@@ -13,6 +13,8 @@ public class DiceControl : MonoBehaviour
     [SerializeField]
     private bool isDrop = false; // 낙인지 아닌지 
 
+    private DiceManager diceManager = null;
+
     [Header("Rotate")]
     [SerializeField]
     private Vector3 rotateVector = new Vector3(0, 2.5f, 2.5f);
@@ -28,12 +30,31 @@ public class DiceControl : MonoBehaviour
 
     private ParticleSystem particle = null;
 
-    public bool IsRotate { get { return isRotate; } set { isRotate = value; } }
+    private DiceShape diceShape = DiceShape.Unknown;
+    private int sideIdx = -1;
+
+    public bool IsRotate
+    {
+        get { return isRotate; }
+        set
+        {
+            if (!value)
+            {
+                // Rotate가 멈추면 Dice의 면을 올려줍니다.
+                Vector3[] vectors = diceData.DiceShapeDict[(int)diceShape];
+                Vector3 upSide = vectors[sideIdx];
+                transform.DORotate(upSide, rotateSpeed, RotateMode.Fast);
+                Debug.Log($"{sideIdx} side is Up");
+            }
+            isRotate = value;
+        }
+    }
     public bool IsDrop => isDrop;
 
     private void Awake()
     {
         particle = GetComponentInChildren<ParticleSystem>();
+        diceManager = FindObjectOfType<DiceManager>();
     }
 
     private void Update()
@@ -45,24 +66,11 @@ public class DiceControl : MonoBehaviour
     }
 
     /// <summary>
-    /// 주사위 면을 올리는 함수
-    /// </summary>
-    /// <param name="shape">주사위 모양</param>
-    /// <param name="sideIdx">올릴 주사위 면의 배열 인덱스</param>
-    public void DiceSideUp(DiceShape shape = DiceShape.Cube, int sideIdx = 0)
-    {
-        Vector3[] vectors = diceData.DiceShapeDict[(int)shape];
-        Vector3 upSide = vectors[sideIdx];
-        transform.DORotate(upSide, rotateSpeed, RotateMode.Fast);
-        Debug.Log($"{sideIdx} side is Up");
-    }
-
-    /// <summary>
     /// Dice를 던지는 함수. 플레이어를 기준으로 작성되었다. 
     /// 몬스터가 사용할 것이라면 endValue의 수정이 필요. 
     /// </summary>
     [ContextMenu("Throw")]
-    public void DiceThrow(DiceShape shape = DiceShape.Unknown, int side = -1)
+    public void DiceThrow()
     {
         throwSequence = DOTween.Sequence()
            .Append(transform.DOJump(transform.position - endValue, throwPower, 1, 0.7f, false))
@@ -73,9 +81,19 @@ public class DiceControl : MonoBehaviour
            })
            .OnComplete(() =>
            {
-               isRotate = false;
+               IsRotate = false;
                particle.Stop();
-               DiceSideUp(shape, side);
            });
+    }
+
+    /// <summary>
+    /// Dice를 던지기 전, 값들을 세팅해준다. 
+    /// </summary>
+    /// <param name="diceShape">dice의 모양</param>
+    /// <param name="side">올라갈 면의 idx</param>
+    public void SetValue(DiceShape diceShape, int side)
+    {
+        this.diceShape = diceShape;
+        sideIdx = side;
     }
 }

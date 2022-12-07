@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using DG.Tweening;
 public class DiceGauge : MonoBehaviour
 {
     private int grade = 12; // 단계, 등급
@@ -12,13 +11,14 @@ public class DiceGauge : MonoBehaviour
     [SerializeField] private RectTransform fillImage;   // 채워지는 Image
     private float fillWidth;
 
-    [SerializeField] private DiceManager diceManager;
-
     private bool isLeftMove;    // 현재 왼쪽으로 가고있는지 아닌지
 
     private float curPosX = 0f;
     private float width = 0f;
     private float halfWidth = 0f;
+
+    private int rollGrade = 0;
+    public int RollGrade => rollGrade;
 
     private bool isPlaying = false;
     public bool IsPlaying
@@ -33,22 +33,7 @@ public class DiceGauge : MonoBehaviour
             }
             else
             {
-                int grade = CaculateGrade();
-                List<KeyValuePair<Dice, int>> selectedSides = new List<KeyValuePair<Dice, int>>();
-
-                for (int i = 0; i < 3; i++)
-                {
-                    DiceShape shape = diceManager.SelectedDice[i].DiceShape;
-                    int side = diceManager.DiceSideSelect(shape, grade);
-                    diceManager.DiceObjects[i].GetComponent<DiceControl>().DiceThrow(shape, side);
-
-                    //diceManager.DiceObjects[i].GetComponent<DiceControl>().DiceSideUp(shape, side);
-
-                    selectedSides.Add(new KeyValuePair<Dice, int>(diceManager.SelectedDice[i], side));
-                }
-
-                // 주사위와 면 이벤트로 보내기
-                EventManager<List<KeyValuePair<Dice, int>>>.TriggerEvent(Define.ON_END_ROLL, selectedSides);
+                rollGrade = CaculateGrade();
             }
 
             isPlaying = value;
@@ -59,7 +44,6 @@ public class DiceGauge : MonoBehaviour
 
     private void Start()
     {
-        diceManager = FindObjectOfType<DiceManager>();
         width = GetComponent<RectTransform>().rect.width;
         halfWidth = width / 2;
         fillWidth = fillImage.rect.width;
