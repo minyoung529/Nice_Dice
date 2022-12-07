@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using DG.Tweening;
 
 public class EquipPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
@@ -12,6 +13,7 @@ public class EquipPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
     private int index = -1;
     private DeckUIController deckCtrl;
+    private Image image;
 
     #region Property
     private FollowTarget DiceObject => deckCtrl.diceObjects[index];
@@ -23,18 +25,21 @@ public class EquipPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     private void Awake()
     {
         deckCtrl = FindObjectOfType<DeckUIController>();
+        image = GetComponent<Image>();
     }
 
     #region Select
     public void OnPointerEnter(PointerEventData eventData)
     {
-        GetComponent<Image>().color = Color.red;
+        image.DOKill();
+        image.DOColor(Color.gray, 0.5f);
         DeckUIController.CurrentEquipPanel = this;
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        GetComponent<Image>().color = Color.white;
+        image.DOKill();
+        image.DOColor(Color.white, 0.5f);
         DeckUIController.CurrentEquipPanel = null;
     }
     #endregion

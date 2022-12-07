@@ -15,6 +15,7 @@ public class InventoryInput : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     {
         image = GetComponent<Image>();
         activeColor = image.color;
+        image.color = Color.clear;
     }
 
     private void Start()

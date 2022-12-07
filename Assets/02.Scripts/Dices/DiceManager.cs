@@ -92,4 +92,25 @@ public class DiceManager : MonoBehaviour
             diceObjects.Add(dice);
         }
     }
+
+    public List<KeyValuePair<Dice, int>> RollRandomDice(int grade)
+    {
+        DiceCreate();
+        
+        List<KeyValuePair<Dice, int>> selectedSides = new List<KeyValuePair<Dice, int>>();
+
+        for (int i = 0; i < 3; ++i)
+        {
+            DiceShape shape = SelectedDice[i].DiceShape;
+            int side = DiceSideSelect(shape, grade);
+
+            DiceControl control = DiceObjects[i].GetComponent<DiceControl>();
+            control.SetValue(shape, side);
+            control.DiceThrow();
+
+            selectedSides.Add(new KeyValuePair<Dice, int>(SelectedDice[i], side));
+        }
+
+        return selectedSides;
+    }
 }
