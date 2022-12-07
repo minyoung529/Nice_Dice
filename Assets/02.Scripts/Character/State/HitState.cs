@@ -32,7 +32,7 @@ public class HitState : StateBase
 
         character.StartCoroutine(HitEffect());
 
-        if (GameManager.Instance.PlayerTurn == character.IsPlayer)
+        if (GameManager.Instance.PlayerTurn != character.IsPlayer)
         {
             character.Hp -= damage;
         }

@@ -10,6 +10,22 @@ public class AIRollState : RollState
 
     protected override void ChildStart()
     {
-        Debug.Log("AI 주사위 나감");
+        DiceManager diceManager = GameManager.Instance.Dice;
+
+        diceManager.DiceThrow();
+
+        List<KeyValuePair<Dice, int>> selectedSides = new List<KeyValuePair<Dice, int>>();
+
+        for (int i = 0; i < 3; i++)
+        {
+            DiceShape shape = diceManager.SelectedDice[i].DiceShape;
+            int side = diceManager.DiceSideSelect(shape, Random.Range(0, 12));
+            diceManager.DiceObjects[i].GetComponent<DiceControl>().DiceSideUp(shape, side);
+
+            selectedSides.Add(new KeyValuePair<Dice, int>(diceManager.SelectedDice[i], side));
+        }
+
+        // 주사위와 면 이벤트로 보내기
+        EventManager<List<KeyValuePair<Dice, int>>>.TriggerEvent(Define.ON_END_ROLL, selectedSides);
     }
 }

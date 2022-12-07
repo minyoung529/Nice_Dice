@@ -8,20 +8,20 @@ public class AIEnemyController : Character
     {
         base.Start();
 
-        EventManager.StartListening(Define.ON_START_MONSTER_TURN, Roll);
+        EventManager.StartListening(Define.ON_START_MONSTER_TURN, MonsterTurn);
 
+        stateActions[CharacterState.BeforeRoll] = new AIBeforeRollState(this);
         stateActions[CharacterState.Roll] = new AIRollState(this);
         stateActions[CharacterState.Attack] = new AIAttackState(this);
     }
 
-    private void Roll()
+    private void MonsterTurn()
     {
-        Debug.Log("ROLL");
-        ChangeState(CharacterState.Roll);
+        ChangeState(CharacterState.BeforeRoll);
     }
 
     private void OnDestroy()
     {
-        EventManager.StopListening(Define.ON_START_MONSTER_TURN, Roll);
+        EventManager.StopListening(Define.ON_START_MONSTER_TURN, MonsterTurn);
     }
 }

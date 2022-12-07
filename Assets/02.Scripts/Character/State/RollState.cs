@@ -8,12 +8,16 @@ using UnityEngine;
 public class RollState : StateBase
 {
     int rollHash = Animator.StringToHash("Roll");
+    private readonly float delayTime = 2f;
+    private float timer;
 
     public RollState(Character character) : base(character) { }
 
     public override void OnStart()
     {
         character.Animator.SetTrigger(rollHash);
+        timer = 0f;
+        Debug.Log("ROLL");
         ChildStart();
     }
 
@@ -21,8 +25,11 @@ public class RollState : StateBase
 
     public override void OnUpdate()
     {
-        if (character.Animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1f)
+        timer += Time.deltaTime;
+
+        if (timer > delayTime)
         {
+            Debug.Log("WAITATTACK");
             character.ChangeState(CharacterState.Attack);
         }
     }

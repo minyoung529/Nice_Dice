@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using UnityEngine.UIElements;
 
 public class DeckUIController : MonoBehaviour
 {
@@ -9,19 +10,27 @@ public class DeckUIController : MonoBehaviour
 
     public List<Dice> testDices;
     private List<InventoryPanel> panels = new List<InventoryPanel>();
-    public GameObject[] diceObjects = new GameObject[100];
+    private List<EquipPanel> equipPanels = new List<EquipPanel>();
+    public FollowTarget[] diceObjects = new FollowTarget[100];
+
+    public InventoryInput InventoryInput { get; set; }
 
     [SerializeField] private InventoryPanel samplePanel;
 
     private void Awake()
     {
+        InventoryInput = FindObjectOfType<InventoryInput>();
+        equipPanels = new List<EquipPanel>(FindObjectsOfType<EquipPanel>());
+
+        //SetDeck(GameManager.Instance.Deck);
+
         // 패널 생성
         for (int i = 0; i < testDices.Count; i++)
         {
             InventoryPanel panel = Instantiate(samplePanel, samplePanel.transform.parent);
             panels.Add(panel);
 
-            panel.Init(i, testDices[i], null);
+            panel.Init(i, testDices[i]);
         }
 
         samplePanel.gameObject.SetActive(false);
@@ -55,12 +64,27 @@ public class DeckUIController : MonoBehaviour
         Vector3 pos = panels[index].transform.position;
         pos.z = 0f;
 
-        diceObjects[index] = Instantiate(prefab, pos, Quaternion.Euler(-22.5f, 45f, -22.5f), null);
+        diceObjects[index] = Instantiate(prefab, pos, Quaternion.Euler(-22.5f, 45f, -22.5f), null).AddComponent<FollowTarget>();
         diceObjects[index].transform.localScale *= 12f;
-        diceObjects[index].AddComponent<Roll>();
+        diceObjects[index].gameObject.AddComponent<Roll>();
+        diceObjects[index].ChangeTarget(panels[index].transform);
+    }
 
-        FollowTarget follow = diceObjects[index].AddComponent<FollowTarget>();
-        panels[index].OnChangeActive += follow.ChangeTarget;
-        follow.Target = panels[index].transform;
+    private void SetDeck(List<Dice> deck)
+    {
+        for (int i = 0; i < deck.Count; i++)
+        {
+            EquipPanel panel = GetEmptyPanel(deck[i].DiceType);
+
+            if (panel)
+            {
+                panel.EquipDice(deck[i], i);
+            }
+        }
+    }
+
+    private EquipPanel GetEmptyPanel(DiceType type)
+    {
+        return equipPanels.Find(x => x.IsEmpty && x.Dice.DiceType == type);
     }
 }

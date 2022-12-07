@@ -8,26 +8,24 @@ using UnityEngine.EventSystems;
 public class InventoryPanel : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     private Dice dice;
-
-    public Action<int, GameObject> OnSetDice { get; private set; }
-    public Action<Transform> OnChangeActive { get; set; }
+    private DeckUIController deckCtrl;
     private int index = 0;
 
     [SerializeField] Text nameText;
 
-    public void Init(int index, Dice dice, Action<int, GameObject> onSetDice)
+    private FollowTarget DiceObject => deckCtrl.diceObjects[index];
+
+    public void Init(int index, Dice dice)
     {
         this.index = index;
-        OnSetDice += onSetDice;
         SetDice(dice);
+        deckCtrl = FindObjectOfType<DeckUIController>();
     }
 
     public void SetDice(Dice dice)
     {
         this.dice = dice;
         UISetting();
-
-        OnSetDice?.Invoke(index, dice.DicePrefab);
     }
 
     private void UISetting()
@@ -37,32 +35,36 @@ public class InventoryPanel : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
 
     private void DeselectItem()
     {
-        DeckUIController.CurrentEquipPanel.OnDeselctItem -= DeselectItem;
-        OnChangeActive.Invoke(transform);
+        //DeckUIController.CurrentEquipPanel.OnDeselctItem -= DeselectItem;
+        DiceObject.ChangeTarget(transform);
         gameObject.SetActive(true);
     }
 
+    public void OnBeginDrag(PointerEventData eventData)
+    {
+        DiceObject.ChangeTarget(null);
+    }
+
+    public void OnDrag(PointerEventData eventData) { }
+
     public void OnEndDrag(PointerEventData eventData)
     {
-        if (DeckUIController.CurrentEquipPanel != null && DeckUIController.CurrentEquipPanel.EquipDice(dice))
+        EquipPanel equipPanel = DeckUIController.CurrentEquipPanel;
+
+        // 장착할 수 있으면
+        if (equipPanel != null && equipPanel.EquipDice(dice, index))
         {
-            DeckUIController.CurrentEquipPanel.OnDeselctItem += DeselectItem;
-            OnChangeActive.Invoke(DeckUIController.CurrentEquipPanel.transform);
+            equipPanel.OnDeselctItem -= DeselectItem;
+            equipPanel.OnDeselctItem += DeselectItem;
+
+            DiceObject.ChangeTarget(DeckUIController.CurrentEquipPanel.transform);    // 해당 panel로 가기
+            // 장착!
 
             gameObject.SetActive(false);
         }
         else
         {
-            OnChangeActive.Invoke(transform);
+            DiceObject.ChangeTarget(transform);   // 원래 자리로 돌아오기
         }
-    }
-
-    public void OnDrag(PointerEventData eventData)
-    {
-    }
-
-    public void OnBeginDrag(PointerEventData eventData)
-    {
-        OnChangeActive.Invoke(null);
     }
 }
