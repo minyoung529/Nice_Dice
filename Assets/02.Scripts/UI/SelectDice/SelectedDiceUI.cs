@@ -7,7 +7,6 @@ public class SelectedDiceUI : MonoBehaviour
     private GameObject diceUI = null;
     private GameObject[] dicePanel = new GameObject[3];
     private List<GameObject> diceObjects = new List<GameObject>();
-    private GameManager gameManager = null;
 
     private void Awake()
     {
@@ -17,7 +16,6 @@ public class SelectedDiceUI : MonoBehaviour
             dicePanel[i] = diceUI.transform.GetChild(i).gameObject;
         }
 
-        gameManager = FindObjectOfType<GameManager>();
         EventManager.StartListening(Define.ON_END_DRAW, ActiveUI);
         EventManager.StartListening(Define.ON_END_DRAW, CreateDice);
         EventManager.StartListening(Define.ON_START_MONSTER_TURN, ActiveUI);
@@ -35,7 +33,7 @@ public class SelectedDiceUI : MonoBehaviour
         {
             Vector3 pos = dicePanel[i].transform.position;
             pos.z -= 1f;
-            GameObject newObject = Instantiate(gameManager.Dice.SelectedDice[i].DicePrefab, pos, Quaternion.identity, null);
+            GameObject newObject = Instantiate(GameManager.Instance.Dice.SelectedDice[i].DicePrefab, pos, Quaternion.identity, null);
             newObject.transform.localScale = Vector3.one * 0.5f;
             newObject.AddComponent<Roll>();
             newObject.GetComponent<DiceControl>().enabled = false;
