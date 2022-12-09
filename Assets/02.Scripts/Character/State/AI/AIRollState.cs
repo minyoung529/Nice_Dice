@@ -17,5 +17,7 @@ public class AIRollState : RollState
 
         // 주사위와 면 이벤트로 보내기
         EventManager<List<KeyValuePair<Dice, int>>>.TriggerEvent(Define.ON_END_ROLL, selectedSides);
+
+
     }
 }
