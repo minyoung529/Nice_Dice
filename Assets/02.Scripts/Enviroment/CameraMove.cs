@@ -34,8 +34,6 @@ public class CameraMove : MonoBehaviour
 
     private void MoveDrawPos()
     {
-        Debug.Log("MoveDrawPos");
-
         Move(DRAW_POS, 1f);
         Rotate(DRAW_ROT, 1f);
         Zoom(1f, 1f);

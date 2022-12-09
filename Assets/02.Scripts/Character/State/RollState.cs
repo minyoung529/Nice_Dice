@@ -17,7 +17,6 @@ public class RollState : StateBase
     {
         character.Animator.SetTrigger(rollHash);
         timer = 0f;
-        Debug.Log("ROLL");
         ChildStart();
     }
 
@@ -29,7 +28,6 @@ public class RollState : StateBase
 
         if (timer > delayTime)
         {
-            Debug.Log("WAITATTACK");
             character.ChangeState(CharacterState.Attack);
         }
     }

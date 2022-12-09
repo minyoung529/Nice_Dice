@@ -35,7 +35,8 @@ public class RollButton : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
             diceGague.IsPlaying = false;
 
             // 주사위와 면 이벤트로 보내기
-            EventManager<List<KeyValuePair<Dice, int>>>.TriggerEvent(Define.ON_END_ROLL, diceManager.RollRandomDice(diceGague.RollGrade));
+            EventManager<List<KeyValuePair<Dice, int>>>.TriggerEvent
+                (Define.ON_END_ROLL, diceManager.RollRandomDice(diceGague.RollGrade, character.transform.position, true));
 
             character.ChangeState(CharacterState.Roll);
             canRoll = false;

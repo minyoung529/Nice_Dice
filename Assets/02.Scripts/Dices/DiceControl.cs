@@ -21,8 +21,6 @@ public class DiceControl : MonoBehaviour
 
     [Header("Throw")]
     [SerializeField]
-    private Vector3 endValue = new Vector3(0f, 0f, 4.5f);
-    [SerializeField]
     private float throwPower = 3f;
     private Sequence throwSequence = null;
 
@@ -69,20 +67,25 @@ public class DiceControl : MonoBehaviour
     /// 몬스터가 사용할 것이라면 endValue의 수정이 필요. 
     /// </summary>
     [ContextMenu("Throw")]
-    public void DiceThrow()
+    public void DiceThrow(bool isLeft)
     {
+        Vector3 endValue = Vector3.forward * 1.3f;
+
+        if (!isLeft)
+            endValue *= -1f;
+
         throwSequence = DOTween.Sequence()
-           .Append(transform.DOJump(transform.position - endValue, throwPower, 1, 0.7f, false))
-           .OnPlay(() =>
-           {
-               IsRotate = true;
-               particle.Play();
-           })
-           .OnComplete(() =>
-           {
-               IsRotate = false;
-               particle.Stop();
-           });
+       .Append(transform.DOJump(transform.position - endValue, throwPower, 1, 0.7f, false))
+       .OnPlay(() =>
+       {
+           IsRotate = true;
+           particle.Play();
+       })
+       .OnComplete(() =>
+       {
+           IsRotate = false;
+           particle.Stop();
+       });
     }
 
     /// <summary>

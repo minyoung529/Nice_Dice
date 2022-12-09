@@ -69,7 +69,7 @@ public class HitState : StateBase
         damage = 0;
     }
 
-    private void SetDamage(int _damage)
+    public void SetDamage(int _damage)
     {
         damage = _damage;
     }

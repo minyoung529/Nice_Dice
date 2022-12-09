@@ -48,8 +48,6 @@ public class Character : MonoBehaviour
 
     public void ChangeState(CharacterState state)
     {
-        if (state == CharacterState.Idle)
-            Debug.Log("IDLE");
         currentState?.OnEnd();
         
         this.state = state;

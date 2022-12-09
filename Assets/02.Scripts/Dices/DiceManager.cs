@@ -77,26 +77,31 @@ public class DiceManager : MonoBehaviour
     /// <summary>
     /// 선택된 Dice 오브젝트들을 생성하고, 생성된 오브젝트를 리스트에 넣어주어 관리할 수 있도록 만들어주는 함수
     /// </summary>
-    public void DiceCreate()
+    public void DiceCreate(Vector3 rollPos, bool isLeft)
     {
         diceObjects.Clear();
 
-        Vector3 position = new Vector3(1.7f, -2.3f, 6.6f); // 던지기 시작하는 포지션. 플레이어보다 왼쪽에 위치.
+        Vector3 position = rollPos; // 던지기 시작하는 포지션. 플레이어보다 왼쪽에 위치.
 
         for (int i = 0; i < 3; i++)
         {
             position.x += (i % 2 == 0 ? 1 : -1) * Random.Range(0f, 2.5f); // 홀 짝에 따라 움직일 방향 결정, 랜덤으로 x값(앞/뒤) 조정 
-            position.z -= i != 2 ? i * 2 : i * 1.3f; // i값에 따라 적당히 z(좌/우) 조정 
+            float z = (i != 2) ? i * 2 : i * 1.3f; // i값에 따라 적당히 z(좌/우) 조정 
+
+            if (!isLeft)
+                z *= -1f;
+
+            position.z -= z;
 
             GameObject dice = Instantiate(SelectedDice[i].DicePrefab, position, Quaternion.identity);
             diceObjects.Add(dice);
         }
     }
 
-    public List<KeyValuePair<Dice, int>> RollRandomDice(int grade)
+    public List<KeyValuePair<Dice, int>> RollRandomDice(int grade, Vector3 rollPos, bool isLeft)
     {
-        DiceCreate();
-        
+        DiceCreate(rollPos, isLeft);
+
         List<KeyValuePair<Dice, int>> selectedSides = new List<KeyValuePair<Dice, int>>();
 
         for (int i = 0; i < 3; ++i)
@@ -106,7 +111,7 @@ public class DiceManager : MonoBehaviour
 
             DiceControl control = DiceObjects[i].GetComponent<DiceControl>();
             control.SetValue(shape, side);
-            control.DiceThrow();
+            control.DiceThrow(isLeft);
 
             selectedSides.Add(new KeyValuePair<Dice, int>(SelectedDice[i], side));
         }
