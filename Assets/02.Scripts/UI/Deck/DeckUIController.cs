@@ -13,6 +13,9 @@ public class DeckUIController : MonoBehaviour
     private List<EquipPanel> equipPanels = new List<EquipPanel>();
     public FollowTarget[] diceObjects = new FollowTarget[100];
 
+    [field:SerializeField]
+    public InfoPanel InfoPanel { get; set; }
+
     public InventoryInput InventoryInput { get; set; }
 
     [SerializeField] private InventoryPanel samplePanel;

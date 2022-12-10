@@ -81,6 +81,7 @@ public class Dice : ScriptableObject
     [Separator("Dice Variable")]
 
     [SerializeField] private string diceName = "";
+    [TextArea]
     [SerializeField] private string diceDescription = "";
     [SerializeField] private DiceShape diceShape = DiceShape.Unknown;
     [SerializeField] private DiceType diceType = DiceType.Unknown;

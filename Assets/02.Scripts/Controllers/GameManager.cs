@@ -8,8 +8,8 @@ public class GameManager : MonoSingleton<GameManager>
 {
     #region Contoller
     private UIManager uiManager = new UIManager();
+    private DataManager dataManager = new DataManager();
     private DiceManager diceManager;
-
     #region Property
     public UIManager UI => uiManager;
     public DiceManager Dice
@@ -21,6 +21,7 @@ public class GameManager : MonoSingleton<GameManager>
             return diceManager;
         }
     }
+    private DataManager Data => dataManager;
 
     public bool PlayerTurn => playerTurn;
     #endregion

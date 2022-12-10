@@ -8,6 +8,7 @@ using UnityEngine.EventSystems;
 public class InventoryPanel : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     private Dice dice;
+    public Dice Dice => dice;
     private DeckUIController deckCtrl;
     private int index = 0;
 

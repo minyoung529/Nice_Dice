@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: NormalNumberDice
   m_EditorClassIdentifier: 
   diceName: "\uC77C\uBC18 \uC8FC\uC0AC\uC704"
-  diceDescription: ' '
+  diceDescription: "\uD3C9\uBC94\uD55C \uC815\uC721\uBA74\uCCB4 \uC8FC\uC0AC\uC704\uC774\uB2E4. "
   diceShape: 6
   diceType: 0
   dicePrefab: {fileID: 938341418012553827, guid: a04edb2823c9ccb4098a62e866ceaa77, type: 3}
