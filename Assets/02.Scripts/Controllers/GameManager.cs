@@ -42,6 +42,8 @@ public class GameManager : MonoSingleton<GameManager>
     public List<Dice> Deck => deck;
     #endregion
 
+    public static int maxDeal = 0;
+
     private void Awake()
     {
         // controllers에 컨트롤러들을 넣는다.
