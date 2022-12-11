@@ -9,7 +9,7 @@ public class DataManager : ControllerBase
     private readonly string SAVE_FILENAME = "/SaveFile.txt";
 
     private User user;
-    public User CurrentUser { get { return user; } }
+    public User CurrentUser { get { if (user == null) FirstData(); return user; } }
 
     public override void OnAwake()
     {
@@ -22,6 +22,7 @@ public class DataManager : ControllerBase
 
         if (!Directory.Exists(SAVE_PATH))
         {
+            Debug.Log("Create");
             Directory.CreateDirectory(SAVE_PATH);
         }
 
@@ -48,15 +49,18 @@ public class DataManager : ControllerBase
 
         if (user == null)
         {
+            user = new User();
             UserSetting();
         }
 
         string json = JsonUtility.ToJson(user, true);
+
         File.WriteAllText(SAVE_PATH + SAVE_FILENAME, json, System.Text.Encoding.UTF8);
     }
 
     private void UserSetting()
     {
-        //user.deck = 
+        user.inventory = Resources.Load<Dices>("Inventory").dices;
+        user.deck = Resources.Load<Dices>("Deck").dices;
     }
 }

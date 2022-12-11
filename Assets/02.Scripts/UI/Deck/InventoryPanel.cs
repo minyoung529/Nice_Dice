@@ -26,7 +26,10 @@ public class InventoryPanel : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
     public void SetDice(Dice dice)
     {
         this.dice = dice;
-        UISetting();
+        if (dice)
+        {
+            UISetting();
+        }
     }
 
     private void UISetting()
@@ -53,19 +56,24 @@ public class InventoryPanel : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
         EquipPanel equipPanel = DeckUIController.CurrentEquipPanel;
 
         // 장착할 수 있으면
-        if (equipPanel != null && equipPanel.EquipDice(dice, index))
+        if (equipPanel != null && equipPanel.EquipDice(dice, index, true))
         {
-            equipPanel.OnDeselctItem -= DeselectItem;
-            equipPanel.OnDeselctItem += DeselectItem;
-
-            DiceObject.ChangeTarget(DeckUIController.CurrentEquipPanel.transform);    // 해당 panel로 가기
-            // 장착!
-
-            gameObject.SetActive(false);
+            Equip(equipPanel);
         }
         else
         {
             DiceObject.ChangeTarget(transform);   // 원래 자리로 돌아오기
         }
+    }
+
+    public void Equip(EquipPanel equipPanel)
+    {
+        equipPanel.OnDeselctItem -= DeselectItem;
+        equipPanel.OnDeselctItem += DeselectItem;
+
+        DiceObject.ChangeTarget(equipPanel.transform);    // 해당 panel로 가기
+        //equipPanel.EquipDice(dice, index, true);          // 장착!
+
+        gameObject.SetActive(false);
     }
 }

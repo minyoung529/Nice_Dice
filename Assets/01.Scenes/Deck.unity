@@ -644,6 +644,25 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
+--- !u!1 &1840046362 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1574719157, guid: 79723b909d1f4844e88d9614f0aee890, type: 3}
+  m_PrefabInstance: {fileID: 7693472169770458706}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1840046368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1840046362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52bcb45bac330ab4a93db8abab079da0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 1
+  isSelect: 1
 --- !u!1 &695338152780668137
 GameObject:
   m_ObjectHideFlags: 0
@@ -656,7 +675,6 @@ GameObject:
   - component: {fileID: 695338152780668140}
   - component: {fileID: 695338152780668139}
   - component: {fileID: 695338152780668138}
-  - component: {fileID: 7161535330615624380}
   m_Layer: 6
   m_Name: UI Overlay Canvas
   m_TagString: Untagged
@@ -746,128 +764,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 1}
   m_SizeDelta: {x: 1920.0001, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &7161535330615624380
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 695338152780668137}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f82f2b44ad1b2f4891e1dfd335e91eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  testDices:
-  - {fileID: 11400000, guid: 8ca776f5fe0000c4d8e192c18996bf5f, type: 2}
-  - {fileID: 11400000, guid: 8ca776f5fe0000c4d8e192c18996bf5f, type: 2}
-  - {fileID: 11400000, guid: 7530341a18b1ea041bedc956bde7bfb4, type: 2}
-  - {fileID: 11400000, guid: 7530341a18b1ea041bedc956bde7bfb4, type: 2}
-  - {fileID: 11400000, guid: 82db07fd37bd6b94d8c072afd91fd954, type: 2}
-  - {fileID: 11400000, guid: 82db07fd37bd6b94d8c072afd91fd954, type: 2}
-  diceObjects:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  <InfoPanel>k__BackingField: {fileID: 7161535331930554253}
-  samplePanel: {fileID: 0}
 --- !u!222 &7161535331590675712
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1066,6 +962,30 @@ PrefabInstance:
       propertyPath: <InfoPanel>k__BackingField
       value: 
       objectReference: {fileID: 7161535331930554253}
+    - target: {fileID: 7693472169278513104, guid: 79723b909d1f4844e88d9614f0aee890, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7693472169278513104, guid: 79723b909d1f4844e88d9614f0aee890, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7693472169278513104, guid: 79723b909d1f4844e88d9614f0aee890, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7693472169278513104, guid: 79723b909d1f4844e88d9614f0aee890, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7693472169278513104, guid: 79723b909d1f4844e88d9614f0aee890, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7693472169278513104, guid: 79723b909d1f4844e88d9614f0aee890, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7693472170929332963, guid: 79723b909d1f4844e88d9614f0aee890, type: 3}
       propertyPath: m_Name
       value: Deck UI Canvas
@@ -1158,5 +1078,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8216732144233968221, guid: 79723b909d1f4844e88d9614f0aee890, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8216732144233968221, guid: 79723b909d1f4844e88d9614f0aee890, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8216732144233968221, guid: 79723b909d1f4844e88d9614f0aee890, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8389843472020075387, guid: 79723b909d1f4844e88d9614f0aee890, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8389843472020075387, guid: 79723b909d1f4844e88d9614f0aee890, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 8372474991642587735, guid: 79723b909d1f4844e88d9614f0aee890, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 79723b909d1f4844e88d9614f0aee890, type: 3}

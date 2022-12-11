@@ -75,6 +75,7 @@ public class VisibleList<T>
     void RemoveAt(int idx) => list.RemoveAt(idx);
 }
 
+[System.Serializable]
 [CreateAssetMenu(fileName = "New Dice", menuName = "SO/Dice/DiceInstance")]
 public class Dice : ScriptableObject
 {

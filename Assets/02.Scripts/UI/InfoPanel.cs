@@ -12,6 +12,12 @@ public class InfoPanel : MonoBehaviour
 
     public void Active(Dice dice, Vector3 position)
     {
+        if(dice == null)
+        {
+            Inactive();
+            return;
+        }
+
         position.z = transform.position.z;
         transform.position = position;
 

@@ -10,14 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 865b169f0e241464b85690937955c768, type: 3}
-  m_Name: RedNormalNumberDice
+  m_Name: MultiplyDice 1
   m_EditorClassIdentifier: 
-  diceName: "\uC77C\uBC18 \uB178\uB780 \uC8FC\uC0AC\uC704"
-  diceDescription: ' '
-  diceShape: 6
-  diceType: 0
-  dicePrefab: {fileID: 938341418012553827, guid: 268f7ad279652634e879d7493779ddc1, type: 3}
+  diceName: "\uBAA8 \uC544\uB2C8\uBA74 \uB3C4"
+  diceDescription: "\uC778\uC0DD\uC740 \uD55C \uBC29! \uBAA8 \uC544\uB2C8\uBA74 \uB3C4\uC778
+    \uACF1\uC148 \uC8FC\uC0AC\uC704."
+  diceShape: 4
+  diceType: 1
+  dicePrefab: {fileID: 3903677567441830101, guid: 32ab2c5b3f20b304591bf1adaa43ff00, type: 3}
   numbers:
-    list: 060000000400000002000000050000000300000001000000
+    list: 00000000000000000300000003000000
   skills:
-    list: 010000000200000003000000040000000500000006000000
+    list: 
