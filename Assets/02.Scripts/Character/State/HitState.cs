@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using Unity.VisualScripting;
+using static UnityEngine.Rendering.DebugUI;
 
 /// <summary>
 /// 맞는 상태
@@ -28,14 +29,9 @@ public class HitState : StateBase
     public override void OnStart()
     {
         character.Animator.SetTrigger(hitHash);
-        timer = character.Animator.GetCurrentAnimatorClipInfo(0).Length;
+        timer = /*character.Animator.GetCurrentAnimatorClipInfo(0).Length*/2f;
 
         character.StartCoroutine(HitEffect());
-
-        if (GameManager.Instance.PlayerTurn != character.IsPlayer)
-        {
-            character.Hp -= damage;
-        }
     }
 
     private IEnumerator HitEffect()
@@ -50,14 +46,23 @@ public class HitState : StateBase
 
         renderer.material.SetColor(BASE_COLOR, oldBaseColor);
         renderer.material.SetColor(SHADER_COLOR, oldShaderColor);
-    }
 
+        if (GameManager.Instance.PlayerTurn != character.IsPlayer)
+        {
+            character.Hp -= damage;
+
+            if (character.Hp <= 0)
+            {
+                character.ChangeState(CharacterState.Die);
+            }
+        }
+    }
 
     public override void OnUpdate()
     {
         timer -= Time.deltaTime;
 
-        if (timer < 0)
+        if (timer < 0 && character.Hp > 0)
         {
             character.ChangeState(CharacterState.Idle);
             GameManager.Instance.NextTurn();

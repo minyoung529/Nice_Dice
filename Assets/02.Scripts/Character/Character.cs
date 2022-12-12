@@ -12,22 +12,28 @@ public class Character : MonoBehaviour
     protected StateBase currentState;
 
     public Animator Animator { get; protected set; }
-    [field:SerializeField]
+    [field: SerializeField]
     public Character Enemy { get; set; }
 
     [SerializeField] private int hp;
-    public int Hp { get => hp; set => hp = value; }
+    public int Hp
+    {
+        get => hp;
+        set => hp = value;
+    }
 
     [SerializeField] private int maxHp;
-    public int MaxHp { get => maxHp;}
+    public int MaxHp { get => maxHp; }
 
-    [field:SerializeField]
+    [field: SerializeField]
     public bool IsPlayer { get; set; }
 
+    Quaternion rot;
 
     private void Awake()
     {
         Animator = GetComponent<Animator>();
+        rot = transform.rotation;
     }
 
     protected virtual void Start()
@@ -37,6 +43,7 @@ public class Character : MonoBehaviour
         stateActions.Add(CharacterState.Hit, new HitState(this));
         stateActions.Add(CharacterState.BeforeRoll, new BeforeRollState(this));
         stateActions.Add(CharacterState.Roll, new RollState(this));
+        stateActions.Add(CharacterState.Die, new DieState(this));
 
         foreach (var pair in stateActions)
         {
@@ -49,7 +56,7 @@ public class Character : MonoBehaviour
     public void ChangeState(CharacterState state)
     {
         currentState?.OnEnd();
-        
+
         this.state = state;
 
         stateActions[state]?.ReceiveData(currentState?.SendedData);
@@ -61,6 +68,7 @@ public class Character : MonoBehaviour
     private void Update()
     {
         currentState?.OnUpdate();
+        transform.rotation = rot;
     }
 
     private void OnDestroy()

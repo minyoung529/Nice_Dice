@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdec6cadcd88f394ca12f589a3d25b89, type: 3}
+  m_Name: Inventory
+  m_EditorClassIdentifier: 
+  dices:
+  - {fileID: 11400000, guid: 7530341a18b1ea041bedc956bde7bfb4, type: 2}
+  - {fileID: 11400000, guid: 7530341a18b1ea041bedc956bde7bfb4, type: 2}
+  - {fileID: 11400000, guid: d84c888f0b0d6ad478f3d192c68ae9dc, type: 2}
+  - {fileID: 11400000, guid: d84c888f0b0d6ad478f3d192c68ae9dc, type: 2}
+  - {fileID: 11400000, guid: 8ca776f5fe0000c4d8e192c18996bf5f, type: 2}
+  - {fileID: 11400000, guid: 8ca776f5fe0000c4d8e192c18996bf5f, type: 2}

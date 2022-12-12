@@ -8,7 +8,7 @@ using DG.Tweening;
 
 public class EquipPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
-    [SerializeField] private DiceType equipDiceType;
+    public DiceType equipDiceType;
     private Dice dice;
 
     private int index = -1;
@@ -45,7 +45,7 @@ public class EquipPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     #endregion
 
     #region Equip
-    public bool EquipDice(Dice dice, int index)
+    public bool EquipDice(Dice dice, int index, bool isAdd = false)
     {
         if (dice == null || dice.DiceType != equipDiceType || this.dice != null) return false;
 
@@ -56,7 +56,9 @@ public class EquipPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
         this.dice = dice;
         this.index = index;
-        GameManager.Instance.Deck.Add(dice);
+
+        if (isAdd)
+            GameManager.Instance.Deck.Add(dice);
 
         return true;
     }

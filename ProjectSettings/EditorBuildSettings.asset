@@ -11,5 +11,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/01.Scenes/Deck.unity
     guid: f5c5f8f8f4087fc43887638267377a52
+  - enabled: 1
+    path: Assets/01.Scenes/Lobby.unity
+    guid: 63bae841dc46f9e49a297aab5072ca2d
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: 9f984fc124e4a574ab2315389776912a, type: 2}

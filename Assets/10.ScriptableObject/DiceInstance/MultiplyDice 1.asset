@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 865b169f0e241464b85690937955c768, type: 3}
+  m_Name: MultiplyDice 1
+  m_EditorClassIdentifier: 
+  diceName: "\uBAA8 \uC544\uB2C8\uBA74 \uB3C4"
+  diceDescription: "\uC778\uC0DD\uC740 \uD55C \uBC29! \uBAA8 \uC544\uB2C8\uBA74 \uB3C4\uC778
+    \uACF1\uC148 \uC8FC\uC0AC\uC704."
+  diceShape: 4
+  diceType: 1
+  dicePrefab: {fileID: 3903677567441830101, guid: 32ab2c5b3f20b304591bf1adaa43ff00, type: 3}
+  numbers:
+    list: 00000000000000000300000003000000
+  skills:
+    list: 

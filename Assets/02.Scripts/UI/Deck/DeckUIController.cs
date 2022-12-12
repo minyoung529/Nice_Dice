@@ -8,10 +8,12 @@ public class DeckUIController : MonoBehaviour
 {
     public static EquipPanel CurrentEquipPanel { get; set; }
 
-    public List<Dice> testDices;
     private List<InventoryPanel> panels = new List<InventoryPanel>();
     private List<EquipPanel> equipPanels = new List<EquipPanel>();
     public FollowTarget[] diceObjects = new FollowTarget[100];
+
+    [field: SerializeField]
+    public InfoPanel InfoPanel { get; set; }
 
     public InventoryInput InventoryInput { get; set; }
 
@@ -25,12 +27,20 @@ public class DeckUIController : MonoBehaviour
         //SetDeck(GameManager.Instance.Deck);
 
         // 패널 생성
-        for (int i = 0; i < testDices.Count; i++)
+        for (int i = 0; i < GameManager.Instance.Inventory.Count; i++)
         {
             InventoryPanel panel = Instantiate(samplePanel, samplePanel.transform.parent);
             panels.Add(panel);
 
-            panel.Init(i, testDices[i]);
+            panel.Init(i, GameManager.Instance.Inventory[i]);
+        }
+
+        for (int i = 0; i < GameManager.Instance.Deck.Count; i++)
+        {
+            InventoryPanel panel = Instantiate(samplePanel, samplePanel.transform.parent);
+            panels.Add(panel);
+
+            panel.Init(i + GameManager.Instance.Inventory.Count, GameManager.Instance.Deck[i]);
         }
 
         samplePanel.gameObject.SetActive(false);
@@ -40,10 +50,21 @@ public class DeckUIController : MonoBehaviour
     {
         yield return null;
 
-        for (int i = 0; i < panels.Count; i++)
+        int invCnt = GameManager.Instance.Inventory.Count;
+
+        for (int i = 0; i < invCnt; i++)
         {
-            CreateDiceObject(i, testDices[i].DicePrefab);
+            CreateDiceObject(i, GameManager.Instance.Inventory[i].DicePrefab);
         }
+
+        for (int i = invCnt; i < invCnt + GameManager.Instance.Deck.Count; i++)
+        {
+            CreateDiceObject(i, GameManager.Instance.Deck[i - invCnt].DicePrefab);
+        }
+
+        yield return null;
+
+        SetDeck(GameManager.Instance.Deck);
     }
 
     private void Start()
@@ -74,17 +95,24 @@ public class DeckUIController : MonoBehaviour
     {
         for (int i = 0; i < deck.Count; i++)
         {
+            int idx = i + GameManager.Instance.Inventory.Count;
+
+            Debug.Log(deck[i].DiceName);
+
             EquipPanel panel = GetEmptyPanel(deck[i].DiceType);
 
             if (panel)
             {
-                panel.EquipDice(deck[i], i);
+                if (panel.EquipDice(deck[i], idx, false))
+                {
+                    panels[idx].Equip(panel);
+                }
             }
         }
     }
 
     private EquipPanel GetEmptyPanel(DiceType type)
     {
-        return equipPanels.Find(x => x.IsEmpty && x.Dice.DiceType == type);
+        return equipPanels.Find(x => x.IsEmpty && x.equipDiceType == type);
     }
 }

@@ -8,8 +8,8 @@ public class GameManager : MonoSingleton<GameManager>
 {
     #region Contoller
     private UIManager uiManager = new UIManager();
+    private DataManager dataManager = new DataManager();
     private DiceManager diceManager;
-
     #region Property
     public UIManager UI => uiManager;
     public DiceManager Dice
@@ -21,6 +21,7 @@ public class GameManager : MonoSingleton<GameManager>
             return diceManager;
         }
     }
+    private DataManager Data => dataManager;
 
     public bool PlayerTurn => playerTurn;
     #endregion
@@ -35,18 +36,17 @@ public class GameManager : MonoSingleton<GameManager>
     [SerializeField] private Character player;
     [SerializeField] private Character enemy;
 
-    [SerializeField] private List<Dice> inventory = new List<Dice>();
-    [SerializeField] private List<Dice> deck = new List<Dice>();
-
-    public List<Dice> Inventory => inventory;
-    public List<Dice> Deck => deck;
+    public List<Dice> Inventory => Data.CurrentUser.inventory;
+    public List<Dice> Deck => Data.CurrentUser.deck;
     #endregion
+
+    public static int maxDeal = 0;
 
     private void Awake()
     {
         // controllers에 컨트롤러들을 넣는다.
         controllers.Add(uiManager);
-        diceManager = FindObjectOfType<DiceManager>();
+        controllers.Add(dataManager);
 
         // 각 컨틀롤러들이 재정의한 OnAwake를 실행
         foreach (ControllerBase controller in controllers)

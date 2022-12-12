@@ -1821,8 +1821,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
+  m_Sprite: {fileID: -5177388603050735206, guid: 71ebafeef3c03457483266a33ab2b270, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1830,7 +1830,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_PixelsPerUnitMultiplier: 1.58
 --- !u!1 &7693472169278513107
 GameObject:
   m_ObjectHideFlags: 0
@@ -1844,6 +1844,7 @@ GameObject:
   - component: {fileID: 7693472169278513111}
   - component: {fileID: 599163270}
   - component: {fileID: 1343834120}
+  - component: {fileID: 305781921}
   m_Layer: 5
   m_Name: DicePanel
   m_TagString: Untagged
@@ -1900,8 +1901,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
+  m_Sprite: {fileID: -5177388603050735206, guid: 71ebafeef3c03457483266a33ab2b270, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1967,6 +1968,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &305781921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7693472169278513107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e8e60aee4200b44c9945cec3315da27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7693472169607727577
 GameObject:
   m_ObjectHideFlags: 0
@@ -2241,7 +2254,7 @@ GameObject:
   - component: {fileID: 7693472170929332961}
   - component: {fileID: 7693472170929332960}
   - component: {fileID: 1159543990}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Deck UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2350,6 +2363,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8ca776f5fe0000c4d8e192c18996bf5f, type: 2}
   - {fileID: 11400000, guid: 7530341a18b1ea041bedc956bde7bfb4, type: 2}
   - {fileID: 11400000, guid: 7530341a18b1ea041bedc956bde7bfb4, type: 2}
+  - {fileID: 11400000, guid: 82db07fd37bd6b94d8c072afd91fd954, type: 2}
+  - {fileID: 11400000, guid: 82db07fd37bd6b94d8c072afd91fd954, type: 2}
   diceObjects:
   - {fileID: 0}
   - {fileID: 0}
@@ -2451,6 +2466,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  <InfoPanel>k__BackingField: {fileID: 0}
   samplePanel: {fileID: 599163270}
 --- !u!1 &8824446018955171523
 GameObject:
@@ -2609,6 +2625,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   equipDiceType: 0
+--- !u!114 &7693472169770458714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4690680265442054333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e8e60aee4200b44c9945cec3315da27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &870541018325420683
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2729,6 +2757,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   equipDiceType: 2
+--- !u!114 &7693472169770458713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5550063871333549635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e8e60aee4200b44c9945cec3315da27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4012705702221429742
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2844,6 +2884,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   equipDiceType: 0
+--- !u!114 &7693472169770458716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8556557050731493158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e8e60aee4200b44c9945cec3315da27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &8556557050731493159 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4688530743891152073, guid: 973415df3e38add49bcb3264a0c2d57e, type: 3}
@@ -2969,6 +3021,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   equipDiceType: 0
+--- !u!114 &7693472169770458715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9132803556796713829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e8e60aee4200b44c9945cec3315da27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4688530742664515714
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3084,6 +3148,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   equipDiceType: 0
+--- !u!114 &7693472169770458717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2133138506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e8e60aee4200b44c9945cec3315da27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &2133138507 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4688530743891152073, guid: 973415df3e38add49bcb3264a0c2d57e, type: 3}
@@ -3196,6 +3272,18 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4688530743891152072, guid: 973415df3e38add49bcb3264a0c2d57e, type: 3}
   m_PrefabInstance: {fileID: 9023056880276379249}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &318000641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4335092546073385657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e8e60aee4200b44c9945cec3315da27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &868003888
 MonoBehaviour:
   m_ObjectHideFlags: 0

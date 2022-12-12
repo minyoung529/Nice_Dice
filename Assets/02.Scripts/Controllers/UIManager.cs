@@ -12,6 +12,18 @@ public class UIManager : ControllerBase
     private DamageText equationText;
     private DamageText damageText;
 
+    private WinUIController winUIController;
+    public WinUIController WinUI
+    {
+        get
+        {
+            if(winUIController == null)
+                winUIController = Object.FindObjectOfType<WinUIController>();
+
+            return winUIController;
+        }
+    }
+
     public override void OnAwake()
     {
         EventManager<List<KeyValuePair<Dice, int>>>.StartListening(Define.ON_END_ROLL, CreateDamageEquation);
@@ -76,6 +88,9 @@ public class UIManager : ControllerBase
 
         equationText.Text(result.ToString());
         damageText.Text(damage.ToString());
+
+        if (GameManager.Instance.PlayerTurn)
+            GameManager.maxDeal = Mathf.Max(damage, GameManager.maxDeal);
 
         EventManager<int>.TriggerEvent(Define.ON_END_ROLL, damage);
     }

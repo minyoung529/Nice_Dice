@@ -1,0 +1,31 @@
+﻿{
+    "maxMonster": 0,
+    "inventory": [
+        {
+            "instanceID": 32064
+        },
+        {
+            "instanceID": 32064
+        },
+        {
+            "instanceID": 32042
+        },
+        {
+            "instanceID": 32042
+        },
+        {
+            "instanceID": 32084
+        },
+        {
+            "instanceID": 32084
+        }
+    ],
+    "deck": [
+        {
+            "instanceID": 32042
+        },
+        {
+            "instanceID": 32084
+        }
+    ]
+}

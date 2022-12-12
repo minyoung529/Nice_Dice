@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.Rendering.DebugUI.Table;
 
 /// <summary>
 /// 주사위를 굴릴 때의 상태
@@ -10,6 +11,7 @@ public class RollState : StateBase
     int rollHash = Animator.StringToHash("Roll");
     private readonly float delayTime = 2f;
     private float timer;
+    Quaternion rot;
 
     public RollState(Character character) : base(character) { }
 
@@ -17,6 +19,7 @@ public class RollState : StateBase
     {
         character.Animator.SetTrigger(rollHash);
         timer = 0f;
+        rot = character.transform.rotation;
         ChildStart();
     }
 
@@ -25,7 +28,7 @@ public class RollState : StateBase
     public override void OnUpdate()
     {
         timer += Time.deltaTime;
-
+        character.transform.rotation = rot;
         if (timer > delayTime)
         {
             character.ChangeState(CharacterState.Attack);
