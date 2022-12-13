@@ -30,6 +30,8 @@ public class Character : MonoBehaviour
 
     Quaternion rot;
 
+    public bool IsBlock { get; set; }
+
     private void Awake()
     {
         Animator = GetComponent<Animator>();

@@ -65,6 +65,13 @@ public class HitState : StateBase
         if (timer < 0 && character.Hp > 0)
         {
             character.ChangeState(CharacterState.Idle);
+
+            if (character.IsBlock)
+            {
+                GameManager.Instance.PlayerTurn = !GameManager.Instance.PlayerTurn;
+                character.IsBlock = false;
+            }
+
             GameManager.Instance.NextTurn();
         }
     }

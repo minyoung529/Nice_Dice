@@ -40,7 +40,7 @@ public class DiceControl : MonoBehaviour
                 Vector3[] vectors = diceData.DiceShapeDict[(int)diceShape];
                 Vector3 upSide = vectors[sideIdx];
                 transform.DORotate(upSide, rotateSpeed, RotateMode.Fast);
-                Debug.Log($"{sideIdx} side is Up");
+                //Debug.Log($"{sideIdx} side is Up");
             }
             isRotate = value;
         }

@@ -36,6 +36,7 @@ public class DiceGauge : MonoBehaviour
             else
             {
                 rollGrade = CaculateGrade();
+                ResetData();
             }
 
             isPlaying = value;

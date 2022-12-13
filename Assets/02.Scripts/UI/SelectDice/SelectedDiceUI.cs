@@ -18,13 +18,18 @@ public class SelectedDiceUI : MonoBehaviour
 
         EventManager.StartListening(Define.ON_END_DRAW, ActiveUI);
         EventManager.StartListening(Define.ON_END_DRAW, CreateDice);
-        EventManager.StartListening(Define.ON_START_MONSTER_TURN, ActiveUI);
+        EventManager.StartListening(Define.ON_START_MONSTER_TURN, InactiveUI);
         EventManager.StartListening(Define.ON_START_MONSTER_TURN, DestroyDice);
+    }
+
+    private void InactiveUI()
+    {
+        diceUI.SetActive(false);
     }
 
     private void ActiveUI()
     {
-        diceUI.SetActive(!diceUI.activeSelf);
+        diceUI.SetActive(true);
     }
 
     private void CreateDice()
@@ -43,7 +48,7 @@ public class SelectedDiceUI : MonoBehaviour
 
     private void DestroyDice()
     {
-        for (int i = 0; i < dicePanel.Length; i++)
+        for (int i = 0; i < /*dicePanel.Length*/diceObjects.Count; i++)
         {
             Destroy(diceObjects[i]);
         }
@@ -52,9 +57,9 @@ public class SelectedDiceUI : MonoBehaviour
 
     private void OnDestroy()
     {
-        EventManager.StopListening(Define.ON_END_DRAW, CreateDice);
         EventManager.StopListening(Define.ON_END_DRAW, ActiveUI);
+        EventManager.StopListening(Define.ON_END_DRAW, CreateDice);
+        EventManager.StopListening(Define.ON_START_MONSTER_TURN, InactiveUI);
         EventManager.StopListening(Define.ON_START_MONSTER_TURN, DestroyDice);
-        EventManager.StopListening(Define.ON_START_MONSTER_TURN, ActiveUI);
     }
 }
