@@ -21,8 +21,9 @@ public class Monster : ScriptableObject
     [SerializeField] private MonsterType monsterType = MonsterType.Unknown;
     [SerializeField] private GameObject monsterPrefab = null;
     [SerializeField] private int Max_Hp = 100;
-    [SerializeField] private int hp = 100;
     [SerializeField] private List<Dice> monsterDices = new List<Dice>();
+
+    private bool isKnown = false;
 
     [ConditionalField(nameof(monsterType), false, MonsterType.Range)]
     [SerializeField] private int minDamage = 1;
@@ -35,10 +36,10 @@ public class Monster : ScriptableObject
     public MonsterType MonsterType => monsterType;
     public GameObject MonsterPrefab => monsterPrefab;
     public int MAX_HP => Max_Hp;
-    public int Hp => hp;
     public int MinDamage => minDamage;
     public int MaxDamage => maxDamage;
     public IReadOnlyList<Dice> MonsterDices => monsterDices;
+    public bool IsKnown { set { isKnown = value; } }
     #endregion
 
     public Monster(string name, string[] description, int maxHp, MonsterType monsterType)
@@ -49,7 +50,6 @@ public class Monster : ScriptableObject
             descriptionList.Add(description[i]);
         }
         Max_Hp = maxHp;
-        hp = Max_Hp;
         this.monsterType = monsterType;
     }
 

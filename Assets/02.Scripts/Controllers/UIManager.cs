@@ -12,12 +12,25 @@ public class UIManager : ControllerBase
     private DamageText equationText;
     private DamageText damageText;
 
+    private HeaderUIController headerUIController = null;
+    public HeaderUIController HeaderUIController
+    {
+        get
+        {
+            if (headerUIController == null)
+            {
+                headerUIController = Object.FindObjectOfType<HeaderUIController>();
+            }
+            return headerUIController;
+        }
+    }
+
     private WinUIController winUIController;
     public WinUIController WinUI
     {
         get
         {
-            if(winUIController == null)
+            if (winUIController == null)
                 winUIController = Object.FindObjectOfType<WinUIController>();
 
             return winUIController;

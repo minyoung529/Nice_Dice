@@ -7,5 +7,7 @@ public class GameStart : MonoBehaviour
     void Start()
     {
         GameManager.Instance.NextTurn();
+        GameManager.Instance.stage = 1;
+        GameManager.Instance.UI.HeaderUIController.UpdateUI();
     }
 }

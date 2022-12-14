@@ -33,6 +33,7 @@ public class GameManager : MonoSingleton<GameManager>
     #endregion
 
     #region Game
+    public int stage = 1;
     private bool playerTurn = true;
 
     private Character player;
