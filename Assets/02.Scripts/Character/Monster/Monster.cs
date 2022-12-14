@@ -11,7 +11,7 @@ public enum MonsterType
     Unknown
 }
 
-[CreateAssetMenu(fileName = "New MonsterData", menuName = "SO/Monster/MonsterData")]
+[CreateAssetMenu(fileName = "New Monster", menuName = "SO/Monster/MonsterInstance")]
 public class Monster : ScriptableObject
 {
     [SerializeField] private string monsterName = "";
@@ -49,6 +49,7 @@ public class Monster : ScriptableObject
             descriptionList.Add(description[i]);
         }
         Max_Hp = maxHp;
+        hp = Max_Hp;
         this.monsterType = monsterType;
     }
 
