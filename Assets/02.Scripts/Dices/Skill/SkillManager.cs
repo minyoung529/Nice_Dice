@@ -42,7 +42,9 @@ public class SkillManager : MonoBehaviour
                 skill.SetCharacter(GameManager.Instance.Enemy);
             }
 
-            skillUIController.ShowSkill(dice, GameManager.Instance.PlayerTurn);
+            bool enemyHit = skill.EnemyHit;
+
+            skillUIController.ShowSkill(dice, GameManager.Instance.PlayerTurn, enemyHit);
         }
     }
 

@@ -21,7 +21,7 @@ public class SkillUIController : MonoBehaviour
         skillPanel.transform.localScale = Vector3.zero;
     }
 
-    public void ShowSkill(Dice dice, bool playerTurn)
+    public void ShowSkill(Dice dice, bool playerTurn, bool enemyHit)
     {
         nameText.text = dice.DiceName;
         infoText.text = dice.DiceDescription;
@@ -31,13 +31,21 @@ public class SkillUIController : MonoBehaviour
 
         if (playerTurn)
         {
-            hitPos = enemy.position;
-            skillPanel.transform.position = player.position + Vector3.up ;
+            if (enemyHit)
+                hitPos = enemy.position;
+            else
+                hitPos = player.position;
+
+            skillPanel.transform.position = player.position + Vector3.up;
         }
         else
         {
-            hitPos = player.position;
-            skillPanel.transform.position = enemy.position + Vector3.up ;
+            if (enemyHit)
+                hitPos = player.position;
+            else
+                hitPos = enemy.position;
+
+            skillPanel.transform.position = enemy.position + Vector3.up;
         }
 
         Sequence seq = DOTween.Sequence();

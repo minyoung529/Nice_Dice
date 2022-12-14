@@ -50,11 +50,6 @@ public class AttackState : StateBase
 
         if (timer < 0)
         {
-            if (character.IsPlayer)
-            {
-                Camera.main.transform.DOShakePosition(0.5f);
-            }
-
             character.Enemy.ChangeState(CharacterState.Hit);
             character.ChangeState(CharacterState.Idle);
         }

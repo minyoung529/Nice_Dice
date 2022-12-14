@@ -44,5 +44,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b61b5ca149c80ce4099a68d8e8a5f468, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <EnemyHit>k__BackingField: 1
   chain: {fileID: 6534337678441966100, guid: 0f75358d3903e0a48b2707033a455d1c, type: 3}
-  icon: {fileID: 21300000, guid: d6022fe2557d6fc40963652bf3f78c85, type: 3}

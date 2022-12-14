@@ -65,6 +65,7 @@ public class GameManager : MonoSingleton<GameManager>
     #endregion
 
     public static int maxDeal = 0;
+    public float DamageWeight { get; set; } = 1;
 
     private void Awake()
     {

@@ -1412,12 +1412,28 @@ PrefabInstance:
       propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2242307151870375819, guid: e73fa8383752f10479a811e96abf8c8c, type: 3}
+      propertyPath: EmissionModule.m_BurstCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2242307151870375819, guid: e73fa8383752f10479a811e96abf8c8c, type: 3}
+      propertyPath: EmissionModule.m_Bursts.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2242307151870375829, guid: e73fa8383752f10479a811e96abf8c8c, type: 3}
       propertyPath: m_Name
       value: vfx_BasicHit2
       objectReference: {fileID: 0}
     - target: {fileID: 6204480336455582202, guid: e73fa8383752f10479a811e96abf8c8c, type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6204480336455582202, guid: e73fa8383752f10479a811e96abf8c8c, type: 3}
       propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9176538609964258281, guid: e73fa8383752f10479a811e96abf8c8c, type: 3}
+      propertyPath: looping
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9176538609964258281, guid: e73fa8383752f10479a811e96abf8c8c, type: 3}

@@ -31,6 +31,11 @@ public class HitState : StateBase
         character.Animator.SetTrigger(hitHash);
         timer = /*character.Animator.GetCurrentAnimatorClipInfo(0).Length*/2f;
 
+        if (character.IsPlayer)
+        {
+            Camera.main.transform.DOShakePosition(0.5f);
+        }
+
         character.StartCoroutine(HitEffect());
     }
 
@@ -49,7 +54,7 @@ public class HitState : StateBase
 
         if (GameManager.Instance.PlayerTurn != character.IsPlayer)
         {
-            character.Hp -= damage;
+            character.Hp -= (int)(damage * GameManager.Instance.DamageWeight);
 
             if (character.Hp <= 0)
             {

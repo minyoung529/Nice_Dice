@@ -35,6 +35,7 @@ public class RandomMachine : MonoBehaviour
         seq.AppendCallback(() => particle.Play());
         seq.AppendInterval(0.6f);
         seq.AppendCallback(()=> EventManager.TriggerEvent(Define.ON_START_DRAW));
+        seq.AppendCallback(() => Camera.main.transform.DOShakeScale(0.5f));
         
         StopAllCoroutines();
         StartCoroutine(DrawCoroutine());

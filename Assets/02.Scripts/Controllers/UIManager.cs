@@ -11,13 +11,25 @@ public class UIManager : ControllerBase
 {
     private DamageText equationText;
     private DamageText damageText;
+    private DamageText effectText;
+
+    #region Property
+    private DamageText EquationText
+    { get { if (!equationText) equationText = GameObject.Find("EquationText").GetComponent<DamageText>(); return equationText; } }
+
+    private DamageText DamageText
+    { get { if (!damageText) damageText = GameObject.Find("DamageText").GetComponent<DamageText>(); return damageText; } }
+
+    private DamageText EffectText
+    { get { if (!effectText) effectText = GameObject.Find("EffectText").GetComponent<DamageText>(); return effectText; } }
+    #endregion
 
     private WinUIController winUIController;
     public WinUIController WinUI
     {
         get
         {
-            if(winUIController == null)
+            if (winUIController == null)
                 winUIController = Object.FindObjectOfType<WinUIController>();
 
             return winUIController;
@@ -31,6 +43,11 @@ public class UIManager : ControllerBase
         // 구조 고치기
         equationText = GameObject.Find("EquationText")?.GetComponent<DamageText>();
         damageText = GameObject.Find("DamageText")?.GetComponent<DamageText>();
+    }
+
+    public override void OnStart()
+    {
+        //Debug.Log("UI MANAGER START");
     }
 
     private void CreateDamageEquation(List<KeyValuePair<Dice, int>> sides)
@@ -83,11 +100,8 @@ public class UIManager : ControllerBase
             damage *= multiply;
         }
 
-        equationText ??= GameObject.Find("EquationText")?.GetComponent<DamageText>();
-        damageText ??= GameObject.Find("DamageText")?.GetComponent<DamageText>();
-
-        equationText.Text(result.ToString());
-        damageText.Text(damage.ToString());
+        EquationText.Text(result.ToString());
+        DamageText.Text(damage.ToString());
 
         if (GameManager.Instance.PlayerTurn)
             GameManager.maxDeal = Mathf.Max(damage, GameManager.maxDeal);
@@ -95,8 +109,13 @@ public class UIManager : ControllerBase
         EventManager<int>.TriggerEvent(Define.ON_END_ROLL, damage);
     }
 
-    public override void OnStart()
+    public void ActiveEffectText(string text)
     {
-        Debug.Log("UI MANAGER START");
+        EffectText.Text(text);
+    }
+
+    ~UIManager()
+    {
+        EventManager<List<KeyValuePair<Dice, int>>>.StopListening(Define.ON_END_ROLL, CreateDamageEquation);
     }
 }

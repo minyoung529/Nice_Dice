@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 865b169f0e241464b85690937955c768, type: 3}
+  m_Name: Skl_Shield
+  m_EditorClassIdentifier: 
+  diceName: "\uBC29\uC5B4\uB9C9"
+  diceDescription: "\uB2E4\uC74C \uD134\uC5D0 \uC801\uC758 \uACF5\uACA9\uC744 50%
+    \uD761\uC218\uD569\uB2C8\uB2E4."
+  diceShape: 6
+  diceType: 2
+  dicePrefab: {fileID: 4481101965752501872, guid: 9d605f4728f80594f9ef94528a4d0792, type: 3}
+  numbers:
+    list: 000000000000000000000000000000000000000000000000
+  skill: {fileID: -1116067660969961457, guid: 9a1c72c13a9ecaf4b91cd944a83f9413, type: 3}
+  icon: {fileID: 21300000, guid: a44b32c76724b944fa23db45e00913f7, type: 3}
