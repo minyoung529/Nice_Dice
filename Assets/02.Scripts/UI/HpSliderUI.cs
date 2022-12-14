@@ -11,6 +11,8 @@ public class HpSliderUI : MonoBehaviour
     [SerializeField]
     private Image fillImage;
 
+    public Character Character { set { character = value; } }
+
     void Update()
     {
         fillImage.fillAmount = Mathf.Lerp(fillImage.fillAmount, character.Hp / (float)character.MaxHp, 0.5f);

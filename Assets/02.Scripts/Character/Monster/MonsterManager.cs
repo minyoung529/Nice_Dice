@@ -6,6 +6,8 @@ public class MonsterManager : MonoBehaviour
 {
     [SerializeField]
     private List<Monster> monsters = null;
+    [SerializeField]
+    private HpSliderUI monsterHpUI = null;
     private void Awake()
     {
         EventManager.StartListening(Define.ON_NEXT_STAGE, NextStage);
@@ -18,6 +20,8 @@ public class MonsterManager : MonoBehaviour
         AIEnemyController monster = gameObject.GetComponent<AIEnemyController>();
         monster.Enemy = GameManager.Instance.Player;
         monster.Hp = monster.monsterData.MAX_HP;
+        monsterHpUI.Character = monster;
+        GameManager.Instance.Enemy = monster;
     }
 
     private void NextStage()
@@ -36,7 +40,7 @@ public class MonsterManager : MonoBehaviour
     {
         for (int i = 0; i < monsters.Count; i++)
         {
-
+            monsters[i].IsKnown = false;
         }
     }
 

@@ -28,6 +28,7 @@ public class DieState : StateBase
 
     public override void OnEnd()
     {
+        Debug.Log("On End");
         if (character.CompareTag("Player")) // ∞‘¿” ≥°
         {
             GameManager.Instance.UI.WinUI.UpdateUI(true, GameManager.Instance.Enemy.GetComponent<AIEnemyController>().monsterData.MonsterName, GameManager.maxDeal);
@@ -40,6 +41,7 @@ public class DieState : StateBase
             GameManager.Instance.stage++;
             EventManager.TriggerEvent(Define.ON_NEXT_STAGE);
             GameManager.Instance.UI.HeaderUIController.UpdateUI();
+            GameManager.Instance.NextTurn();
         }
     }
 }

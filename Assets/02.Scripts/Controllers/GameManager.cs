@@ -53,6 +53,12 @@ public class GameManager : MonoSingleton<GameManager>
 
     public Character Enemy
     {
+        set
+        {
+            enemy = value;
+            enemy.Enemy = player;
+            player.Enemy = value;
+        }
         get
         {
             if (!enemy)
