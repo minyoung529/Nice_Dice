@@ -326,8 +326,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Enemy>k__BackingField: {fileID: 0}
-  hp: 0
-  maxHp: 0
+  hp: 250
+  maxHp: 250
   <IsPlayer>k__BackingField: 0
   monsterData: {fileID: 11400000, guid: df47f371bf78836408442fd6bfccef4a, type: 2}
 --- !u!114 &8845558075301582604
