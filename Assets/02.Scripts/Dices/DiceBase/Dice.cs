@@ -93,7 +93,10 @@ public class Dice : ScriptableObject
     [ConditionalField(nameof(diceType), false, DiceType.Number, DiceType.Multiply)]
     public VisibleList<int> numbers;
     [ConditionalField(nameof(diceType), false, DiceType.Skill)]
-    public VisibleList<int> skills;
+    public SkillBase skill;
+    [ConditionalField(nameof(diceType), false, DiceType.Skill)]
+    public Sprite icon;
+
 
     #region Property
     public string DiceName { get => diceName; set => diceName = value; }
@@ -113,24 +116,14 @@ public class Dice : ScriptableObject
 
     public object GetSide(int index)
     {
-        if (numbers.Count >= index || skills.Count >= index) return null;
-
-        if (diceType == DiceType.Skill)
-        {
-            return skills[index];
-        }
+        if (numbers.Count >= index) return null;
 
         return numbers[index];
     }
 
     public void SetNumberSide(int index, object newSide)
     {
-        if (numbers.Count >= index || skills.Count >= index) return;
-
-        if (diceType == DiceType.Skill)
-        {
-            skills[index] = (int)newSide;
-        }
+        if (numbers.Count >= index) return;
 
         numbers[index] = (int)newSide;
     }
@@ -142,11 +135,7 @@ public class Dice : ScriptableObject
             diceName = name;
         }
 
-        if(diceType == DiceType.Skill && (skills==null || skills.Count != (int)diceShape))
-        {
-            skills = new VisibleList<int>((int)diceShape);
-        }
-        else if((diceType == DiceType.Number || diceType == DiceType.Multiply) &&
+        if((diceType == DiceType.Number || diceType == DiceType.Multiply) &&
             (numbers == null || numbers.Count != (int)diceShape))
         {
             numbers = new VisibleList<int>((int)diceShape);

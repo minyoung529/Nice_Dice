@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using System;
 
 /// <summary>
 /// 공격 상태
@@ -9,7 +10,7 @@ using DG.Tweening;
 public class AttackState : StateBase
 {
     private readonly int attackHash = Animator.StringToHash("Attack");
-    private const float ATTACK_TIME = 2f;
+    private const float ATTACK_TIME = 0.63f;
     private float timer = ATTACK_TIME;
     private bool isEffect;
     private AttackEffect effect;
@@ -26,6 +27,11 @@ public class AttackState : StateBase
         character.Animator.SetTrigger(attackHash);
         isEffect = false;
 
+        if (SkillManager.CurrentSkill)
+        {
+            timer += 2f;
+        }
+
         ChildStart();
     }
 
@@ -37,13 +43,18 @@ public class AttackState : StateBase
 
         timer -= Time.deltaTime;
 
-        if(timer < ATTACK_TIME/2f && !isEffect)
+        if (timer < ATTACK_TIME / 2f && !isEffect)
         {
             character.StartCoroutine(Effect());
         }
 
         if (timer < 0)
         {
+            if (character.IsPlayer)
+            {
+                Camera.main.transform.DOShakePosition(0.5f);
+            }
+
             character.Enemy.ChangeState(CharacterState.Hit);
             character.ChangeState(CharacterState.Idle);
         }
@@ -78,5 +89,10 @@ public class AttackState : StateBase
         curEffect?.gameObject.SetActive(true);
         yield return new WaitForSeconds(1f);
         curEffect?.gameObject.SetActive(false);
+    }
+
+    ~AttackState()
+    {
+        EventManager<int>.StopListening(Define.ON_END_ROLL, SetAttackEffect);
     }
 }

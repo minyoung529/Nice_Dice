@@ -35,10 +35,10 @@ public class DiceManager : MonoBehaviour
 
         for (int i = 0; i < Define.DICE_SELECT_COUNT; i++)
         {
-            int n = Random.Range(0, Define.MAX_DECK_COUNT);
+            int n = Random.Range(0, GameManager.Instance.Deck.Count);
             while (arr.Contains(n))
             {
-                n = Random.Range(0, Define.MAX_DECK_COUNT);
+                n = Random.Range(0, GameManager.Instance.Deck.Count);
             }
 
             arr.Add(n);

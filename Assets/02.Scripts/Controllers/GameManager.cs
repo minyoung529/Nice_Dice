@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using CustomLib;
 using UnityEngine.SceneManagement;
+using JetBrains.Annotations;
 
 public class GameManager : MonoSingleton<GameManager>
 {
@@ -16,14 +17,14 @@ public class GameManager : MonoSingleton<GameManager>
     {
         get
         {
-            if(!diceManager)
+            if (!diceManager)
                 return FindObjectOfType<DiceManager>();
             return diceManager;
         }
     }
     private DataManager Data => dataManager;
 
-    public bool PlayerTurn => playerTurn;
+    public bool PlayerTurn { get => playerTurn; set => playerTurn = value; }
     #endregion
 
     // 컨트롤러들(UI, InputManageR)을 모아놓는 곳
@@ -32,9 +33,32 @@ public class GameManager : MonoSingleton<GameManager>
     #endregion
 
     #region Game
-    private bool playerTurn = false;
-    [SerializeField] private Character player;
-    [SerializeField] private Character enemy;
+    private bool playerTurn = true;
+
+    private Character player;
+    private Character enemy;
+
+    public Character Player
+    {
+        get
+        {
+            if (player)
+                return player;
+
+            player = GameObject.FindGameObjectWithTag("Player").GetComponent<Character>();
+            return player;
+        }
+    }
+
+    public Character Enemy
+    {
+        get
+        {
+            if (!enemy)
+                enemy = FindObjectOfType<AIEnemyController>();
+            return enemy;
+        }
+    }
 
     public List<Dice> Inventory => Data.CurrentUser.inventory;
     public List<Dice> Deck => Data.CurrentUser.deck;
@@ -75,7 +99,6 @@ public class GameManager : MonoSingleton<GameManager>
 
     public void NextTurn()
     {
-        Debug.Log("NEXT TURN!!!!!!!!!!!!!!!!!");
         playerTurn = !playerTurn;
         //SelectedDices = deck.RandomSelect(Define.DICE_SELECT_COUNT);
         Dice.DiceSelect();

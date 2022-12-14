@@ -97,8 +97,6 @@ public class DeckUIController : MonoBehaviour
         {
             int idx = i + GameManager.Instance.Inventory.Count;
 
-            Debug.Log(deck[i].DiceName);
-
             EquipPanel panel = GetEmptyPanel(deck[i].DiceType);
 
             if (panel)

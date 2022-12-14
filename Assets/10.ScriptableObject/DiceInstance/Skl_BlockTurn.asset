@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 865b169f0e241464b85690937955c768, type: 3}
+  m_Name: Skl_BlockTurn
+  m_EditorClassIdentifier: 
+  diceName: "\uBD09\uC1C4\uC8E0?\u314B\u314B"
+  diceDescription: "\uC801\uC758 \uD55C \uD134\uC744 \uBB34\uB985\uB2C8\uB2E4. "
+  diceShape: 6
+  diceType: 2
+  dicePrefab: {fileID: 2395508117302047443, guid: 461cf72482217ec4caa77b1b2e8daaa5, type: 3}
+  numbers:
+    list: 000000000000000000000000000000000000000000000000
+  skill: {fileID: 7622798708637039585, guid: a331ed11283020e4fb9e0c1e54764d6a, type: 3}
+  icon: {fileID: 21300000, guid: d6022fe2557d6fc40963652bf3f78c85, type: 3}
