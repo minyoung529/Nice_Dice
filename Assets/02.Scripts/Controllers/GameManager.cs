@@ -11,6 +11,8 @@ public class GameManager : MonoSingleton<GameManager>
     private UIManager uiManager = new UIManager();
     private DataManager dataManager = new DataManager();
     private DiceManager diceManager;
+
+    private CameraMove mainCam;
     #region Property
     public UIManager UI => uiManager;
     public DiceManager Dice
@@ -23,6 +25,16 @@ public class GameManager : MonoSingleton<GameManager>
         }
     }
     private DataManager Data => dataManager;
+    public CameraMove MainCam
+    {
+        get
+        {
+            if (!mainCam)
+                mainCam = FindObjectOfType<CameraMove>();
+
+            return mainCam;
+        }
+    }
 
     public bool PlayerTurn { get => playerTurn; set => playerTurn = value; }
     #endregion
@@ -49,7 +61,6 @@ public class GameManager : MonoSingleton<GameManager>
             return player;
         }
     }
-
     public Character Enemy
     {
         get
@@ -62,10 +73,10 @@ public class GameManager : MonoSingleton<GameManager>
 
     public List<Dice> Inventory => Data.CurrentUser.inventory;
     public List<Dice> Deck => Data.CurrentUser.deck;
-    #endregion
 
     public static int maxDeal = 0;
     public float DamageWeight { get; set; } = 1;
+    #endregion
 
     private void Awake()
     {

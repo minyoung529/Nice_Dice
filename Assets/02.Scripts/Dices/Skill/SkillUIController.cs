@@ -36,7 +36,7 @@ public class SkillUIController : MonoBehaviour
             else
                 hitPos = player.position;
 
-            skillPanel.transform.position = player.position + Vector3.up;
+            skillPanel.transform.position = player.position + Vector3.up * 2f;
         }
         else
         {
@@ -45,15 +45,17 @@ public class SkillUIController : MonoBehaviour
             else
                 hitPos = enemy.position;
 
-            skillPanel.transform.position = enemy.position + Vector3.up;
+            skillPanel.transform.position = enemy.position + Vector3.up * 2f;
         }
 
         Sequence seq = DOTween.Sequence();
 
         seq.Append(skillPanel.transform.DOScale(Vector3.one, 0.3f));
         seq.AppendInterval(3f);
+
         seq.Append(skillPanel.transform.DOMove(hitPos, 0.4f).SetEase(Ease.InFlash));
-        seq.Join(skillPanel.transform.DOScale(Vector3.zero, 0.6f).SetEase(Ease.InFlash));
+        seq.Join(skillPanel.transform.DOScale(Vector3.zero, 0.6f).SetEase(Ease.OutFlash));
+
         seq.AppendCallback(() => EventManager.TriggerEvent(Define.ON_ACT_SKILL));
     }
 }

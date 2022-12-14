@@ -18,11 +18,14 @@ public class HitState : StateBase
     private Renderer renderer;
     private int damage = 0;
 
+    private AttackEffect effect;
+
     public HitState(Character character) : base(character) { }
 
     public override void OnAwake()
     {
         renderer = character.GetComponentInChildren<Renderer>();
+        effect = character.GetComponent<AttackEffect>();
         EventManager<int>.StartListening(Define.ON_END_ROLL, SetDamage);
     }
 
@@ -31,12 +34,15 @@ public class HitState : StateBase
         character.Animator.SetTrigger(hitHash);
         timer = /*character.Animator.GetCurrentAnimatorClipInfo(0).Length*/2f;
 
-        if (character.IsPlayer)
+        if (damage > 0)
         {
-            Camera.main.transform.DOShakePosition(0.5f);
-        }
+            character.StartCoroutine(HitEffect());
 
-        character.StartCoroutine(HitEffect());
+            if (character.IsPlayer)
+            {
+                GameManager.Instance.MainCam.transform.DOShakePosition(0.5f);
+            }
+        }
     }
 
     private IEnumerator HitEffect()
@@ -47,14 +53,18 @@ public class HitState : StateBase
         renderer.material.SetColor(BASE_COLOR, Color.red);
         renderer.material.SetColor(SHADER_COLOR, Color.red);
 
+        effect.effects[(int)EffectType.Hit].gameObject.SetActive(true);
+
         yield return new WaitForSeconds(0.6f);
+
+        effect.effects[(int)EffectType.Hit].gameObject.SetActive(false);
 
         renderer.material.SetColor(BASE_COLOR, oldBaseColor);
         renderer.material.SetColor(SHADER_COLOR, oldShaderColor);
 
         if (GameManager.Instance.PlayerTurn != character.IsPlayer)
         {
-            character.Hp -= (int)(damage * GameManager.Instance.DamageWeight);
+            character.Hp -= damage;
 
             if (character.Hp <= 0)
             {

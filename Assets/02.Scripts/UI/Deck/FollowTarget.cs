@@ -7,6 +7,12 @@ public class FollowTarget : MonoBehaviour
     private Transform target;
     public Transform Target { get => target; set { target = value; SetFirstPosition(target?.position); } }
     private Vector3 prevPosition;
+    private Camera camera;
+
+    private void Start()
+    {
+        camera = Camera.main;
+    }
 
     private void Update()
     {
@@ -58,9 +64,9 @@ public class FollowTarget : MonoBehaviour
     private Vector3 GetMousePosition()
     {
         Vector3 mousePos = Input.mousePosition;
-        mousePos.z = Camera.main.farClipPlane;
+        mousePos.z = camera.farClipPlane;
 
-        mousePos = Camera.main.ScreenToWorldPoint(mousePos);
+        mousePos = camera.ScreenToWorldPoint(mousePos);
         mousePos.z = transform.position.z;
 
         return mousePos;

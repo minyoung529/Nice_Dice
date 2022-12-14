@@ -106,7 +106,7 @@ public class UIManager : ControllerBase
         if (GameManager.Instance.PlayerTurn)
             GameManager.maxDeal = Mathf.Max(damage, GameManager.maxDeal);
 
-        EventManager<int>.TriggerEvent(Define.ON_END_ROLL, damage);
+        EventManager<int>.TriggerEvent(Define.ON_END_ROLL, (int)(damage * GameManager.Instance.DamageWeight));
     }
 
     public void ActiveEffectText(string text)

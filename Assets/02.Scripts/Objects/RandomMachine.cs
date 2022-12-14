@@ -33,9 +33,11 @@ public class RandomMachine : MonoBehaviour
 
         seq.Append(transform.DOMove(TARGET_POS, 1f).SetEase(Ease.InFlash));
         seq.AppendCallback(() => particle.Play());
-        seq.AppendInterval(0.6f);
+        seq.Append(GameManager.Instance.MainCam.transform.DOShakePosition(0.4f));
+        seq.AppendInterval(0.5f);
+        seq.AppendCallback(() => GameManager.Instance.MainCam.MoveDrawPos());
+        seq.AppendInterval(1f);
         seq.AppendCallback(()=> EventManager.TriggerEvent(Define.ON_START_DRAW));
-        seq.AppendCallback(() => Camera.main.transform.DOShakeScale(0.5f));
         
         StopAllCoroutines();
         StartCoroutine(DrawCoroutine());
@@ -44,7 +46,7 @@ public class RandomMachine : MonoBehaviour
     private void Inactive()
     {
         StopAllCoroutines();
-        transform.DOMove(ORIGIANL_POS, 1f).SetEase(Ease.InFlash);
+        transform.DOMove(ORIGIANL_POS, 1f).SetEase(Ease.OutFlash);
 
         EventManager.TriggerEvent(Define.ON_END_DRAW);
     }

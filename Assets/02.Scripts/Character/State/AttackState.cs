@@ -64,7 +64,7 @@ public class AttackState : StateBase
     {
         if (effect == null) return;
 
-        if (damage > 30)
+        if (damage  > 30)
         {
             curEffect = effect.effects[(int)EffectType.HighAttack];
         }
@@ -72,7 +72,7 @@ public class AttackState : StateBase
         {
             curEffect = effect.effects[(int)EffectType.LowAttack];
         }
-        if (character.Enemy.Hp - damage <= 0)
+        if (character.Enemy.Hp - damage  <= 0)
         {
             curEffect = effect.effects[(int)EffectType.FinalAttack];
         }

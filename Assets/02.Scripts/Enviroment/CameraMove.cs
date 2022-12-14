@@ -14,7 +14,6 @@ public class CameraMove : MonoBehaviour
 
     private void Awake()
     {
-        EventManager.StartListening(Define.ON_START_DRAW, MoveDrawPos);
         EventManager.StartListening(Define.ON_END_DRAW, MoveOriginalPos);
     }
 
@@ -25,14 +24,14 @@ public class CameraMove : MonoBehaviour
         originalRot = transform.eulerAngles;
     }
 
-    private void MoveOriginalPos()
+    public void MoveOriginalPos()
     {
         Move(originalPos, 1f);
         Rotate(originalRot, 1f);
         Zoom(4f, 1f);
     }
 
-    private void MoveDrawPos()
+    public void MoveDrawPos()
     {
         Move(DRAW_POS, 1f);
         Rotate(DRAW_ROT, 1f);
@@ -41,7 +40,7 @@ public class CameraMove : MonoBehaviour
 
     public void Move(Vector3 pos, float duration)
     {
-        camera.transform.DOMove(pos, duration);
+        camera.transform.DOMove(pos, duration).SetEase(Ease.OutFlash);
     }
 
     public void Rotate(Vector3 angles, float duration)
@@ -56,7 +55,6 @@ public class CameraMove : MonoBehaviour
 
     private void OnDestroy()
     {
-        EventManager.StopListening(Define.ON_START_DRAW, MoveDrawPos);
         EventManager.StopListening(Define.ON_END_DRAW, MoveOriginalPos);
     }
 }

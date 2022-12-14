@@ -25,7 +25,7 @@ public class BlockSkill : SkillBase
 
     protected override void OnActSkill()
     {
-        Camera.main.transform.DOShakePosition(0.5f);
+        GameManager.Instance.MainCam.transform.DOShakePosition(0.5f);
 
         Vector3 pos = character.Enemy.transform.position;
         pos.y = -0.7f;
