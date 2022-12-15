@@ -32,7 +32,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 9181497101535001885}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -180,7 +180,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 9181497101535001885}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -328,7 +328,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 9181497101535001885}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -475,11 +475,11 @@ RectTransform:
   m_LocalScale: {x: 0.0074074073, y: 0.0074074073, z: 0.0074074073}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 2877552134825352455}
+  - {fileID: 7327029100191632228}
   - {fileID: 9181497101500372087}
   - {fileID: 9181497100599976843}
   - {fileID: 35697398}
-  - {fileID: 2877552134825352455}
-  - {fileID: 7327029100191632228}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -566,7 +566,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1929208405247727955, guid: 05f47118881fde34cb7b8f8ef766922d, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1929208405247727955, guid: 05f47118881fde34cb7b8f8ef766922d, type: 3}
       propertyPath: m_AnchorMax.x
@@ -735,7 +735,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1929208405247727955, guid: 05f47118881fde34cb7b8f8ef766922d, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1929208405247727955, guid: 05f47118881fde34cb7b8f8ef766922d, type: 3}
       propertyPath: m_AnchorMax.x

@@ -25,15 +25,18 @@ public class BlockSkill : SkillBase
 
     protected override void OnActSkill()
     {
-        GameManager.Instance.MainCam.transform.DOShakePosition(0.5f);
+        if(turn == 0)
+        {
+            GameManager.Instance.MainCam.transform.DOShakePosition(0.5f);
 
-        Vector3 pos = character.Enemy.transform.position;
-        pos.y = -0.7f;
-        pos.x = 0.6f;
+            Vector3 pos = character.Enemy.transform.position;
+            pos.y = -0.7f;
+            pos.x = 0.6f;
 
-        chain = Instantiate(chain, pos, Quaternion.identity, null);
-        chain.transform.localScale = Vector3.one * 30f;
+            chain = Instantiate(chain, pos, Quaternion.identity, null);
+            chain.transform.localScale = Vector3.one * 30f;
 
-        chain.transform.DOScale(Vector3.one, 1f).SetEase(Ease.InFlash);
+            chain.transform.DOScale(Vector3.one, 1f).SetEase(Ease.InFlash);
+        }
     }
 }

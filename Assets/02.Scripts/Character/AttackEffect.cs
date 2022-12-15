@@ -9,6 +9,7 @@ public enum EffectType
     FinalAttack,
     Shield,
     Hit,
+    Strong,
     Length
 }
 

@@ -36,7 +36,7 @@ public class SkillUIController : MonoBehaviour
             else
                 hitPos = player.position;
 
-            skillPanel.transform.position = player.position + Vector3.up * 2f;
+            skillPanel.transform.position = player.position + Vector3.up * 3f;
         }
         else
         {
@@ -45,7 +45,7 @@ public class SkillUIController : MonoBehaviour
             else
                 hitPos = enemy.position;
 
-            skillPanel.transform.position = enemy.position + Vector3.up * 2f;
+            skillPanel.transform.position = enemy.position + Vector3.up * 3f;
         }
 
         Sequence seq = DOTween.Sequence();

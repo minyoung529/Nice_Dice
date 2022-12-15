@@ -17,12 +17,12 @@ public class ShieldSkill : SkillBase
     {
         if (turn++ <= 0)
         {
-            GameManager.Instance.DamageWeight /= 2;
+            GameManager.Instance.DamageWeight -= 0.5f;
         }
         else
         {
             // TODO: 고쳐야한다!
-            GameManager.Instance.DamageWeight *= 2;
+            GameManager.Instance.DamageWeight += 0.5f;
 
             effect.effects[(int)EffectType.Shield].gameObject.SetActive(false);
             Destroy(gameObject);
@@ -31,13 +31,16 @@ public class ShieldSkill : SkillBase
 
     private void OnEndRoll(int damage)
     {
-        GameManager.Instance.UI.ActiveEffectText("/2");
+            GameManager.Instance.UI.ActiveEffectText("/2");
         //GameManager.Instance.UI.ActiveEffectText($"/2 = {(int)(damage  * GameManager.Instance.DamageWeight)}");
     }
 
     protected override void OnActSkill()
     {
-        effect.effects[(int)EffectType.Shield].gameObject.SetActive(true);
+        if (turn == 0)
+        {
+            effect.effects[(int)EffectType.Shield].gameObject.SetActive(true);
+        }
     }
 
     protected override void ChildOnDestroy()

@@ -13,7 +13,19 @@ public class Character : MonoBehaviour
 
     public Animator Animator { get; protected set; }
     [field: SerializeField]
-    public Character Enemy { get; set; }
+    private Character enemy;
+    public Character Enemy
+    {
+        get
+        {
+            if (IsPlayer)
+                enemy ??= FindObjectOfType<AIEnemyController>();
+            else
+                enemy ??= GameObject.FindGameObjectWithTag("Player").GetComponent<Character>();
+
+            return enemy;
+        }
+    }
 
     [SerializeField] private int hp;
     public int Hp

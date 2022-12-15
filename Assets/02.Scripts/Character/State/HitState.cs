@@ -64,7 +64,7 @@ public class HitState : StateBase
 
         if (GameManager.Instance.PlayerTurn != character.IsPlayer)
         {
-            character.Hp -= damage;
+            character.Hp -= (int)(damage * GameManager.Instance.DamageWeight);
 
             if (character.Hp <= 0)
             {
