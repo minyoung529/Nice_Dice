@@ -6,6 +6,7 @@ public class DieState : StateBase
 {
     readonly int hashDie = Animator.StringToHash("Die");
     private float timer = 0f;
+    private bool isCallOnce = true;
 
     public DieState(Character character) : base(character)
     {
@@ -22,13 +23,16 @@ public class DieState : StateBase
 
         if (timer > 1.5f)
         {
+            timer = 0f;
             OnEnd();
         }
     }
 
     public override void OnEnd()
     {
-        Debug.Log("On End");
+        if (!isCallOnce) { return; }
+        isCallOnce = false;
+
         if (character.CompareTag("Player")) // ∞‘¿” ≥°
         {
             GameManager.Instance.UI.WinUI.UpdateUI(true, GameManager.Instance.Enemy.GetComponent<AIEnemyController>().monsterData.MonsterName, GameManager.maxDeal);
@@ -41,7 +45,8 @@ public class DieState : StateBase
             GameManager.Instance.stage++;
             EventManager.TriggerEvent(Define.ON_NEXT_STAGE);
             GameManager.Instance.UI.HeaderUIController.UpdateUI();
-            GameManager.Instance.NextTurn();
         }
+
+        isCallOnce = true;
     }
 }

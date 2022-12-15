@@ -22,6 +22,7 @@ public class MonsterManager : MonoBehaviour
         monster.Hp = monster.monsterData.MAX_HP;
         monsterHpUI.Character = monster;
         GameManager.Instance.Enemy = monster;
+
     }
 
     private void NextStage()
@@ -34,6 +35,7 @@ public class MonsterManager : MonoBehaviour
         {
             MonsterSetting(Random.Range(0, monsters.Count));
         }
+        GameManager.Instance.NextTurn();
     }
 
     private void ResetGame()

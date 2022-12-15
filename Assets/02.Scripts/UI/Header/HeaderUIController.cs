@@ -11,6 +11,12 @@ public class HeaderUIController : MonoBehaviour
     public void UpdateUI()
     {
         stageText.text = $"STAGE {GameManager.Instance.stage}";
-        enemyText.text = GameManager.Instance.Enemy.GetComponent<AIEnemyController>().monsterData.MonsterName;
+        if (GameManager.Instance.Enemy != null)
+        {
+            enemyText.text = GameManager.Instance.Enemy.GetComponent<AIEnemyController>().monsterData.MonsterName;
+            return;
+        }
+     
+        enemyText.text = "¾â¶ó²á ¹®¾î";
     }
 }

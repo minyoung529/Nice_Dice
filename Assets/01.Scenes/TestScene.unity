@@ -189,6 +189,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 790206676971702343, guid: 802012b326ce94b4898be4b51d90dc3b, type: 3}
+      propertyPath: hp
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 790206676971702343, guid: 802012b326ce94b4898be4b51d90dc3b, type: 3}
       propertyPath: <Enemy>k__BackingField
       value: 
       objectReference: {fileID: 5866666021952147288}
@@ -335,6 +339,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7ea34f8bd7ab36489f7c4e97291f431, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stage: 1
 --- !u!4 &288975932
 Transform:
   m_ObjectHideFlags: 0
@@ -1840,6 +1845,10 @@ PrefabInstance:
     - target: {fileID: 3302726344780263711, guid: 41b8e179844410d469a961f1a2739890, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5866666021952147288, guid: 41b8e179844410d469a961f1a2739890, type: 3}
+      propertyPath: hp
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5866666021952147288, guid: 41b8e179844410d469a961f1a2739890, type: 3}
       propertyPath: <Enemy>k__BackingField

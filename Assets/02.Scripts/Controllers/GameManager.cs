@@ -57,7 +57,7 @@ public class GameManager : MonoSingleton<GameManager>
         {
             enemy = value;
             enemy.Enemy = player;
-            player.Enemy = value;
+            player.Enemy = enemy;
         }
         get
         {

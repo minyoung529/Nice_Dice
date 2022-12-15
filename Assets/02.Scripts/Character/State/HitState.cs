@@ -85,7 +85,10 @@ public class HitState : StateBase
     {
         if (!character.IsPlayer)
         {
+            if (character == null) { character = GameManager.Instance.Enemy; }
+
             AIEnemyController enemy = character?.GetComponent<AIEnemyController>();
+
             switch (enemy.monsterData.MonsterType)
             {
                 case MonsterType.Odd:
