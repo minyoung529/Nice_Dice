@@ -25,6 +25,8 @@ public class HpSliderUI : MonoBehaviour
         prevHp = character.Hp;
     }
 
+    public Character Character { set { character = value; } }
+
     void Update()
     {
         fillImage.fillAmount = Mathf.Lerp(fillImage.fillAmount, character.Hp / (float)character.MaxHp, 0.5f);

@@ -20,7 +20,7 @@ public class GameManager : MonoSingleton<GameManager>
         get
         {
             if (!diceManager)
-                return FindObjectOfType<DiceManager>();
+                diceManager = FindObjectOfType<DiceManager>();
             return diceManager;
         }
     }
@@ -45,6 +45,7 @@ public class GameManager : MonoSingleton<GameManager>
     #endregion
 
     #region Game
+    public int stage = 1;
     private bool playerTurn = true;
 
     private Character player;
@@ -63,6 +64,12 @@ public class GameManager : MonoSingleton<GameManager>
     }
     public Character Enemy
     {
+        set
+        {
+            enemy = value;
+            enemy.Enemy = player;
+            player.Enemy = enemy;
+        }
         get
         {
             if (!enemy)

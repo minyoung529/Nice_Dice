@@ -25,6 +25,7 @@ public class Character : MonoBehaviour
 
             return enemy;
         }
+        set => enemy = value;
     }
 
     [SerializeField] private int hp;

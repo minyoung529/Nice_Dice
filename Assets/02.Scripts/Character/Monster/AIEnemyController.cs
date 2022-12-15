@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class AIEnemyController : Character
 {
+    public Monster monsterData = null;
+
     protected override void Start()
     {
         base.Start();

@@ -98,6 +98,33 @@ public class HitState : StateBase
 
     public void SetDamage(int _damage)
     {
+        if (!character.IsPlayer)
+        {
+            if (character == null) { character = GameManager.Instance.Enemy; }
+
+            AIEnemyController enemy = character?.GetComponent<AIEnemyController>();
+
+            switch (enemy.monsterData.MonsterType)
+            {
+                case MonsterType.Odd:
+                    if (_damage % 2 != 1)
+                        _damage = 0;
+                    break;
+                case MonsterType.Even:
+                    if (_damage % 2 != 0)
+                        _damage = 0;
+                    break;
+                case MonsterType.Range:
+                    if (_damage < enemy.monsterData.MinDamage || _damage > enemy.monsterData.MaxDamage)
+                        _damage = 0;
+                    break;
+                case MonsterType.Unknown:
+                    break;
+                default:
+                    break;
+            }
+        }
+
         damage = _damage;
     }
 
