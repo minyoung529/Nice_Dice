@@ -35,7 +35,6 @@ public class MonsterManager : MonoBehaviour
         {
             MonsterSetting(Random.Range(0, monsters.Count));
         }
-        GameManager.Instance.NextTurn();
     }
 
     private void ResetGame()

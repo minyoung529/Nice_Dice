@@ -20,6 +20,10 @@ public class UIManager : ControllerBase
             if (headerUIController == null)
             {
                 headerUIController = Object.FindObjectOfType<HeaderUIController>();
+                if (headerUIController == null)
+                {
+                    headerUIController = GameObject.Find("Header UI")?.AddComponent<HeaderUIController>();
+                }
             }
             return headerUIController;
         }

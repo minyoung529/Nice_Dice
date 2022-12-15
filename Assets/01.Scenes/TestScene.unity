@@ -1848,7 +1848,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5866666021952147288, guid: 41b8e179844410d469a961f1a2739890, type: 3}
       propertyPath: hp
-      value: 1
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 5866666021952147288, guid: 41b8e179844410d469a961f1a2739890, type: 3}
       propertyPath: <Enemy>k__BackingField
