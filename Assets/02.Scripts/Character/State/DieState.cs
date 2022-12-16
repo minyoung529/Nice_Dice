@@ -47,6 +47,7 @@ public class DieState : StateBase
         }
         else
         {
+            character.Release();
             Object.Destroy(character.gameObject);
             // 새로운 애
             GameManager.Instance.stage++;

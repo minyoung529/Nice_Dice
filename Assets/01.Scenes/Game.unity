@@ -290,6 +290,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1393246468283907955, guid: 8d791e7885d8c11418ff9fcd9552c337, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 1393246468283907955, guid: 8d791e7885d8c11418ff9fcd9552c337, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 1393246468283907955, guid: 8d791e7885d8c11418ff9fcd9552c337, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 1393246468283907955, guid: 8d791e7885d8c11418ff9fcd9552c337, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 1393246468283907955, guid: 8d791e7885d8c11418ff9fcd9552c337, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.39
+      objectReference: {fileID: 0}
+    - target: {fileID: 1393246468283907955, guid: 8d791e7885d8c11418ff9fcd9552c337, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.08
+      objectReference: {fileID: 0}
     - target: {fileID: 4866334915530435930, guid: 8d791e7885d8c11418ff9fcd9552c337, type: 3}
       propertyPath: enemy
       value: 

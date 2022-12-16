@@ -91,11 +91,16 @@ public class Character : MonoBehaviour
         transform.rotation = rot;
     }
 
-    private void OnDestroy()
+    public void Release()
     {
         foreach (var pair in stateActions)
         {
             pair.Value.OnDestroy();
         }
+    }
+
+    protected void OnDestroy()
+    {
+        Release();
     }
 }

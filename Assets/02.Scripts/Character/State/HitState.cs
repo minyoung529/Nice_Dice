@@ -33,7 +33,7 @@ public class HitState : StateBase
 
     public override void OnStart()
     {
-        timer = /*character.Animator.GetCurrentAnimatorClipInfo(0).Length*/2f;
+        timer = /*character.Animator.GetCurrentAnimatorClipInfo(0).Length*/1.5f;
 
         if (!character.IsPlayer && damage == 0)
         {
@@ -51,7 +51,7 @@ public class HitState : StateBase
             }
         }
 
-        if (damage > 0)
+        else if (damage > 0)
         {
             character.StartCoroutine(HitEffect());
 
@@ -74,7 +74,7 @@ public class HitState : StateBase
 
         effect.effects[(int)EffectType.Hit].gameObject.SetActive(true);
 
-        yield return new WaitForSeconds(0.6f);
+        yield return new WaitForSeconds(0.4f);
 
         effect.effects[(int)EffectType.Hit].gameObject.SetActive(false);
 
