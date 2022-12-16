@@ -24,6 +24,19 @@ public class UIManager : ControllerBase
     { get { if (!effectText) effectText = GameObject.Find("EffectText").GetComponent<DamageText>(); return effectText; } }
     #endregion
 
+    private DescriptionUI descriptionUI = null;
+    public DescriptionUI DescriptionUI
+    {
+        get
+        {
+            if (descriptionUI == null)
+            {
+                descriptionUI = Object.FindObjectOfType<DescriptionUI>();
+            }
+            return descriptionUI;
+        }
+    }
+
     private HeaderUIController headerUIController = null;
     public HeaderUIController HeaderUIController
     {
