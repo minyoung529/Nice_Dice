@@ -44,7 +44,7 @@ public class DieState : StateBase
             // 새로운 애
             GameManager.Instance.stage++;
             EventManager.TriggerEvent(Define.ON_NEXT_STAGE);
-            GameManager.Instance.UI.HeaderUIController.UpdateUI();
+            GameManager.Instance.UI.HeaderUI.UpdateUI();
             GameManager.Instance.NextTurn();
             GameManager.Instance.NextTurn();
         }

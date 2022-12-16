@@ -38,7 +38,7 @@ public class UIManager : ControllerBase
     }
 
     private HeaderUIController headerUIController = null;
-    public HeaderUIController HeaderUIController
+    public HeaderUIController HeaderUI
     {
         get
         {
