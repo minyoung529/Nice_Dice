@@ -1370,6 +1370,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 9181497101535001885, guid: 40e519f5d2cd6a842b8dcf1c78c616b7, type: 3}
   m_PrefabInstance: {fileID: 9181497100817084415}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1833362965 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5479909530224071564, guid: 6c67c81bcb2d54e42a3e93620f07aec1, type: 3}
+  m_PrefabInstance: {fileID: 1924643871}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1924643871
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1461,9 +1466,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2362116166395443507, guid: 6c67c81bcb2d54e42a3e93620f07aec1, type: 3}
+      propertyPath: uiPanel
+      value: 
+      objectReference: {fileID: 1833362965}
+    - target: {fileID: 3768603647945044706, guid: 6c67c81bcb2d54e42a3e93620f07aec1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5079154428853183475, guid: 6c67c81bcb2d54e42a3e93620f07aec1, type: 3}
       propertyPath: m_Name
       value: Description UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 5479909530224071564, guid: 6c67c81bcb2d54e42a3e93620f07aec1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c67c81bcb2d54e42a3e93620f07aec1, type: 3}

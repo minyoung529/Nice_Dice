@@ -11,7 +11,17 @@ public class MonsterManager : MonoBehaviour
 
     private Monster nowMonster = null;
 
-    public Monster NowMonster => nowMonster;
+    public Monster NowMonster
+    {
+        get
+        {
+            if (nowMonster == null)
+            {
+                nowMonster = FindObjectOfType<AIEnemyController>().monsterData;
+            }
+            return nowMonster;
+        }
+    }
 
     private void Awake()
     {

@@ -9,7 +9,7 @@ public class GameStart : MonoBehaviour
         EventManager.TriggerEvent(Define.ON_RELOAD_GAME);
 
         GameManager.Instance.NextTurn();
-        //GameManager.Instance.stage = 1;
         GameManager.Instance.UI.HeaderUIController.UpdateUI();
+        GameManager.Instance.UI.DescriptionUI.ActivePanel();
     }
 }

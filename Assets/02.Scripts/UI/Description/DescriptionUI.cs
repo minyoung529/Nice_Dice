@@ -23,10 +23,16 @@ public class DescriptionUI : MonoBehaviour
         EventManager.StartListening(Define.ON_NEXT_STAGE, ActivePanel);
     }
 
-    private void ActivePanel()
+    public void ActivePanel()
     {
         if (monsterManager.NowMonster.IsKnown) { return; }
-        uiPanel.SetActive(true);
+        Time.timeScale = 0f;
+
+        for (int i = 0; i < transform.childCount; ++i)
+        {
+            transform.GetChild(i).gameObject.SetActive(true);
+        }
+        
         Description();
         monsterManager.NowMonster.IsKnown = true;
     }
@@ -48,9 +54,14 @@ public class DescriptionUI : MonoBehaviour
             descriptionIdx++;
             return;
         }
+        
+        for (int i = 0; i < transform.childCount; ++i)
+        {
+            transform.GetChild(i).gameObject.SetActive(false);
+        }
 
         descriptionIdx = 0;
-        uiPanel.SetActive(false);
+        Time.timeScale = 1f;
     }
 
 }

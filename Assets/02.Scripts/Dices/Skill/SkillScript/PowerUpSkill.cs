@@ -9,7 +9,7 @@ public class PowerUpSkill : SkillBase
     protected override void OnStart()
     {
         effect = character.GetComponent<AttackEffect>();
-        effect?.effects[(int)EffectType.Strong].gameObject.SetActive(true);
+        effect?.effects[(int)EffectType.Strong]?.gameObject.SetActive(true);
 
         GameManager.Instance.UI.ActiveEffectText("x 1.2");
 
