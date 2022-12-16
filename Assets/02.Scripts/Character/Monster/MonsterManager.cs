@@ -11,7 +11,8 @@ public class MonsterManager : MonoBehaviour
     private void Awake()
     {
         EventManager.StartListening(Define.ON_NEXT_STAGE, NextStage);
-        EventManager.StartListening(Define.ON_END_GAME, ResetGame);
+        //EventManager.StartListening(Define.ON_END_GAME, ResetGame);
+        EventManager.StartListening(Define.ON_RELOAD_GAME, ResetGame);
     }
 
     private void MonsterSetting(int idx)
@@ -22,7 +23,6 @@ public class MonsterManager : MonoBehaviour
         monster.Hp = monster.monsterData.MAX_HP;
         monsterHpUI.Character = monster;
         GameManager.Instance.Enemy = monster;
-
     }
 
     private void NextStage()
@@ -43,11 +43,14 @@ public class MonsterManager : MonoBehaviour
         {
             monsters[i].IsKnown = false;
         }
+
+        monsterHpUI = GameObject.Find("MonsterGauge").GetComponent<HpSliderUI>();
     }
 
     private void OnDestroy()
     {
         EventManager.StopListening(Define.ON_NEXT_STAGE, NextStage);
-        EventManager.StopListening(Define.ON_END_GAME, ResetGame);
+        //EventManager.StopListening(Define.ON_END_GAME, ResetGame);
+        EventManager.StartListening(Define.ON_RELOAD_GAME, ResetGame);
     }
 }

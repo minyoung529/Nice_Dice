@@ -24,6 +24,7 @@ public class Define
     public const int ON_ACT_SKILL = 125;
 
     public const int ON_NEXT_STAGE = 3000;
+    public const int ON_RELOAD_GAME = 3100;
     #endregion
 
     public const int MAX_NUMBER_DICE = 4;

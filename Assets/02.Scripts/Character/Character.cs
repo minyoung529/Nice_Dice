@@ -66,6 +66,8 @@ public class Character : MonoBehaviour
         }
 
         ChangeState(CharacterState.Idle);
+
+        hp = maxHp;
     }
 
     public void ChangeState(CharacterState state)

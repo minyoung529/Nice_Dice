@@ -11,7 +11,7 @@ public class SkillManager : MonoBehaviour
     private void Awake()
     {
         EventManager<List<KeyValuePair<Dice, int>>>.StartListening(Define.ON_END_ROLL, Skill);
-        skillUIController = FindObjectOfType<SkillUIController>();
+        EventManager.StartListening(Define.ON_RELOAD_GAME, OnReload);
     }
 
     private void Skill(List<KeyValuePair<Dice, int>> diceSides)
@@ -46,6 +46,11 @@ public class SkillManager : MonoBehaviour
 
             skillUIController.ShowSkill(dice, GameManager.Instance.PlayerTurn, enemyHit);
         }
+    }
+
+    private void OnReload()
+    {
+        skillUIController = FindObjectOfType<SkillUIController>();
     }
 
     private void OnDestroy()

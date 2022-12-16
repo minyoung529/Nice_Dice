@@ -19,6 +19,11 @@ public class DiceManager : MonoBehaviour
     public IReadOnlyList<GameObject> DiceObjects => diceObjects;
     #endregion
 
+    private void Awake()
+    {
+        EventManager.StartListening(Define.ON_RELOAD_GAME, Reload);    
+    }
+
     private void Start()
     {
         diceData.SettingData();
@@ -117,5 +122,16 @@ public class DiceManager : MonoBehaviour
         }
 
         return selectedSides;
+    }
+
+    private void Reload()
+    {
+        selectedDice.Clear();
+        diceObjects.Clear();
+    }
+
+    private void OnDestroy()
+    {
+        EventManager.StopListening(Define.ON_RELOAD_GAME, Reload);
     }
 }

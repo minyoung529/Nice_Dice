@@ -823,7 +823,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3161141148886174866, guid: 05f47118881fde34cb7b8f8ef766922d, type: 3}
       propertyPath: m_Name
-      value: Enemy
+      value: EnemyHpBar
       objectReference: {fileID: 0}
     - target: {fileID: 4774317320350966082, guid: 05f47118881fde34cb7b8f8ef766922d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -836,6 +836,10 @@ PrefabInstance:
     - target: {fileID: 4774317320350966082, guid: 05f47118881fde34cb7b8f8ef766922d, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4774317320350966083, guid: 05f47118881fde34cb7b8f8ef766922d, type: 3}
+      propertyPath: m_Name
+      value: MonsterGauge
       objectReference: {fileID: 0}
     - target: {fileID: 5910525352121426833, guid: 05f47118881fde34cb7b8f8ef766922d, type: 3}
       propertyPath: m_text

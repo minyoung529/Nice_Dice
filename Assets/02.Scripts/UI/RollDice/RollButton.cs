@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using System;
 
 public class RollButton : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
 {
