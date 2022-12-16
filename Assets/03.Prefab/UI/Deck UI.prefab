@@ -930,8 +930,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52bcb45bac330ab4a93db8abab079da0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 1
+  type: 3
   isSelect: 1
+  helpPanel: {fileID: 0}
 --- !u!1 &1610918696
 GameObject:
   m_ObjectHideFlags: 0
@@ -1464,7 +1465,7 @@ MonoBehaviour:
   m_Content: {fileID: 7693472169628625923}
   m_Horizontal: 0
   m_Vertical: 1
-  m_MovementType: 1
+  m_MovementType: 2
   m_Elasticity: 0.1
   m_Inertia: 1
   m_DecelerationRate: 0.135

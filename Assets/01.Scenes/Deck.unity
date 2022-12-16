@@ -943,10 +943,6 @@ PrefabInstance:
       propertyPath: <InfoPanel>k__BackingField
       value: 
       objectReference: {fileID: 7161535331930554253}
-    - target: {fileID: 3070830158528001465, guid: 79723b909d1f4844e88d9614f0aee890, type: 3}
-      propertyPath: m_MovementType
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 7693472169278513104, guid: 79723b909d1f4844e88d9614f0aee890, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1061,18 +1057,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7693472170929332967, guid: 79723b909d1f4844e88d9614f0aee890, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8216732144233968221, guid: 79723b909d1f4844e88d9614f0aee890, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8216732144233968221, guid: 79723b909d1f4844e88d9614f0aee890, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8216732144233968221, guid: 79723b909d1f4844e88d9614f0aee890, type: 3}
-      propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8389843472020075387, guid: 79723b909d1f4844e88d9614f0aee890, type: 3}

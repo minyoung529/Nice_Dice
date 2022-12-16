@@ -12,7 +12,7 @@ public class InfoPanel : MonoBehaviour
 
     public void Active(Dice dice, Vector3 position)
     {
-        if(dice == null)
+        if (dice == null)
         {
             Inactive();
             return;
@@ -24,15 +24,20 @@ public class InfoPanel : MonoBehaviour
         transform.DOScale(1f, 0.3f);
 
         StringBuilder info = new StringBuilder();
-        info.Append("( ");
 
-        if (dice.DiceType == DiceType.Multiply || dice.DiceType == DiceType.Number)
+        if (dice.DiceType != DiceType.Skill)
         {
-            List<int> list = dice.numbers.List.ToList();
-            info.Append(string.Join(", ", list.OrderBy(x => x)));
+            info.Append("( ");
+
+            if (dice.DiceType == DiceType.Multiply || dice.DiceType == DiceType.Number)
+            {
+                List<int> list = dice.numbers.List.ToList();
+                info.Append(string.Join(", ", list.OrderBy(x => x)));
+            }
+
+            info.Append(" )\n");
         }
 
-        info.Append(" )\n");
         info.Append(dice.DiceDescription);
 
         infoText.text = info.ToString();
