@@ -2,33 +2,33 @@
     "maxMonster": 0,
     "inventory": [
         {
-            "instanceID": 32748
+            "instanceID": 32924
         },
         {
-            "instanceID": 32748
+            "instanceID": 32924
         },
         {
-            "instanceID": 32746
+            "instanceID": 32902
         },
         {
-            "instanceID": 32746
+            "instanceID": 32902
         },
         {
-            "instanceID": 32750
+            "instanceID": 32944
         },
         {
-            "instanceID": 32750
+            "instanceID": 32944
         }
     ],
     "deck": [
         {
-            "instanceID": 32750
+            "instanceID": 32944
         },
         {
-            "instanceID": 32750
+            "instanceID": 32944
         },
         {
-            "instanceID": 32760
+            "instanceID": 33286
         }
     ]
 }
