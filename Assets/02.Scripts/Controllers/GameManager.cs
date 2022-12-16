@@ -46,7 +46,7 @@ public class GameManager : MonoSingleton<GameManager>
 
     #region Game
     public int stage = 1;
-    private bool playerTurn = true;
+   [SerializeField]  private bool playerTurn = false;
 
     private Character player;
     private Character enemy;

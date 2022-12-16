@@ -20,5 +20,6 @@ public class PowerUpSkill : SkillBase
     {
         GameManager.Instance.DamageWeight -= 0.2f;
         effect?.effects[(int)EffectType.Strong].gameObject.SetActive(false);
+        Destroy(gameObject);
     }
 }

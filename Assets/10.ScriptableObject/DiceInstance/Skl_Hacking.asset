@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 865b169f0e241464b85690937955c768, type: 3}
+  m_Name: Skl_Hacking
+  m_EditorClassIdentifier: 
+  diceName: "\uD574\uD0B9"
+  diceDescription: "\uC0C1\uB300\uB97C \uD574\uD0B9\uD574 \uC774\uBC88 \uACF5\uACA9\uC740
+    \uC801\uC744 \uBC18\uB4DC\uC2DC \uC801\uC911\uC2DC\uD0B5\uB2C8\uB2E4."
+  diceShape: 6
+  diceType: 2
+  dicePrefab: {fileID: 1307462251326542141, guid: ee667c55eee3aa94a80561bf02b17ea2, type: 3}
+  numbers:
+    list: 000000000000000000000000000000000000000000000000
+  skill: {fileID: -2737097241340596219, guid: dbf5fc270f9e3e04aab2302805d79949, type: 3}
+  icon: {fileID: 21300000, guid: e8ae616cd37f9814091a5ee9b4d9b7fd, type: 3}

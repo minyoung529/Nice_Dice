@@ -43,7 +43,10 @@ public class Character : MonoBehaviour
 
     Quaternion rot;
 
-    public bool IsBlock { get; set; }
+    #region Skill
+    public bool IsBlock { get; set; } = false;
+    public bool MustHit { get; set; } = false;
+    #endregion
 
     private void Awake()
     {
