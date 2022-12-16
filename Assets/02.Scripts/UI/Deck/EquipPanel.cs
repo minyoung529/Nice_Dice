@@ -47,12 +47,14 @@ public class EquipPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     #region Equip
     public bool EquipDice(Dice dice, int index, bool isAdd = false)
     {
-        if (dice == null || dice.DiceType != equipDiceType || this.dice != null) return false;
+        if (dice == null || dice.DiceType != equipDiceType) return false;
 
         // type이 같고 max 개수를 넘지 않았을 때
         if (dice.DiceType == DiceType.Number && DiceCount(DiceType.Number) > Define.MAX_NUMBER_DICE) return false;
         if (dice.DiceType == DiceType.Skill && DiceCount(DiceType.Skill) > Define.MAX_SKILL_DICE) return false;
         if (dice.DiceType == DiceType.Multiply && DiceCount(DiceType.Multiply) > Define.MAX_MULTIPLY_DICE) return false;
+
+        DelsetcItem();
 
         this.dice = dice;
         this.index = index;
@@ -65,12 +67,19 @@ public class EquipPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
     int DiceCount(DiceType type)
     {
-        return GameManager.Instance.Deck.FindAll(x => x.DiceType == type).Count;
+        if (dice == null)
+        {
+            return GameManager.Instance.Deck.FindAll(x => x.DiceType == type).Count;
+        }
+        else
+        {
+            return GameManager.Instance.Deck.FindAll(x => x.DiceType == type).Count - 1;
+        }
     }
 
-    private void DelsetcItem()
+    public void DelsetcItem()
     {
-        OnDeselctItem.Invoke();
+        OnDeselctItem?.Invoke();
     }
     #endregion // Equip
 

@@ -85,8 +85,11 @@ public class GameManager : MonoSingleton<GameManager>
     public float DamageWeight { get; set; } = 1;
     #endregion
 
-    private void Awake()
+    public List<Dice> decktest;
+
+    protected override void Awake()
     {
+        base.Awake();
         // controllers에 컨트롤러들을 넣는다.
         controllers.Add(uiManager);
         controllers.Add(dataManager);
@@ -112,6 +115,8 @@ public class GameManager : MonoSingleton<GameManager>
 
     private void Update()
     {
+        decktest = Deck;
+
         foreach (ControllerBase controller in controllers)
         {
             controller.OnUpdate();
