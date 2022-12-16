@@ -19,6 +19,9 @@ public class SkillUIController : MonoBehaviour
     private void Start()
     {
         skillPanel.transform.localScale = Vector3.zero;
+
+        //EventManager.StartListening(Define.ON_END_GAME, ResetValue);
+        ResetValue();
     }
 
     public void ShowSkill(Dice dice, bool playerTurn, bool enemyHit)
@@ -28,6 +31,7 @@ public class SkillUIController : MonoBehaviour
         skillIcon.sprite = dice.icon;
 
         Vector3 hitPos;
+
 
         if (playerTurn)
         {
@@ -57,5 +61,11 @@ public class SkillUIController : MonoBehaviour
         seq.Join(skillPanel.transform.DOScale(Vector3.zero, 0.6f).SetEase(Ease.OutFlash));
 
         seq.AppendCallback(() => EventManager.TriggerEvent(Define.ON_ACT_SKILL));
+    }
+
+    private void ResetValue()
+    {
+        enemy  = transform.Find("Enemy");
+        player = transform.Find("Player");
     }
 }

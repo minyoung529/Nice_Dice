@@ -106,7 +106,6 @@ public class DiceGauge : MonoBehaviour
         // 1~GRADE까지 단계가 나온다
         // 0부터 시작하므로 1을 더해줌
         int grade = (int)(Rate / (1 / (float)this.grade)) + 1;
-        Debug.Log($"{grade}단계");
         return grade;
     }
 

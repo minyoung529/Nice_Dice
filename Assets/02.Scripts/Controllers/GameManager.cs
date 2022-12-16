@@ -91,6 +91,8 @@ public class GameManager : MonoSingleton<GameManager>
         controllers.Add(uiManager);
         controllers.Add(dataManager);
 
+        EventManager.StartListening(Define.ON_RELOAD_GAME, ResetValue);
+
         // 각 컨틀롤러들이 재정의한 OnAwake를 실행
         foreach (ControllerBase controller in controllers)
         {
@@ -131,5 +133,17 @@ public class GameManager : MonoSingleton<GameManager>
         {
             EventManager.TriggerEvent(Define.ON_START_MONSTER_TURN);
         }
+    }
+
+    private void ResetValue()
+    {
+        maxDeal = 0;
+        DamageWeight = 1f;
+        stage = 1;
+    }
+
+    private void OnDestroy()
+    {
+        EventManager.StopListening(Define.ON_RELOAD_GAME, ResetValue);
     }
 }
