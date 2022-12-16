@@ -7,6 +7,7 @@ public class DieState : StateBase
     readonly int hashDie = Animator.StringToHash("Die");
     private float timer = 0f;
     private bool isCallOnce = true;
+    private bool delayCmp;
 
     public DieState(Character character) : base(character)
     {
@@ -15,15 +16,19 @@ public class DieState : StateBase
     public override void OnStart()
     {
         character.Animator.SetTrigger(hashDie);
+        timer = 0f;
+        delayCmp = false;
+        //isCallOnce = false;
     }
 
     public override void OnUpdate()
     {
         timer += Time.deltaTime;
 
-        if (timer > 1.5f)
+        if (timer > 3f)
         {
             timer = 0f;
+            delayCmp = true;
             OnEnd();
         }
     }
@@ -31,6 +36,8 @@ public class DieState : StateBase
     public override void OnEnd()
     {
         if (!isCallOnce) { return; }
+        if (!delayCmp) return;
+
         isCallOnce = false;
 
         if (character.CompareTag("Player")) // ∞‘¿” ≥°
@@ -45,8 +52,6 @@ public class DieState : StateBase
             GameManager.Instance.stage++;
             EventManager.TriggerEvent(Define.ON_NEXT_STAGE);
             GameManager.Instance.UI.HeaderUIController.UpdateUI();
-            GameManager.Instance.NextTurn();
-            GameManager.Instance.NextTurn();
         }
 
         isCallOnce = true;

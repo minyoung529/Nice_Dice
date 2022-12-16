@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -15,40 +16,62 @@ public class DescriptionUI : MonoBehaviour
     private MonsterManager monsterManager = null;
     private int descriptionIdx = 0;
 
+    private bool isTexting = false;
 
-    private void Awake()
+    private void Start()
     {
         monsterManager = FindObjectOfType<MonsterManager>();
         uiPanel.GetComponent<Button>().onClick.AddListener(() => Description());
-        EventManager.StartListening(Define.ON_NEXT_STAGE, ActivePanel);
+        EventManager.StartListening(Define.ON_NEXT_STAGE, DelayActivePanel);
     }
 
-    public void ActivePanel()
+    public void ActivePanel(float delay = 0f)
     {
-        if (monsterManager.NowMonster.IsKnown) { return; }
-        Time.timeScale = 0f;
-
-        for (int i = 0; i < transform.childCount; ++i)
+        Sequence seq = DOTween.Sequence();
+        seq.AppendInterval(2f);
+        seq.AppendCallback(() =>
         {
-            transform.GetChild(i).gameObject.SetActive(true);
-        }
-        
-        Description();
-        monsterManager.NowMonster.IsKnown = true;
+            Debug.Log("acti");
+            if (monsterManager.NowMonster.IsKnown) { return; }
+            //Time.timeScale = 0f;
+
+            for (int i = 0; i < transform.childCount; ++i)
+            {
+                transform.GetChild(i).gameObject.SetActive(true);
+            }
+
+            Description();
+            monsterManager.NowMonster.IsKnown = true;
+        });
+    }
+
+    private void DelayActivePanel()
+    {
+        ActivePanel(2f);
     }
 
     private void UpdateText()
     {
         if (descriptionIdx < monsterManager.NowMonster.DescriptionList.Count)
         {
-            descriptionText.text = monsterManager.NowMonster.DescriptionList[descriptionIdx];
+            descriptionText.text = "";
+            isTexting = true;
+            descriptionText.DOText(monsterManager.NowMonster.DescriptionList[descriptionIdx], 3f).OnComplete(() => isTexting = false);
+            //descriptionText.text = monsterManager.NowMonster.DescriptionList[descriptionIdx];
             return;
         }
     }
 
     private void Description()
     {
-        if (descriptionIdx < monsterManager.NowMonster.DescriptionList.Count)
+        if(isTexting)
+        {
+            descriptionText.DOKill();
+            descriptionText.text = monsterManager.NowMonster.DescriptionList[descriptionIdx-1];
+            isTexting = false;
+            return;
+        }
+        else if (descriptionIdx < monsterManager.NowMonster.DescriptionList.Count)
         {
             UpdateText();
             descriptionIdx++;
@@ -61,7 +84,12 @@ public class DescriptionUI : MonoBehaviour
         }
 
         descriptionIdx = 0;
-        Time.timeScale = 1f;
+        //Time.timeScale = 1f;
+        GameStart.StartGame();
     }
 
+    private void OnDestroy()
+    {
+        EventManager.StopListening(Define.ON_NEXT_STAGE, DelayActivePanel);
+    }
 }

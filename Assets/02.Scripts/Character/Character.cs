@@ -75,7 +75,7 @@ public class Character : MonoBehaviour
 
     public void ChangeState(CharacterState state)
     {
-        currentState?.OnEnd();
+        stateActions[this.state]?.OnEnd();
 
         this.state = state;
 
