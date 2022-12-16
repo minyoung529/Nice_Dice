@@ -8,6 +8,11 @@ public class MonsterManager : MonoBehaviour
     private List<Monster> monsters = null;
     [SerializeField]
     private HpSliderUI monsterHpUI = null;
+
+    private Monster nowMonster = null;
+
+    public Monster NowMonster => nowMonster;
+
     private void Awake()
     {
         EventManager.StartListening(Define.ON_NEXT_STAGE, NextStage);
@@ -17,11 +22,15 @@ public class MonsterManager : MonoBehaviour
     private void MonsterSetting(int idx)
     {
         GameObject gameObject = Instantiate(monsters[idx].MonsterPrefab);
+
         AIEnemyController monster = gameObject.GetComponent<AIEnemyController>();
-        monster.Enemy = GameManager.Instance.Player;
-        monster.Hp = monster.monsterData.MAX_HP;
-        monsterHpUI.Character = monster;
+        nowMonster = monster.monsterData;
+
         GameManager.Instance.Enemy = monster;
+        monsterHpUI.Character = monster;
+
+        monster.Enemy = GameManager.Instance.Player;
+        monster.Hp = nowMonster.MAX_HP;
 
     }
 

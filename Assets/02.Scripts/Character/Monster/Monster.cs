@@ -39,7 +39,7 @@ public class Monster : ScriptableObject
     public int MinDamage => minDamage;
     public int MaxDamage => maxDamage;
     public IReadOnlyList<Dice> MonsterDices => monsterDices;
-    public bool IsKnown { set { isKnown = value; } }
+    public bool IsKnown { get { return isKnown; } set { isKnown = value; } }
     #endregion
 
     public Monster(string name, string[] description, int maxHp, MonsterType monsterType)

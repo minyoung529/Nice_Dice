@@ -193,6 +193,10 @@ PrefabInstance:
       value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 790206676971702343, guid: 802012b326ce94b4898be4b51d90dc3b, type: 3}
+      propertyPath: enemy
+      value: 
+      objectReference: {fileID: 5866666021952147288}
+    - target: {fileID: 790206676971702343, guid: 802012b326ce94b4898be4b51d90dc3b, type: 3}
       propertyPath: <Enemy>k__BackingField
       value: 
       objectReference: {fileID: 5866666021952147288}
@@ -1851,6 +1855,10 @@ PrefabInstance:
       value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 5866666021952147288, guid: 41b8e179844410d469a961f1a2739890, type: 3}
+      propertyPath: enemy
+      value: 
+      objectReference: {fileID: 287665418}
+    - target: {fileID: 5866666021952147288, guid: 41b8e179844410d469a961f1a2739890, type: 3}
       propertyPath: <Enemy>k__BackingField
       value: 
       objectReference: {fileID: 287665418}
@@ -2258,13 +2266,33 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 35697398, guid: 40e519f5d2cd6a842b8dcf1c78c616b7, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3188207817364811753, guid: 40e519f5d2cd6a842b8dcf1c78c616b7, type: 3}
+      propertyPath: character
+      value: 
+      objectReference: {fileID: 287665418}
+    - target: {fileID: 7962085213081106826, guid: 40e519f5d2cd6a842b8dcf1c78c616b7, type: 3}
+      propertyPath: character
+      value: 
+      objectReference: {fileID: 5866666021952147288}
     - target: {fileID: 9181497100599976841, guid: 40e519f5d2cd6a842b8dcf1c78c616b7, type: 3}
       propertyPath: m_text
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 9181497100599976843, guid: 40e519f5d2cd6a842b8dcf1c78c616b7, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 9181497101500372086, guid: 40e519f5d2cd6a842b8dcf1c78c616b7, type: 3}
       propertyPath: m_text
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 9181497101500372087, guid: 40e519f5d2cd6a842b8dcf1c78c616b7, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 9181497101500372087, guid: 40e519f5d2cd6a842b8dcf1c78c616b7, type: 3}
       propertyPath: m_LocalPosition.z
