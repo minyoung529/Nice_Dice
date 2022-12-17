@@ -149,6 +149,7 @@ public class GameManager : MonoSingleton<GameManager>
 
     private void OnDestroy()
     {
+        dataManager.SaveToJson();
         EventManager.StopListening(Define.ON_RELOAD_GAME, ResetValue);
     }
 }
