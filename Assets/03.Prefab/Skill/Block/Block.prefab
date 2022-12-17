@@ -45,4 +45,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <EnemyHit>k__BackingField: 1
+  activeSkillClip: {fileID: 8300000, guid: 407dad18b62137f45abc1300a2c634a8, type: 3}
   chain: {fileID: 6534337678441966100, guid: 0f75358d3903e0a48b2707033a455d1c, type: 3}

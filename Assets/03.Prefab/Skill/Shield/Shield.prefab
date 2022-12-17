@@ -44,3 +44,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a09ac0a073d16b24b8b2c6fd80b6d4be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <EnemyHit>k__BackingField: 0
+  activeSkillClip: {fileID: 8300000, guid: 0b9b4d728e2670841981fa895016a815, type: 3}

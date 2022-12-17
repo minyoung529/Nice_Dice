@@ -24,14 +24,14 @@ public class ShieldSkill : SkillBase
             // TODO: 고쳐야한다!
             GameManager.Instance.DamageWeight += 0.5f;
 
-            effect.effects[(int)EffectType.Shield].gameObject.SetActive(false);
+            effect.InactiveEffect(EffectType.Shield);
             Destroy(gameObject);
         }
     }
 
     private void OnEndRoll(int damage)
     {
-            GameManager.Instance.UI.ActiveEffectText("/2");
+        GameManager.Instance.UI.ActiveEffectText("/2");
         //GameManager.Instance.UI.ActiveEffectText($"/2 = {(int)(damage  * GameManager.Instance.DamageWeight)}");
     }
 
@@ -39,7 +39,9 @@ public class ShieldSkill : SkillBase
     {
         if (turn == 0)
         {
-            effect.effects[(int)EffectType.Shield].gameObject.SetActive(true);
+            base.OnActSkill();
+
+            effect.ActiveEffect(EffectType.Shield);
         }
     }
 

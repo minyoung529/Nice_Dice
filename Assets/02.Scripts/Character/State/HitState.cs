@@ -42,12 +42,12 @@ public class HitState : StateBase
                 // «ÿ≈∑ ¿Ã∆Â∆Æ
                 damage = originalDamage;
                 character.StartCoroutine(HitEffect());
-                effect.effects[(int)EffectType.Shield].gameObject.SetActive(false);
-                effect.effects[(int)EffectType.HackedShield].gameObject.SetActive(true);
+                effect.InactiveEffect(EffectType.Shield);
+                effect.ActiveEffect(EffectType.HackedShield);
             }
             else
             {
-                effect.effects[(int)EffectType.Shield].gameObject.SetActive(true);
+                effect.ActiveEffect(EffectType.Shield);
             }
         }
 
@@ -58,6 +58,11 @@ public class HitState : StateBase
             if (character.IsPlayer)
             {
                 GameManager.Instance.MainCam.transform.DOShakePosition(0.5f);
+            }
+
+            if (character.MustHit)
+            {
+                GameManager.Instance.DamageWeight = 1f;
             }
         }
     }
@@ -72,11 +77,11 @@ public class HitState : StateBase
         renderer.material.SetColor(BASE_COLOR, Color.red);
         renderer.material.SetColor(SHADER_COLOR, Color.red);
 
-        effect.effects[(int)EffectType.Hit].gameObject.SetActive(true);
+        effect.ActiveEffect(EffectType.Hit);
 
         yield return new WaitForSeconds(0.4f);
 
-        effect.effects[(int)EffectType.Hit].gameObject.SetActive(false);
+        effect.InactiveEffect(EffectType.Hit);
 
         renderer.material.SetColor(BASE_COLOR, oldBaseColor);
         renderer.material.SetColor(SHADER_COLOR, oldShaderColor);
@@ -90,7 +95,6 @@ public class HitState : StateBase
                 character.ChangeState(CharacterState.Die);
             }
         }
-
     }
 
     public override void OnUpdate()
@@ -114,8 +118,8 @@ public class HitState : StateBase
     public override void OnEnd()
     {
         damage = 0;
-        effect.effects[(int)EffectType.Shield].gameObject.SetActive(false);
-        effect.effects[(int)EffectType.HackedShield].gameObject.SetActive(false);
+        effect.InactiveEffect(EffectType.Shield);
+        effect.InactiveEffect(EffectType.HackedShield);
     }
 
     public void SetDamage(int _damage)
@@ -149,7 +153,7 @@ public class HitState : StateBase
             }
 
             if (_damage == 0)
-                effect.effects[(int)EffectType.Shield].gameObject.SetActive(true);
+                effect.ActiveEffect(EffectType.Shield);
         }
         damage = _damage;
     }

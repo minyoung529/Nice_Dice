@@ -9,7 +9,7 @@ public class PowerUpSkill : SkillBase
     protected override void OnStart()
     {
         effect = character.GetComponent<AttackEffect>();
-        effect?.effects[(int)EffectType.Strong]?.gameObject.SetActive(true);
+        effect?.ActiveEffect(EffectType.Strong);
 
         GameManager.Instance.UI.ActiveEffectText("x 1.2");
 
@@ -19,7 +19,7 @@ public class PowerUpSkill : SkillBase
     protected override void OnNextTurn()
     {
         GameManager.Instance.DamageWeight -= 0.2f;
-        effect?.effects[(int)EffectType.Strong].gameObject.SetActive(false);
+        effect?.InactiveEffect(EffectType.Strong);
         Destroy(gameObject);
     }
 }

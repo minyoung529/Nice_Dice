@@ -178,6 +178,7 @@ MonoBehaviour:
   type: 1
   isSelect: 1
   helpPanel: {fileID: 0}
+  buttonSound: {fileID: 8300000, guid: a683f0d1b061a19408c3ebb9d0604fc4, type: 3}
 --- !u!114 &17510825
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -644,6 +645,7 @@ MonoBehaviour:
   type: 2
   isSelect: 1
   helpPanel: {fileID: 2023966392}
+  buttonSound: {fileID: 0}
 --- !u!114 &462486887
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -954,6 +956,7 @@ MonoBehaviour:
   type: 4
   isSelect: 1
   helpPanel: {fileID: 0}
+  buttonSound: {fileID: 8300000, guid: a683f0d1b061a19408c3ebb9d0604fc4, type: 3}
 --- !u!1 &630330873
 GameObject:
   m_ObjectHideFlags: 0
@@ -1503,6 +1506,7 @@ MonoBehaviour:
   type: 0
   isSelect: 1
   helpPanel: {fileID: 0}
+  buttonSound: {fileID: 8300000, guid: a683f0d1b061a19408c3ebb9d0604fc4, type: 3}
 --- !u!1 &1256118508
 GameObject:
   m_ObjectHideFlags: 0
@@ -1681,6 +1685,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1705588531}
   - component: {fileID: 1705588530}
+  - component: {fileID: 1705588532}
   m_Layer: 0
   m_Name: '%$ Header'
   m_TagString: EditorOnly
@@ -1724,6 +1729,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1705588532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1705588529}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99dff31830374ab498fc6583587e1446, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bgmClip: {fileID: 8300000, guid: ad44acfad9a8c2746a0f6ba56077d83c, type: 3}
 --- !u!1001 &1957604222
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1913,6 +1931,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 8a07f665ab6871a4699c70064f47c71b, type: 3}
   - {fileID: 21300000, guid: f6bf9ac6e0d5c8640a4712c10f3d0abf, type: 3}
   image: {fileID: 1144314060}
+  nextClip: {fileID: 8300000, guid: 83b07959a4b463c4a9085fa7a1e1edcc, type: 3}
 --- !u!225 &2023966392
 CanvasGroup:
   m_ObjectHideFlags: 0

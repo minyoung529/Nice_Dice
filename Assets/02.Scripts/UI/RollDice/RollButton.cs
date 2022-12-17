@@ -4,16 +4,23 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System;
+using UnityEngine.TextCore.Text;
 
 public class RollButton : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
 {
-    public Character character;
+    private Character character;
     private DiceGauge diceGague;
     private DiceManager diceManager = null;
     private bool canRoll = false;
 
+    [SerializeField]
+    private AudioClip rollDown;
+    [SerializeField]
+    private AudioClip rollUp;
+
     private void Awake()
     {
+        character = GameManager.Instance.Player;
         diceGague = FindObjectOfType<DiceGauge>();
         diceManager = FindObjectOfType<DiceManager>();
         EventManager.StartListening(Define.ON_START_PLAYER_TURN, OnTurn);
@@ -25,6 +32,8 @@ public class RollButton : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
         {
             diceGague.IsPlaying = true;
             character.ChangeState(CharacterState.BeforeRoll);
+
+            SoundManager.Instance.PlayOneshot(rollDown);
         }
     }
 
@@ -41,6 +50,7 @@ public class RollButton : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
 
             character.ChangeState(CharacterState.Roll);
             canRoll = false;
+            SoundManager.Instance.PlayOneshot(rollUp);
         }
     }
 

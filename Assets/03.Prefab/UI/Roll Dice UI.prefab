@@ -528,7 +528,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ff319c2af9330446ac75c08362f87e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character: {fileID: 0}
+  rollDown: {fileID: 8300000, guid: e77ca20299b2be94486f229f40e49a86, type: 3}
+  rollUp: {fileID: 8300000, guid: 90deff4b6a192924baa42dbb73dcba7e, type: 3}
 --- !u!114 &1620099153
 MonoBehaviour:
   m_ObjectHideFlags: 0

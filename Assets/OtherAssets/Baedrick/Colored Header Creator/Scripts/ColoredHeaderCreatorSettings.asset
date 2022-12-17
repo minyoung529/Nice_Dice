@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d31ccecf16173714483a8de8b6a04b4e, type: 3}
   m_Name: ColoredHeaderCreatorSettings
   m_EditorClassIdentifier: 
-  headerText: Game
-  headerColor: {r: 0.36078432, g: 0.49135038, b: 0.6431373, a: 1}
+  headerText: Lobby
+  headerColor: {r: 1, g: 0.73182654, b: 0, a: 1}
   editorOnly: 1
   textAlignmentOptions: 0
   fontStyleOptions: 0
   fontSize: 12
   fontColor: {r: 1, g: 1, b: 1, a: 1}
-  dropShadow: 0
+  dropShadow: 1

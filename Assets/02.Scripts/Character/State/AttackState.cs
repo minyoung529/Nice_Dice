@@ -14,7 +14,7 @@ public class AttackState : StateBase
     private float timer = ATTACK_TIME;
     private bool isEffect;
     private AttackEffect effect;
-    GameObject curEffect;
+    private EffectType effectType;
 
     public AttackState(Character character) : base(character)
     {
@@ -64,26 +64,26 @@ public class AttackState : StateBase
     {
         if (effect == null) return;
 
-        if (damage  > 30)
+        if (character.Enemy.Hp - damage <= 0)
         {
-            curEffect = effect.effects[(int)EffectType.HighAttack];
+            effectType = EffectType.FinalAttack;
         }
-        else
+        else if (damage > 30)
         {
-            curEffect = effect.effects[(int)EffectType.LowAttack];
+            effectType = EffectType.HighAttack;
         }
-        if (character.Enemy.Hp - damage  <= 0)
+        else if(damage > 0)
         {
-            curEffect = effect.effects[(int)EffectType.FinalAttack];
+            effectType = EffectType.LowAttack;
         }
     }
 
     private IEnumerator Effect()
     {
         isEffect = true;
-        curEffect?.gameObject.SetActive(true);
+        effect.ActiveEffect(effectType);
         yield return new WaitForSeconds(1f);
-        curEffect?.gameObject.SetActive(false);
+        effect.InactiveEffect(effectType);
     }
 
     ~AttackState()
