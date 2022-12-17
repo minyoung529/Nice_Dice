@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 865b169f0e241464b85690937955c768, type: 3}
   m_Name: Skl_Shield
   m_EditorClassIdentifier: 
-  diceName: "\uBC29\uC5B4\uB9C9"
+  diceName: "\uB9D0\uB791 \uBC29\uC5B4\uB9C9"
   diceDescription: "\uB2E4\uC74C \uD134\uC5D0 \uC801\uC758 \uACF5\uACA9\uC744 50%
     \uD761\uC218\uD569\uB2C8\uB2E4."
   diceShape: 6

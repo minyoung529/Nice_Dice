@@ -13,6 +13,7 @@ public class SkillBase : MonoBehaviour
     public void SetCharacter(Character character)
     {
         this.character = character;
+        enemy = character.Enemy;
     }
 
     private void Start()

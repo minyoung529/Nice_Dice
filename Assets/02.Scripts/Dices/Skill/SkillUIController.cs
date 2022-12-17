@@ -55,7 +55,7 @@ public class SkillUIController : MonoBehaviour
         Sequence seq = DOTween.Sequence();
 
         seq.Append(skillPanel.transform.DOScale(Vector3.one, 0.3f));
-        seq.AppendInterval(3f);
+        seq.AppendInterval(2f);
 
         seq.Append(skillPanel.transform.DOMove(hitPos, 0.4f).SetEase(Ease.InFlash));
         seq.Join(skillPanel.transform.DOScale(Vector3.zero, 0.6f).SetEase(Ease.OutFlash));

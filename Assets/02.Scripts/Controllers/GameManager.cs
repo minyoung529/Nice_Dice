@@ -46,7 +46,7 @@ public class GameManager : MonoSingleton<GameManager>
 
     #region Game
     public int stage = 1;
-    private bool playerTurn = true;
+   [SerializeField]  private bool playerTurn = false;
 
     private Character player;
     private Character enemy;
@@ -85,8 +85,11 @@ public class GameManager : MonoSingleton<GameManager>
     public float DamageWeight { get; set; } = 1;
     #endregion
 
-    private void Awake()
+    public List<Dice> decktest;
+
+    protected override void Awake()
     {
+        base.Awake();
         // controllers에 컨트롤러들을 넣는다.
         controllers.Add(uiManager);
         controllers.Add(dataManager);
@@ -112,6 +115,8 @@ public class GameManager : MonoSingleton<GameManager>
 
     private void Update()
     {
+        decktest = Deck;
+
         foreach (ControllerBase controller in controllers)
         {
             controller.OnUpdate();
@@ -144,6 +149,7 @@ public class GameManager : MonoSingleton<GameManager>
 
     private void OnDestroy()
     {
+        dataManager.SaveToJson();
         EventManager.StopListening(Define.ON_RELOAD_GAME, ResetValue);
     }
 }

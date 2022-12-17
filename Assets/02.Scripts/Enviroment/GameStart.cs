@@ -8,8 +8,13 @@ public class GameStart : MonoBehaviour
     {
         EventManager.TriggerEvent(Define.ON_RELOAD_GAME);
 
-        GameManager.Instance.NextTurn();
+        
         GameManager.Instance.UI.HeaderUI.UpdateUI();
         GameManager.Instance.UI.DescriptionUI.ActivePanel();
+    }
+
+    public static void StartGame()
+    {
+        GameManager.Instance.NextTurn();
     }
 }

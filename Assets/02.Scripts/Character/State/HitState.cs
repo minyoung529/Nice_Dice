@@ -4,6 +4,7 @@ using UnityEngine;
 using DG.Tweening;
 using Unity.VisualScripting;
 using static UnityEngine.Rendering.DebugUI;
+using UnityEditor.Rendering.LookDev;
 
 /// <summary>
 /// 맞는 상태
@@ -16,6 +17,7 @@ public class HitState : StateBase
     private readonly int SHADER_COLOR = Shader.PropertyToID("_1st_ShadeColor");
 
     private Renderer renderer;
+    private int originalDamage = 0;
     private int damage = 0;
 
     private AttackEffect effect;
@@ -31,10 +33,25 @@ public class HitState : StateBase
 
     public override void OnStart()
     {
-        character.Animator.SetTrigger(hitHash);
-        timer = /*character.Animator.GetCurrentAnimatorClipInfo(0).Length*/2f;
+        timer = /*character.Animator.GetCurrentAnimatorClipInfo(0).Length*/1.5f;
 
-        if (damage > 0)
+        if (!character.IsPlayer && damage == 0)
+        {
+            if (character.MustHit)
+            {
+                // 해킹 이펙트
+                damage = originalDamage;
+                character.StartCoroutine(HitEffect());
+                effect.effects[(int)EffectType.Shield].gameObject.SetActive(false);
+                effect.effects[(int)EffectType.HackedShield].gameObject.SetActive(true);
+            }
+            else
+            {
+                effect.effects[(int)EffectType.Shield].gameObject.SetActive(true);
+            }
+        }
+
+        else if (damage > 0)
         {
             character.StartCoroutine(HitEffect());
 
@@ -47,6 +64,8 @@ public class HitState : StateBase
 
     private IEnumerator HitEffect()
     {
+        character.Animator.SetTrigger(hitHash);
+
         Color oldBaseColor = renderer.material.GetColor(BASE_COLOR);
         Color oldShaderColor = renderer.material.GetColor(SHADER_COLOR);
 
@@ -55,7 +74,7 @@ public class HitState : StateBase
 
         effect.effects[(int)EffectType.Hit].gameObject.SetActive(true);
 
-        yield return new WaitForSeconds(0.6f);
+        yield return new WaitForSeconds(0.4f);
 
         effect.effects[(int)EffectType.Hit].gameObject.SetActive(false);
 
@@ -71,6 +90,7 @@ public class HitState : StateBase
                 character.ChangeState(CharacterState.Die);
             }
         }
+
     }
 
     public override void OnUpdate()
@@ -94,11 +114,15 @@ public class HitState : StateBase
     public override void OnEnd()
     {
         damage = 0;
+        effect.effects[(int)EffectType.Shield].gameObject.SetActive(false);
+        effect.effects[(int)EffectType.HackedShield].gameObject.SetActive(false);
     }
 
     public void SetDamage(int _damage)
     {
-        if (!character.IsPlayer)
+        originalDamage = _damage;
+
+        if (!character.IsPlayer && GameManager.Instance.PlayerTurn)
         {
             if (character == null) { character = GameManager.Instance.Enemy; }
 
@@ -121,10 +145,12 @@ public class HitState : StateBase
                 case MonsterType.Unknown:
                     break;
                 default:
-                    break;
+                    return;
             }
-        }
 
+            if (_damage == 0)
+                effect.effects[(int)EffectType.Shield].gameObject.SetActive(true);
+        }
         damage = _damage;
     }
 

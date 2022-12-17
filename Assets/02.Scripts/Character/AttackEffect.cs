@@ -10,6 +10,7 @@ public enum EffectType
     Shield,
     Hit,
     Strong,
+    HackedShield,
     Length
 }
 

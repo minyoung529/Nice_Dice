@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class MonoSingleton<T> : MonoBehaviour where T : MonoBehaviour
@@ -30,6 +31,24 @@ public class MonoSingleton<T> : MonoBehaviour where T : MonoBehaviour
                 }
             }
             return instance;
+        }
+    }
+
+    protected virtual void Awake()
+    {
+        List<T> singles = new List<T>(FindObjectsOfType<T>());
+
+        if (singles.Count > 1)
+        {
+            Transform[] childs = transform.GetComponentsInChildren<Transform>();
+            T original = Instance;
+
+            for (int i = 0; i < childs.Length; i++)
+            {
+                childs[i].SetParent(original.transform);
+            }
+
+            Destroy(gameObject);
         }
     }
 

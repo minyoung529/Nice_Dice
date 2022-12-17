@@ -145,8 +145,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\uC2A4\uD0AC \uC8FC\uC0AC\uC704"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 086ced386c317c543a16a65079273a53, type: 2}
-  m_sharedMaterial: {fileID: -5541737974100518605, guid: 086ced386c317c543a16a65079273a53, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d12199bc14af6b84bb03f83cbc92c4af, type: 2}
+  m_sharedMaterial: {fileID: 320053994015929902, guid: d12199bc14af6b84bb03f83cbc92c4af, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -513,8 +513,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\uACF1\uC148 \uC8FC\uC0AC\uC704"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 086ced386c317c543a16a65079273a53, type: 2}
-  m_sharedMaterial: {fileID: -5541737974100518605, guid: 086ced386c317c543a16a65079273a53, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d12199bc14af6b84bb03f83cbc92c4af, type: 2}
+  m_sharedMaterial: {fileID: 320053994015929902, guid: d12199bc14af6b84bb03f83cbc92c4af, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -648,8 +648,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\uC77C\uBC18 \uC8FC\uC0AC\uC704"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 086ced386c317c543a16a65079273a53, type: 2}
-  m_sharedMaterial: {fileID: -5541737974100518605, guid: 086ced386c317c543a16a65079273a53, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d12199bc14af6b84bb03f83cbc92c4af, type: 2}
+  m_sharedMaterial: {fileID: 320053994015929902, guid: d12199bc14af6b84bb03f83cbc92c4af, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -782,7 +782,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 910c752c18bdf7a419982a3c590864e7, type: 3}
     m_FontSize: 45
     m_FontStyle: 0
     m_BestFit: 0
@@ -807,7 +807,7 @@ GameObject:
   - component: {fileID: 1574719161}
   - component: {fileID: 1574719160}
   - component: {fileID: 1574719159}
-  - component: {fileID: 8372474991642587735}
+  - component: {fileID: 1840046368}
   m_Layer: 5
   m_Name: Back Button
   m_TagString: Untagged
@@ -857,7 +857,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.91365653, b: 0.7962264, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -918,7 +918,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &8372474991642587735
+--- !u!114 &1840046368
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -927,10 +927,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1574719157}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5f4b9155fa2340429e8e499debee157, type: 3}
+  m_Script: {fileID: 11500000, guid: 52bcb45bac330ab4a93db8abab079da0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneType: 0
+  type: 3
+  isSelect: 1
+  helpPanel: {fileID: 0}
 --- !u!1 &1610918696
 GameObject:
   m_ObjectHideFlags: 0
@@ -1463,7 +1465,7 @@ MonoBehaviour:
   m_Content: {fileID: 7693472169628625923}
   m_Horizontal: 0
   m_Vertical: 1
-  m_MovementType: 1
+  m_MovementType: 2
   m_Elasticity: 0.1
   m_Inertia: 1
   m_DecelerationRate: 0.135
@@ -2358,13 +2360,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f82f2b44ad1b2f4891e1dfd335e91eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  testDices:
-  - {fileID: 11400000, guid: 8ca776f5fe0000c4d8e192c18996bf5f, type: 2}
-  - {fileID: 11400000, guid: 8ca776f5fe0000c4d8e192c18996bf5f, type: 2}
-  - {fileID: 11400000, guid: 7530341a18b1ea041bedc956bde7bfb4, type: 2}
-  - {fileID: 11400000, guid: 7530341a18b1ea041bedc956bde7bfb4, type: 2}
-  - {fileID: 11400000, guid: 82db07fd37bd6b94d8c072afd91fd954, type: 2}
-  - {fileID: 11400000, guid: 82db07fd37bd6b94d8c072afd91fd954, type: 2}
   diceObjects:
   - {fileID: 0}
   - {fileID: 0}

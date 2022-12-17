@@ -68,7 +68,7 @@ public class InventoryPanel : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
 
     public void Equip(EquipPanel equipPanel)
     {
-        equipPanel.OnDeselctItem -= DeselectItem;
+        equipPanel.OnDeselctItem = null;
         equipPanel.OnDeselctItem += DeselectItem;
 
         DiceObject.ChangeTarget(equipPanel.transform);    // 해당 panel로 가기

@@ -1,34 +1,59 @@
 ﻿{
     "maxMonster": 0,
+    "sInventory": [
+        "곱셈 주사위",
+        "모 아니면 도",
+        "모 아니면 도",
+        "일반 주사위",
+        "일반 주사위",
+        "벌처럼 쏜다!",
+        "말랑 방어막",
+        "핵 켰습니다",
+        "봉쇄죠?ㅋㅋ"
+    ],
+    "sDeck": [
+        "일반 주사위",
+        "일반 주사위",
+        "핵 켰습니다"
+    ],
     "inventory": [
         {
-            "instanceID": 31490
+            "instanceID": 31274
         },
         {
-            "instanceID": 31490
+            "instanceID": 31252
         },
         {
-            "instanceID": 35294
+            "instanceID": 31252
         },
         {
-            "instanceID": 35294
+            "instanceID": 31294
         },
         {
-            "instanceID": 29560
+            "instanceID": 31294
         },
         {
-            "instanceID": 29560
+            "instanceID": 31688
+        },
+        {
+            "instanceID": 31768
+        },
+        {
+            "instanceID": 31636
+        },
+        {
+            "instanceID": 31332
         }
     ],
     "deck": [
         {
-            "instanceID": 29560
+            "instanceID": 31294
         },
         {
-            "instanceID": 29560
+            "instanceID": 31294
         },
         {
-            "instanceID": 29532
+            "instanceID": 31636
         }
     ]
 }

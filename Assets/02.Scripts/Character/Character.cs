@@ -43,7 +43,10 @@ public class Character : MonoBehaviour
 
     Quaternion rot;
 
-    public bool IsBlock { get; set; }
+    #region Skill
+    public bool IsBlock { get; set; } = false;
+    public bool MustHit { get; set; } = false;
+    #endregion
 
     private void Awake()
     {
@@ -72,7 +75,7 @@ public class Character : MonoBehaviour
 
     public void ChangeState(CharacterState state)
     {
-        currentState?.OnEnd();
+        stateActions[this.state]?.OnEnd();
 
         this.state = state;
 
@@ -88,11 +91,16 @@ public class Character : MonoBehaviour
         transform.rotation = rot;
     }
 
-    private void OnDestroy()
+    public void Release()
     {
         foreach (var pair in stateActions)
         {
             pair.Value.OnDestroy();
         }
+    }
+
+    protected void OnDestroy()
+    {
+        Release();
     }
 }

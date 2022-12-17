@@ -644,25 +644,6 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
---- !u!1 &1840046362 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1574719157, guid: 79723b909d1f4844e88d9614f0aee890, type: 3}
-  m_PrefabInstance: {fileID: 7693472169770458706}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1840046368
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1840046362}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52bcb45bac330ab4a93db8abab079da0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  type: 1
-  isSelect: 1
 --- !u!1 &695338152780668137
 GameObject:
   m_ObjectHideFlags: 0
@@ -1078,18 +1059,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8216732144233968221, guid: 79723b909d1f4844e88d9614f0aee890, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8216732144233968221, guid: 79723b909d1f4844e88d9614f0aee890, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8216732144233968221, guid: 79723b909d1f4844e88d9614f0aee890, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8389843472020075387, guid: 79723b909d1f4844e88d9614f0aee890, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -1098,6 +1067,5 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 8372474991642587735, guid: 79723b909d1f4844e88d9614f0aee890, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 79723b909d1f4844e88d9614f0aee890, type: 3}
