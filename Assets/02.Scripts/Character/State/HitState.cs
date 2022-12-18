@@ -47,6 +47,8 @@ public class HitState : StateBase
             }
             else
             {
+                AIEnemyController enemy = character as AIEnemyController;
+                GameManager.Instance.UI.ActiveEffectText(enemy.monsterData.MonsterType);
                 effect.ActiveEffect(EffectType.Shield);
             }
         }
@@ -57,6 +59,7 @@ public class HitState : StateBase
 
             if (character.IsPlayer)
             {
+                EventManager.TriggerEvent(Define.ON_HIT);
                 GameManager.Instance.MainCam.transform.DOShakePosition(0.5f);
             }
 

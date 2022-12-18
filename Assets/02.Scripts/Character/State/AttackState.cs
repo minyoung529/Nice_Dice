@@ -15,6 +15,7 @@ public class AttackState : StateBase
     private bool isEffect;
     private AttackEffect effect;
     private EffectType effectType;
+    int damage = 0;
 
     public AttackState(Character character) : base(character)
     {
@@ -62,7 +63,9 @@ public class AttackState : StateBase
 
     private void SetAttackEffect(int damage)
     {
-        if (effect == null) return;
+        this.damage = damage;
+
+        damage = (int)(damage * GameManager.Instance.DamageWeight);
 
         if (character.Enemy.Hp - damage <= 0)
         {
@@ -72,7 +75,7 @@ public class AttackState : StateBase
         {
             effectType = EffectType.HighAttack;
         }
-        else if(damage > 0)
+        else if (damage > 0)
         {
             effectType = EffectType.LowAttack;
         }
@@ -81,9 +84,19 @@ public class AttackState : StateBase
     private IEnumerator Effect()
     {
         isEffect = true;
-        effect.ActiveEffect(effectType);
+
+        if (damage == 0)
+        {
+            effect.ActiveEffect(EffectType.Miss);
+            Debug.Log("MISS");
+        }
+        else
+            effect.ActiveEffect(effectType);
+
         yield return new WaitForSeconds(1f);
+
         effect.InactiveEffect(effectType);
+        effect.InactiveEffect(EffectType.Miss);
     }
 
     ~AttackState()

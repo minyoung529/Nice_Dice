@@ -27,9 +27,12 @@ public class DescriptionUI : MonoBehaviour
     [SerializeField]
     private AudioClip bgmClip;
 
+    private GameStart gameStart;
+
     private void Start()
     {
         monsterManager = FindObjectOfType<MonsterManager>();
+        gameStart = FindObjectOfType<GameStart>();
         uiPanel.GetComponent<Button>().onClick.AddListener(() => Description());
         EventManager.StartListening(Define.ON_NEXT_STAGE, DelayActivePanel);
     }
@@ -109,7 +112,7 @@ public class DescriptionUI : MonoBehaviour
 
         descriptionIdx = 0;
         //Time.timeScale = 1f;
-        GameStart.StartGame();
+        gameStart.StartGame();
     }
 
     private void OnDestroy()

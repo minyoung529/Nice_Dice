@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using CustomLib;
 using System.Text;
+using TMPro;
 
 /// <summary>
 /// UI를 관리하는 컨트롤러 (약간 윤지쌤 방식)
@@ -12,6 +13,7 @@ public class UIManager : ControllerBase
     private DamageText equationText;
     private DamageText damageText;
     private DamageText effectText;
+    private EnableShake evasionText;
 
     #region Property
     private DamageText EquationText
@@ -22,9 +24,28 @@ public class UIManager : ControllerBase
 
     private DamageText EffectText
     { get { if (!effectText) effectText = GameObject.Find("EffectText").GetComponent<DamageText>(); return effectText; } }
+
+    private EnableShake EvasionText
+    { get { if (!evasionText) evasionText = Object.FindObjectOfType<EnableShake>(); return evasionText; } }
     #endregion
 
     private DescriptionUI descriptionUI = null;
+
+    private HeaderUIController headerUIController = null;
+
+    private WinUIController winUIController;
+
+    #region Property
+    public WinUIController WinUI
+    {
+        get
+        {
+            if (winUIController == null)
+                winUIController = Object.FindObjectOfType<WinUIController>();
+
+            return winUIController;
+        }
+    }
     public DescriptionUI DescriptionUI
     {
         get
@@ -36,8 +57,6 @@ public class UIManager : ControllerBase
             return descriptionUI;
         }
     }
-
-    private HeaderUIController headerUIController = null;
     public HeaderUIController HeaderUIController
     {
         get
@@ -53,31 +72,11 @@ public class UIManager : ControllerBase
             return headerUIController;
         }
     }
-
-    private WinUIController winUIController;
-    public WinUIController WinUI
-    {
-        get
-        {
-            if (winUIController == null)
-                winUIController = Object.FindObjectOfType<WinUIController>();
-
-            return winUIController;
-        }
-    }
+    #endregion
 
     public override void OnAwake()
     {
         EventManager<List<KeyValuePair<Dice, int>>>.StartListening(Define.ON_END_ROLL, CreateDamageEquation);
-
-        // 구조 고치기
-        equationText = GameObject.Find("EquationText")?.GetComponent<DamageText>();
-        damageText = GameObject.Find("DamageText")?.GetComponent<DamageText>();
-    }
-
-    public override void OnStart()
-    {
-        //Debug.Log("UI MANAGER START");
     }
 
     private void CreateDamageEquation(List<KeyValuePair<Dice, int>> sides)
@@ -142,6 +141,26 @@ public class UIManager : ControllerBase
     public void ActiveEffectText(string text)
     {
         EffectText.Text(text);
+    }
+
+    public void ActiveEffectText(MonsterType type)
+    {
+        //if (EvasionText) return;
+
+        switch (type)
+        {
+            case MonsterType.Odd:
+                EvasionText.Text("짝수 회피");
+                break;
+            case MonsterType.Even:
+                EvasionText.Text("홀수 회피");
+                break;
+            case MonsterType.Range:
+                EvasionText.Text("범위 회피");
+                break;
+        }
+
+        EvasionText.Active();
     }
 
     ~UIManager()

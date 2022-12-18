@@ -997,6 +997,9 @@ MonoBehaviour:
   - {fileID: 2979180794384568930}
   - {fileID: 2979180794384568930}
   particle: {fileID: 5618201402489183092}
+  appearSound: {fileID: 8300000, guid: 9eecbd954d83ad94c82281cad704794a, type: 3}
+  diceSound: {fileID: 8300000, guid: a90497f7853fb794085c67e48fb77b05, type: 3}
+  specialDiceSound: {fileID: 8300000, guid: ada35007a9abad8458048f40ee156eed, type: 3}
 --- !u!1 &6801559754280783031
 GameObject:
   m_ObjectHideFlags: 0

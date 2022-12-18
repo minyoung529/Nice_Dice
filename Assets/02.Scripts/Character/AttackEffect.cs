@@ -12,6 +12,7 @@ public enum EffectType
     Hit,
     Strong,
     HackedShield,
+    Miss,
     Length
 }
 
@@ -57,9 +58,10 @@ public class AttackEffect : MonoBehaviour
         if (idx < effects.Length)
         {
             effects[idx]?.gameObject.SetActive(false);
+            return effects[idx];
         }
 
-        return effects[idx];
+        return null;
     }
 
     public GameObject GetEffect(EffectType type)

@@ -131,7 +131,7 @@ MonoBehaviour:
   descriptionText: {fileID: 8158191632668629639}
   openSound: {fileID: 8300000, guid: ff33df5b3f4e9f34581d5da2647103cd, type: 3}
   typingSound: {fileID: 8300000, guid: 3bc829842337b4c4f97c02e9fe17f3be, type: 3}
-  bgmClip: {fileID: 8300000, guid: ad44acfad9a8c2746a0f6ba56077d83c, type: 3}
+  bgmClip: {fileID: 8300000, guid: 3cf4ba57917fde540855d851e2ae01cc, type: 3}
 --- !u!1 &5178841619274537531
 GameObject:
   m_ObjectHideFlags: 0
