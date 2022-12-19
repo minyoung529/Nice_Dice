@@ -18,20 +18,38 @@ public class DescriptionUI : MonoBehaviour
 
     private bool isTexting = false;
 
+    [SerializeField]
+    private AudioClip openSound;
+
+    [SerializeField]
+    private AudioClip typingSound;
+
+    [SerializeField]
+    private AudioClip bgmClip;
+
+    private GameStart gameStart;
+
     private void Start()
     {
         monsterManager = FindObjectOfType<MonsterManager>();
+        gameStart = FindObjectOfType<GameStart>();
         uiPanel.GetComponent<Button>().onClick.AddListener(() => Description());
         EventManager.StartListening(Define.ON_NEXT_STAGE, DelayActivePanel);
     }
 
-    public void ActivePanel(float delay = 0f)
+    public void ActivePanel(float delay = 2f)
     {
+        SoundManager.Instance.Play(AudioType.BGM, bgmClip);
+
         Sequence seq = DOTween.Sequence();
-        seq.AppendInterval(2f);
+
+        SoundManager.Instance.PlayOneshot(openSound);
+        uiPanel.transform.DOScaleY(0f, 0f);
+        uiPanel.transform.DOScaleY(1f, 0.7f);
+
+        seq.AppendInterval(delay);
         seq.AppendCallback(() =>
         {
-            Debug.Log("acti");
             if (monsterManager.NowMonster.IsKnown) { return; }
             //Time.timeScale = 0f;
 
@@ -56,7 +74,15 @@ public class DescriptionUI : MonoBehaviour
         {
             descriptionText.text = "";
             isTexting = true;
-            descriptionText.DOText(monsterManager.NowMonster.DescriptionList[descriptionIdx], 3f).OnComplete(() => isTexting = false);
+
+            SoundManager.Instance.Play(AudioType.Effect, typingSound);
+
+            string info = monsterManager.NowMonster.DescriptionList[descriptionIdx];
+            descriptionText.DOText(info, info.Length * 0.08f).OnComplete(() =>
+            {
+                isTexting = false;
+                SoundManager.Instance.Stop(AudioType.Effect);
+            });
             //descriptionText.text = monsterManager.NowMonster.DescriptionList[descriptionIdx];
             return;
         }
@@ -64,10 +90,11 @@ public class DescriptionUI : MonoBehaviour
 
     private void Description()
     {
-        if(isTexting)
+        if (isTexting)
         {
             descriptionText.DOKill();
-            descriptionText.text = monsterManager.NowMonster.DescriptionList[descriptionIdx-1];
+            SoundManager.Instance.Stop(AudioType.Effect);
+            descriptionText.text = monsterManager.NowMonster.DescriptionList[descriptionIdx - 1];
             isTexting = false;
             return;
         }
@@ -77,7 +104,7 @@ public class DescriptionUI : MonoBehaviour
             descriptionIdx++;
             return;
         }
-        
+
         for (int i = 0; i < transform.childCount; ++i)
         {
             transform.GetChild(i).gameObject.SetActive(false);
@@ -85,7 +112,7 @@ public class DescriptionUI : MonoBehaviour
 
         descriptionIdx = 0;
         //Time.timeScale = 1f;
-        GameStart.StartGame();
+        gameStart.StartGame();
     }
 
     private void OnDestroy()

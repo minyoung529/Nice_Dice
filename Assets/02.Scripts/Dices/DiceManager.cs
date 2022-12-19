@@ -21,7 +21,7 @@ public class DiceManager : MonoBehaviour
 
     private void Awake()
     {
-        EventManager.StartListening(Define.ON_RELOAD_GAME, Reload);    
+        EventManager.StartListening(Define.ON_RELOAD_GAME, Reload);
     }
 
     private void Start()
@@ -37,14 +37,22 @@ public class DiceManager : MonoBehaviour
     {
         selectedDice.Clear();
         List<int> arr = new List<int>();
+        bool isSkill = false;
+
+        Debug.Log(GameManager.Instance.Data.CurrentUser.deck.Count);
+        Debug.Log(GameManager.Instance.Data.CurrentUser.inventory.Count);
 
         for (int i = 0; i < Define.DICE_SELECT_COUNT; i++)
         {
             int n = Random.Range(0, GameManager.Instance.Deck.Count);
-            while (arr.Contains(n))
+
+            while (arr.Contains(n) || (isSkill && GameManager.Instance.Deck[n].DiceType == DiceType.Skill))
             {
                 n = Random.Range(0, GameManager.Instance.Deck.Count);
             }
+
+            if (GameManager.Instance.Deck[n].DiceType == DiceType.Skill)
+                isSkill = true;
 
             arr.Add(n);
             selectedDice.Add(GameManager.Instance.Deck[n]);

@@ -35,7 +35,9 @@ public class DataManager : ControllerBase
         {
             string json = File.ReadAllText(SAVE_PATH + SAVE_FILENAME);
             user = JsonUtility.FromJson<User>(json);
-            DiceSetting();
+
+            if (user.sDeck.Count != 0 && user.sInventory.Count != 0)
+                DiceSetting();
         }
         else
         {
@@ -53,8 +55,10 @@ public class DataManager : ControllerBase
             user = new User();
             UserSetting();
         }
-
-        StrSave();
+        else
+        {
+            StrSave();
+        }
 
         string json = JsonUtility.ToJson(user, true);
         File.WriteAllText(SAVE_PATH + SAVE_FILENAME, json, System.Text.Encoding.UTF8);
@@ -64,6 +68,7 @@ public class DataManager : ControllerBase
     {
         user.inventory = Resources.Load<Dices>("Inventory").dices;
         user.deck = Resources.Load<Dices>("Deck").dices;
+
         user.sInventory = new List<string>();
         user.sDeck = new List<string>();
     }
@@ -71,10 +76,10 @@ public class DataManager : ControllerBase
     private void DiceSetting()
     {
         List<Dice> allDice = Resources.Load<Dices>("AllDices").dices;
-        user.inventory.Clear();
-        user.deck.Clear();
+        user.inventory = new List<Dice>();
+        user.deck = new List<Dice>();
 
-        foreach(string str in user.sInventory)
+        foreach (string str in user.sInventory)
         {
             user.inventory.Add(allDice.Find(x => x.DiceName == str));
         }
@@ -87,17 +92,19 @@ public class DataManager : ControllerBase
 
     private void StrSave()
     {
-        user.sInventory.Clear();
-        user.sDeck.Clear();
+        user.sInventory = new List<string>();
+        user.sDeck = new List<string>();
 
         foreach (Dice dice in user.inventory)
         {
-            user.sInventory.Add(dice.DiceName);
+            if (dice)
+                user.sInventory.Add(dice.DiceName);
         }
 
         foreach (Dice dice in user.deck)
         {
-            user.sDeck.Add(dice.DiceName);
+            if (dice)
+                user.sDeck.Add(dice.DiceName);
         }
     }
 }

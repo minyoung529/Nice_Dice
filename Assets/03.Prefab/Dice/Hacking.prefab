@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1832641040792505223}
   - component: {fileID: 8354860609472691720}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Hacking
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -62,7 +62,7 @@ GameObject:
   - component: {fileID: 3287577884324396413}
   - component: {fileID: 4081201410376078268}
   - component: {fileID: 1230489702211844759}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: g Objet_volant group17
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -143,7 +143,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1721539063681449850}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Hacking
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -176,7 +176,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2281484812753599271}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: g default
   m_TagString: Untagged
   m_Icon: {fileID: 0}

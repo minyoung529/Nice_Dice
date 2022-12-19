@@ -36,7 +36,10 @@ public class BlockSkill : SkillBase
             chain = Instantiate(chain, pos, Quaternion.identity, null);
             chain.transform.localScale = Vector3.one * 30f;
 
-            chain.transform.DOScale(Vector3.one, 1f).SetEase(Ease.InFlash);
+            chain.transform.DOScale(Vector3.one, 1f).SetEase(Ease.InFlash).OnComplete(() =>
+            {
+                SoundManager.Instance.PlayOneshot(activeSkillClip);
+            });
         }
     }
 }

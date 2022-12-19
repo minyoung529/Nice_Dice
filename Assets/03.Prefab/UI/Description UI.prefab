@@ -129,6 +129,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiPanel: {fileID: 5479909530224071564}
   descriptionText: {fileID: 8158191632668629639}
+  openSound: {fileID: 8300000, guid: ff33df5b3f4e9f34581d5da2647103cd, type: 3}
+  typingSound: {fileID: 8300000, guid: 3bc829842337b4c4f97c02e9fe17f3be, type: 3}
+  bgmClip: {fileID: 8300000, guid: 3cf4ba57917fde540855d851e2ae01cc, type: 3}
 --- !u!1 &5178841619274537531
 GameObject:
   m_ObjectHideFlags: 0
@@ -164,7 +167,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -13}
   m_SizeDelta: {x: 1500, y: 260}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4790297658681805793
@@ -293,7 +296,7 @@ RectTransform:
   m_GameObject: {fileID: 5479909530224071564}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 0, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4507170523085287406}

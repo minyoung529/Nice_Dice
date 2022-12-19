@@ -607,6 +607,15 @@ MonoBehaviour:
   - {fileID: 4914462430441978714}
   - {fileID: 3862114020648525137}
   - {fileID: 4110329770867625234}
+  sounds:
+  - {fileID: 8300000, guid: eba3fe3224cd17d4e96b99f3f9dcde5d, type: 3}
+  - {fileID: 8300000, guid: 4664f994bb8c9014fac7b9fe8ec6498d, type: 3}
+  - {fileID: 8300000, guid: fd35b659855badc41b04a8a605b59b43, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 8300000, guid: d442bfad2b0fafc44af5a0d4c90c70aa, type: 3}
+  - {fileID: 8300000, guid: 36b87c2f318a3ba48a02306c7faa0e30, type: 3}
 --- !u!1 &3753418875391865307
 GameObject:
   m_ObjectHideFlags: 0

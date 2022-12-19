@@ -25,6 +25,7 @@ public class Define
 
     public const int ON_NEXT_STAGE = 3000;
     public const int ON_RELOAD_GAME = 3100;
+    public const int ON_HIT = 111;
     #endregion
 
     public const int MAX_NUMBER_DICE = 4;

@@ -21,6 +21,15 @@ public class RandomMachine : MonoBehaviour
     [SerializeField]
     private ParticleSystem particle;
 
+    [Header("Sound")]
+    [SerializeField]
+    private AudioClip appearSound;
+
+    [SerializeField]
+    private AudioClip diceSound;
+    [SerializeField]
+    private AudioClip specialDiceSound;
+
     void Awake()
     {
         transform.position = ORIGIANL_POS;
@@ -32,15 +41,22 @@ public class RandomMachine : MonoBehaviour
         Sequence seq = DOTween.Sequence();
 
         seq.Append(transform.DOMove(TARGET_POS, 1f).SetEase(Ease.InFlash));
-        seq.AppendCallback(() => particle.Play());
+        seq.AppendCallback(() =>
+        {
+            particle.Play();
+            SoundManager.Instance.PlayOneshot(appearSound);
+        });
+
         seq.Append(GameManager.Instance.MainCam.transform.DOShakePosition(0.4f));
         seq.AppendInterval(0.5f);
         seq.AppendCallback(() => GameManager.Instance.MainCam.MoveDrawPos());
-        seq.AppendInterval(1f);
-        seq.AppendCallback(()=> EventManager.TriggerEvent(Define.ON_START_DRAW));
-        
-        StopAllCoroutines();
-        StartCoroutine(DrawCoroutine());
+        seq.AppendInterval(1.5f);
+        seq.AppendCallback(() =>
+        {
+            StopAllCoroutines();
+            StartCoroutine(DrawCoroutine());
+            EventManager.TriggerEvent(Define.ON_START_DRAW);
+        });
     }
 
     private void Inactive()
@@ -53,15 +69,24 @@ public class RandomMachine : MonoBehaviour
 
     private IEnumerator DrawCoroutine()
     {
-        yield return new WaitForSeconds(1.2f);
-
         for (int i = 0; i < Define.DICE_SELECT_COUNT; i++)
         {
-            GameObject dice = Instantiate(GameManager.Instance.Dice.SelectedDice[i].DicePrefab, diceSpawn.position, Quaternion.identity, transform);
+            Dice diceData = GameManager.Instance.Dice.SelectedDice[i];
+
+            if (diceData.DiceType == DiceType.Number)
+            {
+                SoundManager.Instance.PlayOneshot(diceSound);
+            }
+            else
+            {
+                SoundManager.Instance.PlayOneshot(specialDiceSound);
+            }
+
+            GameObject dice = Instantiate(diceData.DicePrefab, diceSpawn.position, Quaternion.identity, transform);
             dice.transform.localScale = DICE_SCALE;
 
             dice.AddComponent<RandomDiceObject>().Init(wayPoints, lastPointa[i]);
-            
+
             yield return new WaitForSeconds(1f);
         }
 

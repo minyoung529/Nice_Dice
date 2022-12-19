@@ -21,4 +21,4 @@ MonoBehaviour:
   numbers:
     list: 000000000000000000000000000000000000000000000000
   skill: {fileID: -1116067660969961457, guid: 9a1c72c13a9ecaf4b91cd944a83f9413, type: 3}
-  icon: {fileID: 21300000, guid: a44b32c76724b944fa23db45e00913f7, type: 3}
+  icon: {fileID: 21300000, guid: 25c02f458566fce4ea43673e0841c5a2, type: 3}

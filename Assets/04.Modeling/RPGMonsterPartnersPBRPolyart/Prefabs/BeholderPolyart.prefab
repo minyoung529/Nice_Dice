@@ -480,6 +480,14 @@ MonoBehaviour:
   - {fileID: 4412009824351596876}
   - {fileID: 12809182554652867}
   - {fileID: 1737860502489490889}
+  sounds:
+  - {fileID: 8300000, guid: eba3fe3224cd17d4e96b99f3f9dcde5d, type: 3}
+  - {fileID: 8300000, guid: 4664f994bb8c9014fac7b9fe8ec6498d, type: 3}
+  - {fileID: 8300000, guid: fd35b659855badc41b04a8a605b59b43, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 8300000, guid: d442bfad2b0fafc44af5a0d4c90c70aa, type: 3}
 --- !u!1 &9011648103021171509
 GameObject:
   m_ObjectHideFlags: 0
@@ -1806,27 +1814,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1393246468031289769, guid: ad1d9ef0accd7482abfdabd5678f0e2d, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2.5975997
+      value: 2.65
       objectReference: {fileID: 0}
     - target: {fileID: 1393246468031289769, guid: ad1d9ef0accd7482abfdabd5678f0e2d, type: 3}
       propertyPath: m_LocalScale.y
-      value: 2.5976
+      value: 2.65
       objectReference: {fileID: 0}
     - target: {fileID: 1393246468031289769, guid: ad1d9ef0accd7482abfdabd5678f0e2d, type: 3}
       propertyPath: m_LocalScale.z
-      value: 2.5975995
+      value: 2.65
       objectReference: {fileID: 0}
     - target: {fileID: 1393246468031289769, guid: ad1d9ef0accd7482abfdabd5678f0e2d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.21
+      value: 0.06
       objectReference: {fileID: 0}
     - target: {fileID: 1393246468031289769, guid: ad1d9ef0accd7482abfdabd5678f0e2d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.19
+      value: 1.39
       objectReference: {fileID: 0}
     - target: {fileID: 1393246468031289769, guid: ad1d9ef0accd7482abfdabd5678f0e2d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.44
+      value: -0.08
       objectReference: {fileID: 0}
     - target: {fileID: 1393246468031289769, guid: ad1d9ef0accd7482abfdabd5678f0e2d, type: 3}
       propertyPath: m_LocalRotation.w

@@ -10,6 +10,9 @@ public class SkillBase : MonoBehaviour
     protected Character character;
     protected Character enemy;
 
+    [SerializeField]
+    protected AudioClip activeSkillClip;
+
     public void SetCharacter(Character character)
     {
         this.character = character;
@@ -36,7 +39,10 @@ public class SkillBase : MonoBehaviour
 
     protected virtual void OnActSkill()
     {
-
+        if(activeSkillClip)
+        {
+            SoundManager.Instance.PlayOneshot(activeSkillClip);
+        }
     }
 
     protected virtual void ChildOnDestroy() { }

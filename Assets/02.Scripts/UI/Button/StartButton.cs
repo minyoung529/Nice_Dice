@@ -18,8 +18,8 @@ public class StartButton : MonoBehaviour, IPointerClickHandler, IPointerEnterHan
     [SerializeField] private bool isSelect = true;
 
     [ConditionalField(nameof(type), false, ButtonType.Help)]
-    [SerializeField]
-    private CanvasGroup helpPanel;
+    [SerializeField] private CanvasGroup helpPanel;
+    [SerializeField] private AudioClip buttonSound;
 
     private void OnClickButton(ButtonType type)
     {
@@ -46,6 +46,8 @@ public class StartButton : MonoBehaviour, IPointerClickHandler, IPointerEnterHan
                 helpPanel.DOFade(1f, 0.3f);
                 break;
         }
+
+        SoundManager.Instance.PlayOneshot(buttonSound);
     }
 
     public void OnPointerClick(PointerEventData eventData)

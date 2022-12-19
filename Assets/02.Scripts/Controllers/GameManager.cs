@@ -24,7 +24,7 @@ public class GameManager : MonoSingleton<GameManager>
             return diceManager;
         }
     }
-    private DataManager Data => dataManager;
+    public DataManager Data => dataManager;
     public CameraMove MainCam
     {
         get

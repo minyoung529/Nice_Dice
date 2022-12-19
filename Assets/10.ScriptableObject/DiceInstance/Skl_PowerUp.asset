@@ -20,4 +20,4 @@ MonoBehaviour:
   numbers:
     list: 000000000000000000000000000000000000000000000000
   skill: {fileID: 9138792215093772372, guid: 15065a6d064dffd4ab97773930baf885, type: 3}
-  icon: {fileID: 21300000, guid: f19a98037cf23234ebb242cfe845c88a, type: 3}
+  icon: {fileID: 21300000, guid: 68d80485f3357ff4dbc0317ea2e16d70, type: 3}

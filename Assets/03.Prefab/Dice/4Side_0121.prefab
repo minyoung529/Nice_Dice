@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3903677567441830100}
   - component: {fileID: -960439130408808841}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: 4Side_0121
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -62,7 +62,7 @@ GameObject:
   - component: {fileID: 7485108078606241332}
   - component: {fileID: 8240818182739278445}
   - component: {fileID: 4226987305981667529}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pCone17
   m_TagString: Untagged
   m_Icon: {fileID: 0}

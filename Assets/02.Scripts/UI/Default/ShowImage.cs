@@ -13,6 +13,9 @@ public class ShowImage : MonoBehaviour
     [SerializeField]
     private Image image;
 
+    [SerializeField]
+    private AudioClip nextClip;
+
     private CanvasGroup canvasGroup;
 
     private void Awake()
@@ -28,12 +31,16 @@ public class ShowImage : MonoBehaviour
 
     private IEnumerator ShowCoroutine()
     {
-        for(int i = 0; i < sprites.Length;i++)
+        for (int i = 0; i < sprites.Length; i++)
         {
-            image.sprite = sprites[i];
+            if (i > 0)
+            {
+                image.sprite = sprites[i];
+            }
+
+            SoundManager.Instance.PlayOneshot(nextClip);
             yield return new WaitForSeconds(3.5f);
         }
-
 
         canvasGroup ??= GetComponent<CanvasGroup>();
         canvasGroup.DOFade(0f, 0.3f);
