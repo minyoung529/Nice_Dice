@@ -17,55 +17,59 @@
         "핵 켰습니다",
         "벌처럼 쏜다!",
         "말랑 방어막",
-        "봉쇄죠?ㅋㅋ"
+        "봉쇄죠?ㅋㅋ",
+        "엄청난 일반 주사위"
     ],
     "inventory": [
         {
-            "instanceID": 30118
+            "instanceID": 30110
         },
         {
-            "instanceID": 33690
+            "instanceID": 33652
         },
         {
-            "instanceID": 33690
+            "instanceID": 33652
         },
         {
-            "instanceID": 30114
+            "instanceID": 30106
         },
         {
-            "instanceID": 30114
+            "instanceID": 30106
         },
         {
-            "instanceID": 34186
+            "instanceID": 34154
         },
         {
-            "instanceID": 34268
+            "instanceID": 34238
         },
         {
-            "instanceID": 34132
+            "instanceID": 34098
         },
         {
-            "instanceID": 33710
+            "instanceID": 33674
         }
     ],
     "deck": [
         {
-            "instanceID": 30114
+            "instanceID": 30106
         },
         {
-            "instanceID": 30114
+            "instanceID": 30106
         },
         {
-            "instanceID": 34132
+            "instanceID": 34098
         },
         {
-            "instanceID": 34186
+            "instanceID": 34154
         },
         {
-            "instanceID": 34268
+            "instanceID": 34238
         },
         {
-            "instanceID": 33710
+            "instanceID": 33674
+        },
+        {
+            "instanceID": 33672
         }
     ]
 }

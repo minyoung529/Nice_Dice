@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2786612504214878693}
   - component: {fileID: 4570421374597782995}
   m_Layer: 0
-  m_Name: NormaRedlDice
+  m_Name: Norm_011566
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4d75349a123ac2743960d9d9f6fddad7, type: 2}
+  - {fileID: 2100000, guid: e50be337b8b39b64298a3bf49a61a255, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -102,7 +102,6 @@ MonoBehaviour:
   isDrop: 0
   rotateVector: {x: 0, y: 2.5, z: 2.5}
   rotateSpeed: 1
-  endValue: {x: 0, y: 0, z: 4.5}
   throwPower: 3
 --- !u!1001 &3623612480692614432
 PrefabInstance:
