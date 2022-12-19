@@ -2,9 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.EventSystems;
 using TMPro;
-using UnityEditor;
 
 public class RewardController : MonoBehaviour
 {
@@ -54,7 +52,8 @@ public class RewardController : MonoBehaviour
 
     private void RewardGive(int selectedIdx)
     {
-        inventory.dices.Add(allDices.dices[selectedIdx]);
+        GameManager.Instance.Data.CurrentUser.inventory.Add(rewards[selectedIdx]);
+
         for (int i = 0; i < REWARD_AMOUNT; i++)
         {
             Destroy(diceObject[i]);
@@ -92,19 +91,4 @@ public class RewardController : MonoBehaviour
         EventManager.StopListening(Define.ON_END_GAME, PrepareReward);
     }
 
-    private void OnApplicationQuit()
-    {
-        EditorUtility.SetDirty(inventory);
-        AssetDatabase.SaveAssetIfDirty(inventory);
-    }
-
-
-#if UNITY_EDITOR
-    [ContextMenu("SaveTest")]
-    private void SaveInventory()
-    {
-        EditorUtility.SetDirty(inventory);
-        AssetDatabase.SaveAssetIfDirty(inventory);
-    }
-#endif
 }
