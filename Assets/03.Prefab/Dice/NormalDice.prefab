@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4738186424150174999}
   - component: {fileID: 2786612504214878693}
   - component: {fileID: 4570421374597782995}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: NormalDice
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,7 +102,6 @@ MonoBehaviour:
   isDrop: 0
   rotateVector: {x: 0, y: 2.5, z: 2.5}
   rotateSpeed: 1
-  endValue: {x: 0, y: 0, z: 4.5}
   throwPower: 3
 --- !u!1001 &3623612480692614432
 PrefabInstance:
@@ -114,6 +113,10 @@ PrefabInstance:
     - target: {fileID: 9022307343399093229, guid: 2c4f2b804c0da4f428400905b84628d1, type: 3}
       propertyPath: m_Name
       value: DiceParticle
+      objectReference: {fileID: 0}
+    - target: {fileID: 9022307343399093229, guid: 2c4f2b804c0da4f428400905b84628d1, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 9022307343399133133, guid: 2c4f2b804c0da4f428400905b84628d1, type: 3}
       propertyPath: m_RootOrder

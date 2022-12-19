@@ -17,7 +17,6 @@ public class DieState : StateBase
     {
         character.Animator.SetTrigger(hashDie);
         timer = 0f;
-        delayCmp = false;
         //isCallOnce = false;
     }
 
@@ -28,17 +27,16 @@ public class DieState : StateBase
         if (timer > 3f)
         {
             timer = 0f;
-            delayCmp = true;
-            OnEnd();
+            character.ChangeState(CharacterState.Idle);
         }
     }
 
     public override void OnEnd()
     {
-        if (!isCallOnce) { return; }
-        if (!delayCmp) return;
+        //if (!isCallOnce) { return; }
+        //if (!delayCmp) return;
 
-        isCallOnce = false;
+        //isCallOnce = false;
 
         if (character.CompareTag("Player")) // ∞‘¿” ≥°
         {
@@ -55,6 +53,6 @@ public class DieState : StateBase
             GameManager.Instance.UI.HeaderUIController.UpdateUI();
         }
 
-        isCallOnce = true;
+        //isCallOnce = true;
     }
 }

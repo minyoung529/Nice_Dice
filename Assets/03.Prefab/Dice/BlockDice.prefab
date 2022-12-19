@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2966792082770007770}
   - component: {fileID: 1251448484379281904}
   - component: {fileID: 5652932120381348514}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pointes_low
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 7044262583127288646}
   - component: {fileID: 7544285438964031446}
   - component: {fileID: 8079397042394911588}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: dent_2_high1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -176,7 +176,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3059454172910463081}
   - component: {fileID: 113806720003840677}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BlockDice
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -234,7 +234,7 @@ GameObject:
   - component: {fileID: 2671881571520064195}
   - component: {fileID: 24558429730522930}
   - component: {fileID: 8639225051384270933}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: cadenas_low
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -317,7 +317,7 @@ GameObject:
   - component: {fileID: 1860273748367799572}
   - component: {fileID: 4303217852221512135}
   - component: {fileID: 2748657039199971231}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: cube_low
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -400,7 +400,7 @@ GameObject:
   - component: {fileID: 3736028190430769291}
   - component: {fileID: 7091177183831902516}
   - component: {fileID: 896600852271047008}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: langue_low
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -483,7 +483,7 @@ GameObject:
   - component: {fileID: 2133556754547929311}
   - component: {fileID: 3574187670552845236}
   - component: {fileID: 6319687545471280534}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -598,7 +598,7 @@ GameObject:
   - component: {fileID: 6456435968007229025}
   - component: {fileID: 7474742064533285239}
   - component: {fileID: 7066072023509791633}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: dent_1_low
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4738186424150174999}
   - component: {fileID: 2786612504214878693}
   - component: {fileID: 4570421374597782995}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Norm_011566
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -113,6 +113,10 @@ PrefabInstance:
     - target: {fileID: 9022307343399093229, guid: 2c4f2b804c0da4f428400905b84628d1, type: 3}
       propertyPath: m_Name
       value: DiceParticle
+      objectReference: {fileID: 0}
+    - target: {fileID: 9022307343399093229, guid: 2c4f2b804c0da4f428400905b84628d1, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 9022307343399133133, guid: 2c4f2b804c0da4f428400905b84628d1, type: 3}
       propertyPath: m_RootOrder

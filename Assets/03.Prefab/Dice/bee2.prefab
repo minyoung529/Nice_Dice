@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1696337259009293281}
   - component: {fileID: 207433229907501880}
   - component: {fileID: 5505338715816027234}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 9029077873699355370}
   - component: {fileID: 8830668342173155561}
   - component: {fileID: 3116177115126266884}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -176,7 +176,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4514919832350751029}
   - component: {fileID: 4117010067232693968}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: bee2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -232,7 +232,7 @@ GameObject:
   - component: {fileID: 7836544183342169113}
   - component: {fileID: 4004275107190514299}
   - component: {fileID: 4903181000981223287}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: eyes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -315,7 +315,7 @@ GameObject:
   - component: {fileID: 7251155643685456911}
   - component: {fileID: 10428453821206223}
   - component: {fileID: 6558205974512825956}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cylinder.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -398,7 +398,7 @@ GameObject:
   - component: {fileID: 8699145265846417231}
   - component: {fileID: 581741791177830574}
   - component: {fileID: 3764132264134827521}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Line
   m_TagString: Untagged
   m_Icon: {fileID: 0}
