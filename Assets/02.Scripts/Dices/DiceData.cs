@@ -14,11 +14,8 @@ public class DiceData : ScriptableObject
     #endregion
 
     private Dictionary<int, Vector3[]> diceShapeDict = new Dictionary<int, Vector3[]>(); //DiceShape enum과 동일한 순서로 넣어줄것
-    [SerializeField] 
-    private List<Dice> diceInstanceList = new List<Dice>();
 
     public IReadOnlyDictionary<int, Vector3[]> DiceShapeDict => diceShapeDict;
-    public IReadOnlyList<Dice> DiceInstanceList => diceInstanceList;
 
     [ContextMenu("Setting")]
     public void SettingData()
