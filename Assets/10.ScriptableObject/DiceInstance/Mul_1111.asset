@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 865b169f0e241464b85690937955c768, type: 3}
+  m_Name: Mul_1111
+  m_EditorClassIdentifier: 
+  diceName: "\uCAC4\uBCF4 \uC8FC\uC0AC\uC704"
+  diceDescription: "0\uC740 \uC5C6\uB2E4! \uCAC4\uBCF4\uB4E4\uC774 \uC4F0\uB294 \uACF1\uC148
+    \uC8FC\uC0AC\uC704."
+  diceShape: 4
+  diceType: 1
+  dicePrefab: {fileID: 3903677567441830101, guid: 815b01f6f5eb23b489c3ed7eb6934f69, type: 3}
+  numbers:
+    list: 01000000010000000100000001000000
+  skill: {fileID: 0}
+  icon: {fileID: 0}
