@@ -5,71 +5,55 @@
         "모 아니면 도",
         "모 아니면 도",
         "일반 주사위",
-        "일반 주사위",
-        "벌처럼 쏜다!",
+        "엄청난 일반 주사위",
         "말랑 방어막",
         "핵 켰습니다",
         "봉쇄죠?ㅋㅋ"
     ],
     "sDeck": [
-        "일반 주사위",
-        "일반 주사위",
-        "핵 켰습니다",
-        "벌처럼 쏜다!",
         "말랑 방어막",
-        "봉쇄죠?ㅋㅋ",
+        "엄청난 일반 주사위",
+        "일반 주사위",
         "엄청난 일반 주사위"
     ],
     "inventory": [
         {
-            "instanceID": 30110
+            "instanceID": 31280
         },
         {
-            "instanceID": 33652
+            "instanceID": 31278
         },
         {
-            "instanceID": 33652
+            "instanceID": 31278
         },
         {
-            "instanceID": 30106
+            "instanceID": 31284
         },
         {
-            "instanceID": 30106
+            "instanceID": 31282
         },
         {
-            "instanceID": 34154
+            "instanceID": 31294
         },
         {
-            "instanceID": 34238
+            "instanceID": 31290
         },
         {
-            "instanceID": 34098
-        },
-        {
-            "instanceID": 33674
+            "instanceID": 31288
         }
     ],
     "deck": [
         {
-            "instanceID": 30106
+            "instanceID": 31294
         },
         {
-            "instanceID": 30106
+            "instanceID": 31282
         },
         {
-            "instanceID": 34098
+            "instanceID": 31284
         },
         {
-            "instanceID": 34154
-        },
-        {
-            "instanceID": 34238
-        },
-        {
-            "instanceID": 33674
-        },
-        {
-            "instanceID": 33672
+            "instanceID": 31282
         }
     ]
 }

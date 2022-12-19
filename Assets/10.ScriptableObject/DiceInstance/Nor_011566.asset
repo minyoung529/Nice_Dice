@@ -16,7 +16,7 @@ MonoBehaviour:
   diceDescription: "\uC5C4\uCCAD\uB09C \uC815\uC721\uBA74\uCCB4 \uC8FC\uC0AC\uC704\uC774\uB2E4. "
   diceShape: 6
   diceType: 0
-  dicePrefab: {fileID: 938341418012553827, guid: a04edb2823c9ccb4098a62e866ceaa77, type: 3}
+  dicePrefab: {fileID: 938341418012553827, guid: 3599a9dc3e400664680d32b6b2e1d72f, type: 3}
   numbers:
     list: 000000000100000001000000050000000600000006000000
   skill: {fileID: 0}

@@ -10,14 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 865b169f0e241464b85690937955c768, type: 3}
-  m_Name: Nor_123456
+  m_Name: Nor_223344
   m_EditorClassIdentifier: 
-  diceName: "\uC77C\uBC18 \uC8FC\uC0AC\uC704"
-  diceDescription: "\uD3C9\uBC94\uD55C \uC815\uC721\uBA74\uCCB4 \uC8FC\uC0AC\uC704\uC774\uB2E4. "
+  diceName: "\uBCF8\uC804 \uC77C\uBC18 \uC8FC\uC0AC\uC704"
+  diceDescription: "\uCAC4\uBCF4\uB4E4\uC774 \uC4F0\uB294 \uBCF8\uC804\uC740 \uBF51\uC744
+    \uC218 \uC788\uB294 \uC77C\uBC18 \uC8FC\uC0AC\uC704. "
   diceShape: 6
   diceType: 0
-  dicePrefab: {fileID: 938341418012553827, guid: a04edb2823c9ccb4098a62e866ceaa77, type: 3}
+  dicePrefab: {fileID: 938341418012553827, guid: 817bb7320af4efa49818082eedc57be1, type: 3}
   numbers:
-    list: 060000000400000002000000050000000300000001000000
+    list: 000000000100000001000000050000000600000006000000
   skill: {fileID: 0}
   icon: {fileID: 0}
