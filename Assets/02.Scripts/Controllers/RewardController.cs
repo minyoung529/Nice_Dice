@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using TMPro;
+using UnityEditor;
 
 public class RewardController : MonoBehaviour
 {
@@ -22,7 +23,10 @@ public class RewardController : MonoBehaviour
     private Dices allDices = null;
     private Dices inventory = null;
     private const int REWARD_AMOUNT = 3;
+    private Vector3 dicePosition = new Vector3(6f, 0f, -1350f);
 
+
+    private List<GameObject> diceObject = new List<GameObject>();
     private List<Dice> rewards = new List<Dice>();
     public List<Dice> Rewards => rewards;
 
@@ -51,27 +55,34 @@ public class RewardController : MonoBehaviour
     private void RewardGive(int selectedIdx)
     {
         inventory.dices.Add(allDices.dices[selectedIdx]);
+        for (int i = 0; i < REWARD_AMOUNT; i++)
+        {
+            Destroy(diceObject[i]);
+        }
         panel.SetActive(false);
     }
 
     private void ShowDice()
     {
         panel.SetActive(true);
-        Debug.Log("Call");
         for (int i = 0; i < REWARD_AMOUNT; i++)
         {
-            GameObject gameObject = Instantiate(rewards[i].DicePrefab, buttons[i].transform);
-            gameObject.transform.Translate(0f, 0f, -10f);
-            gameObject.transform.localScale = Vector3.one * 175f;
+            dicePosition = buttons[i].transform.position;
+            dicePosition.z -= 10f;
+            GameObject gameObject = Instantiate(rewards[i].DicePrefab, dicePosition, Quaternion.identity);
+
+            gameObject.transform.localScale = Vector3.one * 2.5f;
             gameObject.GetComponent<DiceControl>().enabled = false;
             gameObject.AddComponent<Roll>();
             nameTexts[i].text = rewards[i].DiceName;
+            diceObject.Add(gameObject);
         }
     }
 
     private void PrepareReward()
     {
         rewards.Clear();
+        diceObject.Clear();
         RandomReward();
         Invoke("ShowDice", 2.5f);
     }
@@ -80,4 +91,20 @@ public class RewardController : MonoBehaviour
     {
         EventManager.StopListening(Define.ON_END_GAME, PrepareReward);
     }
+
+    private void OnApplicationQuit()
+    {
+        EditorUtility.SetDirty(inventory);
+        AssetDatabase.SaveAssetIfDirty(inventory);
+    }
+
+
+#if UNITY_EDITOR
+    [ContextMenu("SaveTest")]
+    private void SaveInventory()
+    {
+        EditorUtility.SetDirty(inventory);
+        AssetDatabase.SaveAssetIfDirty(inventory);
+    }
+#endif
 }

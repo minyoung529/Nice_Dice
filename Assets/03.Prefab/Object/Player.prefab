@@ -584,7 +584,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 0}
-  hp: 1
+  hp: 100
   maxHp: 100
   <IsPlayer>k__BackingField: 1
 --- !u!114 &5866666021952147290

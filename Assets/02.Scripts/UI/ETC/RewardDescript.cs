@@ -16,25 +16,27 @@ public class RewardDescript : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     [SerializeField]
     private TMP_Text diceDescription = null;
 
+    private RectTransform panelRectTransform = null; //descriptionPanel
 
     private void Awake()
     {
         rewardController = FindObjectOfType<RewardController>();
+        panelRectTransform = descriptionPanel.GetComponent<RectTransform>();
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
 
+        Debug.Log("Call");
         Dice dice = rewardController.Rewards[buttonIdx];
 
         diceName.text = dice.DiceName;
         diceDescription.text = dice.DiceDescription;
 
-        Vector3 vector = transform.position;
-        vector.x += vector.x <= 0 ? 465f : -465f;
-        vector.y = -200f;
-        vector.z -= 5f;
-        descriptionPanel.transform.position = vector;
+        descriptionPanel.transform.position = transform.position;
+        float x = 0;
+        x = panelRectTransform.anchoredPosition.x <= 0f ? -425f : 425f;
+        panelRectTransform.anchoredPosition -= new Vector2(x, 280f);
 
         descriptionPanel.SetActive(true);
     }
