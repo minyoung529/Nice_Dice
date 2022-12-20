@@ -85,8 +85,6 @@ public class GameManager : MonoSingleton<GameManager>
     public float DamageWeight { get; set; } = 1;
     #endregion
 
-    public List<Dice> decktest;
-
     protected override void Awake()
     {
         base.Awake();
@@ -115,8 +113,6 @@ public class GameManager : MonoSingleton<GameManager>
 
     private void Update()
     {
-        decktest = Deck;
-
         foreach (ControllerBase controller in controllers)
         {
             controller.OnUpdate();

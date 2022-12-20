@@ -16,6 +16,14 @@ public class DataManager : ControllerBase
         FirstData();
     }
 
+    public override void OnUpdate()
+    {
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            Debug.Log(user.inventory.Count);
+        }
+    }
+
     private void FirstData()
     {
         SAVE_PATH = Application.dataPath + "/Save";

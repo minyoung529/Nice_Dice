@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: HaniBaniPang
+  m_Controller: {fileID: 9100000, guid: 106f25d5ab7cfb94e859532d4a3e78f4, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: -203655887218126122, guid: 2bc806bfd0c88f94eb1b73c0fde15a21, type: 3}
+    m_OverrideClip: {fileID: 7400000, guid: ee4dcd4aac28c304c9bd9485e85e6e3b, type: 3}
+  - m_OriginalClip: {fileID: -203655887218126122, guid: ef76deeceb107444ab2ecb202fb7488a, type: 3}
+    m_OverrideClip: {fileID: 7400000, guid: cec4383bee75c3848b23bde89fb98646, type: 3}
+  - m_OriginalClip: {fileID: -203655887218126122, guid: 429797e1cb0a79f42acc0f9a08e05234, type: 3}
+    m_OverrideClip: {fileID: 7400000, guid: e2454aa9afc8f7d42a3beb381754010e, type: 3}
+  - m_OriginalClip: {fileID: -203655887218126122, guid: 7db573f6aafe8954f80135b2247dff68, type: 3}
+    m_OverrideClip: {fileID: 7400000, guid: 638b1d8fb5dd82245b382272af09c8a0, type: 3}
+  - m_OriginalClip: {fileID: -203655887218126122, guid: 6082147c3e034b34e834d5d89027ac2d, type: 3}
+    m_OverrideClip: {fileID: 7400000, guid: a5e1f8c4ae1ff184cb248966ce834502, type: 3}
+  - m_OriginalClip: {fileID: -203655887218126122, guid: cd628704154f0254fbfe3545089c8127, type: 3}
+    m_OverrideClip: {fileID: 7400000, guid: 346a6962ca56a3b42aeea7537848e8e0, type: 3}

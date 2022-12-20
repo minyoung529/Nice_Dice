@@ -53,6 +53,7 @@ public class RewardController : MonoBehaviour
     private void RewardGive(int selectedIdx)
     {
         GameManager.Instance.Data.CurrentUser.inventory.Add(rewards[selectedIdx]);
+        Debug.Log(rewards[selectedIdx].DiceName);
 
         for (int i = 0; i < REWARD_AMOUNT; i++)
         {

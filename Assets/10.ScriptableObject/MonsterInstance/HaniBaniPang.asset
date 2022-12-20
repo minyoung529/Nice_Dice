@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37c76b00560aba741ba89cc61b45a31c, type: 3}
+  m_Name: HaniBaniPang
+  m_EditorClassIdentifier: 
+  monsterName: "\uD558\uB2C8\uBC14\uB2C8\uD321"
+  descriptionList:
+  - "\uD558\uB2C8\uBC14\uB2C8\uD321\uC740 \uC584\uB77C\uAFCD \uBCC4\uC758 \uACF5\uC2DD
+    \uADC0\uC5FC\uB465\uC774\uC785\uB2C8\uB2E4."
+  - "\uC190\uC5D0\uB294 \uBFB0\uC871\uD55C \uBB34\uC5B8\uAC00\uAC00 \uB2EC\uB824\uC788\uB294\uB370..."
+  - "\uC0AC\uC2E4 \uCD08\uCF54\uCE69\uC785\uB2C8\uB2E4."
+  - "\uD558\uB2C8\uBC14\uB2C8\uD321\uC740 \uAC89\uBCF4\uAE30\uC640 \uB2EC\uB9AC \uBAB8\uC774
+    \uC57D\uD574\uC11C \uBAA8\uB4E0 \uACF5\uACA9\uC744 \uBAA8\uB450 \uB9DE\uC2B5\uB2C8\uB2E4."
+  - "\uADF8\uB807\uB2E4\uACE0 \uD558\uB2C8\uBC14\uB2C8\uD321\uC744 \uC595\uBCF4\uBA74
+    \uC548 \uB429\uB2C8\uB2E4."
+  - "\uD558\uB2C8\uBC14\uB2C8\uD321\uC740 \uACF1\uC148 \uC8FC\uC0AC\uC704\uB97C \uAC00\uC9C0\uACE0
+    \uC788\uC5B4 \uB2F9\uC2E0\uC5D0\uAC8C \uAC11\uC790\uAE30 \uAC15\uD55C \uACF5\uACA9\uC744
+    \uB0A0\uB9B4 \uC218\uB3C4 \uC788\uC2B5\uB2C8\uB2E4."
+  - "\uC8FC\uC758\uD558\uC138\uC694. \uC2F8\uC6B8 \uC2DC\uAC04\uC774 \uC654\uC2B5\uB2C8\uB2E4!"
+  monsterType: 3
+  monsterPrefab: {fileID: 5511451694551541395, guid: c1c4ed12e87f09b44b312c0d2fa46af2, type: 3}
+  Max_Hp: 50
+  monsterDices:
+  - {fileID: 11400000, guid: 8ca776f5fe0000c4d8e192c18996bf5f, type: 2}
+  - {fileID: 11400000, guid: 8ca776f5fe0000c4d8e192c18996bf5f, type: 2}
+  - {fileID: 11400000, guid: 92880cdf210b52b49bae6d4ddfdb3a13, type: 2}
+  minDamage: 1
+  maxDamage: 100
