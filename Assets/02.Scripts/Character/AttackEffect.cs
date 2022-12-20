@@ -49,7 +49,14 @@ public class AttackEffect : MonoBehaviour
             }
         }
 
-        return effects[idx];
+        if (idx < effects.Length)
+        {
+            return effects[idx];
+        }
+        else
+        {
+            return null;
+        }
     }
     public GameObject InactiveEffect(EffectType type)
     {

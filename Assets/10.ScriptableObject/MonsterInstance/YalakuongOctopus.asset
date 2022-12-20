@@ -32,5 +32,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8ca776f5fe0000c4d8e192c18996bf5f, type: 2}
   - {fileID: 11400000, guid: 8ca776f5fe0000c4d8e192c18996bf5f, type: 2}
   - {fileID: 11400000, guid: 8ca776f5fe0000c4d8e192c18996bf5f, type: 2}
+  - {fileID: 11400000, guid: d84c888f0b0d6ad478f3d192c68ae9dc, type: 2}
   minDamage: 1
   maxDamage: 100

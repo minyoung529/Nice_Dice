@@ -15,7 +15,7 @@ public class SoundManager : MonoSingleton<SoundManager>
     protected override void Awake()
     {
         audios[0] = gameObject.AddComponent<AudioSource>();
-        audios[0].volume = 0.2f;
+        audios[0].volume = 0f;
 
         audios[1] = gameObject.AddComponent<AudioSource>();
         audios[2] = gameObject.AddComponent<AudioSource>();

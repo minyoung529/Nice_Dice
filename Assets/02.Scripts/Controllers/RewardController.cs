@@ -49,6 +49,7 @@ public class RewardController : MonoBehaviour
     public void RewardGive(int selectedIdx)
     {
         GameManager.Instance.Data.CurrentUser.inventory.Add(rewards[selectedIdx]);
+
         for (int i = 0; i < REWARD_AMOUNT; i++)
         {
             Destroy(diceObject[i]);

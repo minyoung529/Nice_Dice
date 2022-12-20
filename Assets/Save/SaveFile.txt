@@ -8,9 +8,7 @@
         "본전 일반 주사위",
         "말랑 방어막",
         "핵 켰습니다",
-        "봉쇄죠?ㅋㅋ",
-        "말랑 방어막",
-        "곱셈 주사위"
+        "봉쇄죠?ㅋㅋ"
     ],
     "sDeck": [
         "말랑 방어막",
@@ -19,45 +17,39 @@
     ],
     "inventory": [
         {
-            "instanceID": 30016
+            "instanceID": 30132
         },
         {
-            "instanceID": 33550
+            "instanceID": 33838
         },
         {
-            "instanceID": 30012
+            "instanceID": 30128
         },
         {
-            "instanceID": 33554
+            "instanceID": 33898
         },
         {
-            "instanceID": 33556
+            "instanceID": 33970
         },
         {
-            "instanceID": 33564
+            "instanceID": 34644
         },
         {
-            "instanceID": 33560
+            "instanceID": 34484
         },
         {
-            "instanceID": 33558
-        },
-        {
-            "instanceID": 33564
-        },
-        {
-            "instanceID": 30016
+            "instanceID": 34050
         }
     ],
     "deck": [
         {
-            "instanceID": 33564
+            "instanceID": 34644
         },
         {
-            "instanceID": 33554
+            "instanceID": 33898
         },
         {
-            "instanceID": 33554
+            "instanceID": 33898
         }
     ]
 }
