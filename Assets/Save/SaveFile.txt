@@ -9,7 +9,8 @@
         "말랑 방어막",
         "핵 켰습니다",
         "봉쇄죠?ㅋㅋ",
-        "말랑 방어막"
+        "말랑 방어막",
+        "곱셈 주사위"
     ],
     "sDeck": [
         "말랑 방어막",
@@ -18,42 +19,45 @@
     ],
     "inventory": [
         {
-            "instanceID": 29256
+            "instanceID": 30016
         },
         {
-            "instanceID": 29258
+            "instanceID": 33550
         },
         {
-            "instanceID": 29260
+            "instanceID": 30012
         },
         {
-            "instanceID": 29262
+            "instanceID": 33554
         },
         {
-            "instanceID": 29242
+            "instanceID": 33556
         },
         {
-            "instanceID": 29264
+            "instanceID": 33564
         },
         {
-            "instanceID": 29266
+            "instanceID": 33560
         },
         {
-            "instanceID": 29268
+            "instanceID": 33558
         },
         {
-            "instanceID": 29264
+            "instanceID": 33564
+        },
+        {
+            "instanceID": 30016
         }
     ],
     "deck": [
         {
-            "instanceID": 29264
+            "instanceID": 33564
         },
         {
-            "instanceID": 29262
+            "instanceID": 33554
         },
         {
-            "instanceID": 29262
+            "instanceID": 33554
         }
     ]
 }

@@ -8,8 +8,6 @@ public class RewardController : MonoBehaviour
 {
     [SerializeField]
     private string dicesPath = "AllDices";
-    [SerializeField]
-    private string inventoryPath = "Inventory";
 
     [SerializeField]
     private GameObject panel = null;
@@ -19,7 +17,6 @@ public class RewardController : MonoBehaviour
     private List<TMP_Text> nameTexts = new List<TMP_Text>();
 
     private Dices allDices = null;
-    private Dices inventory = null;
     private const int REWARD_AMOUNT = 3;
     private Vector3 dicePosition = new Vector3(6f, 0f, -1350f);
 
@@ -31,12 +28,11 @@ public class RewardController : MonoBehaviour
     private void Awake()
     {
         allDices = Resources.Load<Dices>(dicesPath);
-        inventory = Resources.Load<Dices>(inventoryPath);
 
-        for (int i = 0; i < buttons.Count; i++)
-        {
-            buttons[i].onClick.AddListener(() => RewardGive(i));
-        }
+        //for (int i = 0; i < buttons.Count; i++)
+        //{
+        //    buttons[i].onClick.AddListener(() => RewardGive(i));
+        //}
 
         EventManager.StartListening(Define.ON_END_GAME, PrepareReward);
     }
@@ -44,16 +40,15 @@ public class RewardController : MonoBehaviour
 
     private void RandomReward()
     {
-        for (int i = 0; i < allDices.dices.Count; i++)
+        for (int i = 0; i < REWARD_AMOUNT; i++)
         {
             rewards.Add(allDices.dices[Random.Range(0, allDices.dices.Count)]);
         }
     }
 
-    private void RewardGive(int selectedIdx)
+    public void RewardGive(int selectedIdx)
     {
         GameManager.Instance.Data.CurrentUser.inventory.Add(rewards[selectedIdx]);
-
         for (int i = 0; i < REWARD_AMOUNT; i++)
         {
             Destroy(diceObject[i]);
@@ -83,7 +78,7 @@ public class RewardController : MonoBehaviour
         rewards.Clear();
         diceObject.Clear();
         RandomReward();
-        Invoke("ShowDice", 2.5f);
+        Invoke("ShowDice", 1.5f);
     }
 
     private void OnDestroy()

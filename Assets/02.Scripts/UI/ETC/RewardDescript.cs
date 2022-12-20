@@ -26,8 +26,6 @@ public class RewardDescript : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-
-        Debug.Log("Call");
         Dice dice = rewardController.Rewards[buttonIdx];
 
         diceName.text = dice.DiceName;
