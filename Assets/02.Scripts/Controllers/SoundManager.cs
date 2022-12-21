@@ -12,13 +12,38 @@ public class SoundManager : MonoSingleton<SoundManager>
 {
     AudioSource[] audios = new AudioSource[(int)AudioType.Length];
 
+    private bool mute = false;
+    public bool Mute
+    {
+        get { return mute; }
+        set
+        {
+            mute = value;
+
+            if(mute)
+            {
+                foreach (AudioSource audio in audios)
+                {
+                    audio.volume = 0f;
+                }
+            }
+            else
+            {
+                foreach (AudioSource audio in audios)
+                {
+                    audio.volume = 0.5f;
+                }
+            }
+        }
+    }
+
     protected override void Awake()
     {
         audios[0] = gameObject.AddComponent<AudioSource>();
-        audios[0].volume = 0f;
-
         audios[1] = gameObject.AddComponent<AudioSource>();
         audios[2] = gameObject.AddComponent<AudioSource>();
+
+        Mute = false;
     }
 
     public void PlayOneshot(AudioClip clip, AudioType audio = AudioType.Effect, float volume = 1f)

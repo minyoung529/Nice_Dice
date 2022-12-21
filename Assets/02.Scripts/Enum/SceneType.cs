@@ -4,6 +4,7 @@ using UnityEngine;
 
 public enum SceneType
 { 
+    Lobby,
     Game, 
     Deck
 }

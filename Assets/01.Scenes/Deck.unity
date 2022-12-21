@@ -1137,6 +1137,10 @@ PrefabInstance:
       propertyPath: <InfoPanel>k__BackingField
       value: 
       objectReference: {fileID: 7161535331930554253}
+    - target: {fileID: 1840046368, guid: 79723b909d1f4844e88d9614f0aee890, type: 3}
+      propertyPath: buttonSound
+      value: 
+      objectReference: {fileID: 8300000, guid: a683f0d1b061a19408c3ebb9d0604fc4, type: 3}
     - target: {fileID: 7693472169278513104, guid: 79723b909d1f4844e88d9614f0aee890, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

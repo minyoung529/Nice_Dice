@@ -9688,7 +9688,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8133678640127720399
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9782,7 +9782,7 @@ GameObject:
   - component: {fileID: 8133678640151339257}
   - component: {fileID: 1285356751}
   m_Layer: 5
-  m_Name: Menu
+  m_Name: Deck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10205,7 +10205,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Lobby
+  m_Text: "\uB371 \uBC14\uAFB8\uB7EC \uAC00\uAE30"
 --- !u!1 &8133678641572911151
 GameObject:
   m_ObjectHideFlags: 0
@@ -10698,4 +10698,4 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Replay
+  m_Text: "\uB2E4\uC2DC \uD558\uAE30"

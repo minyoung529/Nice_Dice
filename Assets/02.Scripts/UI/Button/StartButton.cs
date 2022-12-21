@@ -26,15 +26,9 @@ public class StartButton : MonoBehaviour, IPointerClickHandler, IPointerEnterHan
         switch (type)
         {
             case ButtonType.Game:
-                SceneManager.LoadScene("Game");
-                break;
-
             case ButtonType.Lobby:
-                SceneManager.LoadScene("Lobby");
-                break;
-
             case ButtonType.Deck:
-                SceneManager.LoadScene("Deck");
+                SceneManager.LoadScene(type.ToString());
                 break;
 
             case ButtonType.Exit:

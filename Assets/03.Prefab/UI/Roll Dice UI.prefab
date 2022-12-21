@@ -376,7 +376,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c64b3b77b03b1d84a829a5f627f6e2e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 500
+  speed: 2000
   graduation: {fileID: 2196288157074653319}
   fillImage: {fileID: 1893398299}
   diceManager: {fileID: 0}
@@ -529,7 +529,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rollDown: {fileID: 8300000, guid: 1f8f1da0640646d46a808dc97bc07a73, type: 3}
-  rollUp: {fileID: 8300000, guid: 5c7644ae19d7cf944830a0982131e0c7, type: 3}
+  rollUp: {fileID: 8300000, guid: 7dca9b0aab27de640a073e8cab8a5e2d, type: 3}
 --- !u!114 &1620099153
 MonoBehaviour:
   m_ObjectHideFlags: 0
