@@ -10,6 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cdec6cadcd88f394ca12f589a3d25b89, type: 3}
-  m_Name: Deck
+  m_Name: Deck_Prensentation
   m_EditorClassIdentifier: 
-  dices: []
+  dices:
+  - {fileID: 11400000, guid: bb457c21288786647a6d03537c835f21, type: 2}
+  - {fileID: 11400000, guid: 1dfc5165a4d94da4a83928622f18e4f8, type: 2}
+  - {fileID: 11400000, guid: 1dfc5165a4d94da4a83928622f18e4f8, type: 2}

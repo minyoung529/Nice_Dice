@@ -4,22 +4,27 @@ using UnityEngine;
 
 public class PortalEffect : MonoBehaviour
 {
-    ParticleSystem particle;
+    ParticleSystem[] particle;
     ParticleSystem.MainModule main;
 
-    void Awake()
+    void Start()
     {
-        particle = GetComponent<ParticleSystem>();
-        main = particle.main;
+        particle = GetComponentsInChildren<ParticleSystem>();
 
         EventManager.StartListening(Define.ON_NEXT_STAGE, Active);
         EventManager.StartListening(Define.ON_START_PLAYER_TURN, Inactive);
         EventManager.StartListening(Define.ON_START_MONSTER_TURN, Inactive);
+
+        Active();
     }
 
     private void Active()
     {
         gameObject.SetActive(true);
+        foreach (var p in particle)
+        {
+            p.Play();
+        }
     }
 
     private void Inactive()

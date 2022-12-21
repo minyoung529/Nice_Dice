@@ -7,7 +7,7 @@ public class StartBGM : MonoBehaviour
     [SerializeField]
     private AudioClip bgmClip;
 
-    void Start()
+    private void Start()
     {
         SoundManager.Instance.Play(AudioType.BGM, bgmClip);
     }

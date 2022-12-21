@@ -60,7 +60,10 @@ public class EquipPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         this.index = index;
 
         if (isAdd)
+        {
             GameManager.Instance.Deck.Add(dice);
+            GameManager.Instance.Inventory.Remove(dice);
+        }
 
         return true;
     }
@@ -137,6 +140,7 @@ public class EquipPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     private void ResetValue()
     {
         GameManager.Instance.Deck.Remove(dice);
+        GameManager.Instance.Inventory.Add(dice);
         dice = null;
         index = -1;
     }

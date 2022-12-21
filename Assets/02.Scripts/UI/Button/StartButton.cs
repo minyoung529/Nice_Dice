@@ -21,11 +21,24 @@ public class StartButton : MonoBehaviour, IPointerClickHandler, IPointerEnterHan
     [SerializeField] private CanvasGroup helpPanel;
     [SerializeField] private AudioClip buttonSound;
 
+    [SerializeField] private Transform warningImage;
+
     private void OnClickButton(ButtonType type)
     {
         switch (type)
         {
             case ButtonType.Game:
+
+                if (GameManager.Instance.Deck.Count != 6)
+                {
+                    warningImage?.gameObject.SetActive(true);
+                    warningImage?.DOShakePosition(1f, 20).OnComplete(() => warningImage?.gameObject.SetActive(false));
+                }
+                else
+                {
+                    SceneManager.LoadScene(type.ToString());
+                }
+                break;
             case ButtonType.Lobby:
             case ButtonType.Deck:
                 SceneManager.LoadScene(type.ToString());

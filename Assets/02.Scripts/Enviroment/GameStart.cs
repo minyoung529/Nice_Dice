@@ -11,7 +11,6 @@ public class GameStart : MonoBehaviour
     {
         EventManager.TriggerEvent(Define.ON_RELOAD_GAME);
 
-        
         GameManager.Instance.UI.HeaderUI.UpdateUI();
         GameManager.Instance.UI.DescriptionUI.ActivePanel();
     }

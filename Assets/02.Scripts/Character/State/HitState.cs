@@ -2,9 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
-using Unity.VisualScripting;
-using static UnityEngine.Rendering.DebugUI;
-using UnityEditor.Rendering.LookDev;
 
 /// <summary>
 /// 맞는 상태

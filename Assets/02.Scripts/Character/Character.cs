@@ -99,8 +99,14 @@ public class Character : MonoBehaviour
         }
     }
 
+    protected virtual void ChildDestroy()
+    {
+
+    }
+
     protected void OnDestroy()
     {
         Release();
+        ChildDestroy();
     }
 }

@@ -22,7 +22,7 @@ public class AIEnemyController : Character
         ChangeState(CharacterState.BeforeRoll);
     }
 
-    private void OnDestroy()
+    protected override void ChildDestroy()
     {
         EventManager.StopListening(Define.ON_START_MONSTER_TURN, MonsterTurn);
     }

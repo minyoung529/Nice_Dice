@@ -10,7 +10,7 @@ public enum AudioType
 
 public class SoundManager : MonoSingleton<SoundManager>
 {
-    AudioSource[] audios = new AudioSource[(int)AudioType.Length];
+    AudioSource[] audios = new AudioSource[3];
 
     private bool mute = false;
     public bool Mute
@@ -20,7 +20,7 @@ public class SoundManager : MonoSingleton<SoundManager>
         {
             mute = value;
 
-            if(mute)
+            if (mute)
             {
                 foreach (AudioSource audio in audios)
                 {
@@ -31,7 +31,7 @@ public class SoundManager : MonoSingleton<SoundManager>
             {
                 foreach (AudioSource audio in audios)
                 {
-                    audio.volume = 0.5f;
+                    audio.volume = 1f;
                 }
             }
         }
@@ -39,17 +39,14 @@ public class SoundManager : MonoSingleton<SoundManager>
 
     protected override void Awake()
     {
-        audios[0] = gameObject.AddComponent<AudioSource>();
-        audios[1] = gameObject.AddComponent<AudioSource>();
-        audios[2] = gameObject.AddComponent<AudioSource>();
-
-        Mute = false;
+        FirstSetting();
     }
 
     public void PlayOneshot(AudioClip clip, AudioType audio = AudioType.Effect, float volume = 1f)
     {
         if (!clip) return;
 
+        FirstSetting();
         audios[(int)audio].PlayOneShot(clip, volume);
     }
 
@@ -57,12 +54,28 @@ public class SoundManager : MonoSingleton<SoundManager>
     {
         if (!clip) return;
 
+        FirstSetting();
         audios[(int)audio].clip = clip;
         audios[(int)audio].Play();
+        Debug.Log("PLAYER_BGM");
     }
 
     public void Stop(AudioType audio)
     {
+        FirstSetting();
         audios[(int)audio].Stop();
+    }
+
+    private void FirstSetting()
+    {
+        if (audios[0] == null)
+        {
+            audios[0] = gameObject.AddComponent<AudioSource>();
+            audios[1] = gameObject.AddComponent<AudioSource>();
+            audios[2] = gameObject.AddComponent<AudioSource>();
+
+            audios[0].loop = true;
+            //Mute = false;
+        }
     }
 }

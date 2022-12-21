@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
+//using UnityEditor;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New DiceData", menuName = "SO/Dice/DiceData")]
@@ -24,9 +24,9 @@ public class DiceData : ScriptableObject
         diceShapeDict.Add((int)DiceShape.Cube, cubeDice);
         diceShapeDict.Add((int)DiceShape.Tetrahedron, tetrahedronDice);
         diceShapeDict.Add((int)DiceShape.Octahedron, octahedronDice);
-        EditorUtility.SetDirty(this);
-        AssetDatabase.SaveAssets();
-        AssetDatabase.Refresh();
+        //EditorUtility.SetDirty(this);
+        //AssetDatabase.SaveAssets();
+        //AssetDatabase.Refresh();
     }
 
 #if UNITY_EDITOR

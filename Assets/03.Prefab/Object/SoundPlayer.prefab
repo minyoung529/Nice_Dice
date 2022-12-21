@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5014264218131961019}
   - component: {fileID: 4455313867897486605}
+  - component: {fileID: 5876244850471747056}
   m_Layer: 0
   m_Name: SoundPlayer
   m_TagString: Untagged
@@ -46,3 +47,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zeroClip: {fileID: 8300000, guid: d277f979766e4be4692d354c477d4642, type: 3}
   hitClip: {fileID: 8300000, guid: f241dd7ea9356b44183c44794107ada1, type: 3}
+--- !u!114 &5876244850471747056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8222453921699566929}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abfdf3b8d8de8344a9414f54c3e35aad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bgmClip: {fileID: 8300000, guid: 493481b6057df8a45b7e22a2a3518cb6, type: 3}

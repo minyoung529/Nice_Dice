@@ -36,11 +36,13 @@ public class PoolManager : ControllerBase
 
         if(obj)
         {
+            obj.transform.localScale = Vector3.one;
             return obj;
         }
         else
         {
             obj = Object.Instantiate(poolObj);
+            obj.transform.localScale = Vector3.one;
             obj.name = poolObj.name;
             return obj;
         }
@@ -49,6 +51,8 @@ public class PoolManager : ControllerBase
     public void Push(GameObject obj)
     {
         if (!pools.ContainsKey(obj.name)) return;
+
+        obj.transform.localScale = Vector3.one;
 
         pools[obj.name].Push(obj);
         obj.transform.SetParent(Root);
