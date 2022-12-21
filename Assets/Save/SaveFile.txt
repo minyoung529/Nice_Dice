@@ -1,5 +1,5 @@
 ﻿{
-    "maxMonster": 0,
+    "maxMonster": 1,
     "sInventory": [
         "곱셈 주사위",
         "모 아니면 도",
@@ -8,48 +8,68 @@
         "본전 일반 주사위",
         "말랑 방어막",
         "핵 켰습니다",
-        "봉쇄죠?ㅋㅋ"
+        "봉쇄죠?ㅋㅋ",
+        "봉쇄죠?ㅋㅋ",
+        "본전 일반 주사위"
     ],
     "sDeck": [
         "말랑 방어막",
         "엄청난 일반 주사위",
-        "엄청난 일반 주사위"
+        "엄청난 일반 주사위",
+        "봉쇄죠?ㅋㅋ",
+        "모 아니면 도",
+        "일반 주사위"
     ],
     "inventory": [
         {
-            "instanceID": 30132
+            "instanceID": 30264
         },
         {
-            "instanceID": 33838
+            "instanceID": 30260
         },
         {
-            "instanceID": 30128
+            "instanceID": 30258
         },
         {
-            "instanceID": 33898
+            "instanceID": 34620
         },
         {
-            "instanceID": 33970
+            "instanceID": 34692
         },
         {
-            "instanceID": 34644
+            "instanceID": 34932
         },
         {
-            "instanceID": 34484
+            "instanceID": 34772
         },
         {
-            "instanceID": 34050
+            "instanceID": 31892
+        },
+        {
+            "instanceID": 31892
+        },
+        {
+            "instanceID": 34692
         }
     ],
     "deck": [
         {
-            "instanceID": 34644
+            "instanceID": 34932
         },
         {
-            "instanceID": 33898
+            "instanceID": 34620
         },
         {
-            "instanceID": 33898
+            "instanceID": 34620
+        },
+        {
+            "instanceID": 31892
+        },
+        {
+            "instanceID": 30260
+        },
+        {
+            "instanceID": 30258
         }
     ]
 }
