@@ -45,4 +45,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zeroClip: {fileID: 8300000, guid: d277f979766e4be4692d354c477d4642, type: 3}
-  hitClip: {fileID: 0}
+  hitClip: {fileID: 8300000, guid: f241dd7ea9356b44183c44794107ada1, type: 3}
