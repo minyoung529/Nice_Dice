@@ -258,7 +258,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: cce105f52f5504843a9896a9e1aeccd6, type: 2}
+  - {fileID: 2100000, guid: 521a116fdefbbc04b9c36d063d96b327, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -350,7 +350,7 @@ GameObject:
   - component: {fileID: 790206676971702343}
   - component: {fileID: 5296181604144805903}
   m_Layer: 0
-  m_Name: YalakuongOctopus
+  m_Name: YalakuongNamuOctopus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -363,10 +363,10 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3778554376556754478}
-  m_LocalRotation: {x: -0.3334265, y: -0.5884731, z: -0.037056204, w: 0.73563105}
+  m_LocalRotation: {x: -0.33342782, y: -0.5884739, z: -0.037059084, w: 0.73562974}
   m_LocalPosition: {x: 1.25865, y: -2.3, z: -3.6}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3778554376557046284}
   - {fileID: 3778554376557046288}
@@ -376,7 +376,7 @@ Transform:
   - {fileID: 6497039893581256601}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -32.288, y: -129.226, z: 23.56}
+  m_LocalEulerAnglesHint: {x: -32.288, y: -84.226, z: 23.56}
 --- !u!95 &3778554376566130158
 Animator:
   serializedVersion: 4
@@ -410,10 +410,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 0}
-  hp: 100
-  maxHp: 100
+  hp: 200
+  maxHp: 200
   <IsPlayer>k__BackingField: 0
-  monsterData: {fileID: 11400000, guid: feaab1ba12c27a74aaa35cee843c03cf, type: 2}
+  monsterData: {fileID: 11400000, guid: a6c867bdd911497428b6231620fa52e9, type: 2}
 --- !u!114 &5296181604144805903
 MonoBehaviour:
   m_ObjectHideFlags: 0

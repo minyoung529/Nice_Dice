@@ -329,8 +329,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 0}
-  hp: 250
-  maxHp: 250
+  hp: 120
+  maxHp: 120
   <IsPlayer>k__BackingField: 0
   monsterData: {fileID: 11400000, guid: df47f371bf78836408442fd6bfccef4a, type: 2}
 --- !u!114 &8845558075301582604
@@ -353,6 +353,14 @@ MonoBehaviour:
   - {fileID: 4767301599969381911}
   - {fileID: 3537117094363304867}
   - {fileID: 5510509016023808854}
+  sounds:
+  - {fileID: 8300000, guid: eba3fe3224cd17d4e96b99f3f9dcde5d, type: 3}
+  - {fileID: 8300000, guid: 4664f994bb8c9014fac7b9fe8ec6498d, type: 3}
+  - {fileID: 8300000, guid: fd35b659855badc41b04a8a605b59b43, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 8300000, guid: d442bfad2b0fafc44af5a0d4c90c70aa, type: 3}
 --- !u!1 &5538048349717008307
 GameObject:
   m_ObjectHideFlags: 0

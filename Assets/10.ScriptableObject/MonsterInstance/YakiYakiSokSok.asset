@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37c76b00560aba741ba89cc61b45a31c, type: 3}
+  m_Name: YakiYakiSokSok
+  m_EditorClassIdentifier: 
+  monsterName: "\uC57C\uB07C\uC57C\uB07C \uC3D9\uC3D9"
+  descriptionList:
+  - "\uC57C\uB07C\uC57C\uB07C \uC3D9\uC3D9\uC740 \uD558\uB2C8\uBC14\uB2C8\uD321\uC758
+    \uC544~~~~\uC8FC~~~ \uBA3C \uCE5C\uCC99\uC785\uB2C8\uB2E4."
+  - "\uB2F9\uC2E0\uC774 \uD558\uB2C8\uBC14\uB2C8\uD321\uC744 \uC4F0\uB824\uD2B8\uB838\uB2E4\uB294
+    \uAC83\uC744 \uC54C\uACE0 \uBCF5\uC218\uD558\uB7EC \uC654\uC2B5\uB2C8\uB2E4. "
+  - "\uC57C\uB07C\uC57C\uB07C \uC3D9\uC3D9\uC740 \uBAA8\uB4E0 \uACF5\uACA9\uC774
+    \uC720\uD6A8\uD558\uB098, \uAC15\uB825\uD55C \uC8FC\uC0AC\uC704\uB4E4\uC744 \uAC00\uC9C0\uACE0
+    \uC788\uC73C\uB2C8 \uC870\uC2EC\uD558\uC138\uC694!"
+  monsterType: 3
+  monsterPrefab: {fileID: 5511451694551541395, guid: 2b880f3153b20e04e9472fa05faf0370, type: 3}
+  Max_Hp: 170
+  monsterDices:
+  - {fileID: 11400000, guid: 538fef370e6d335499d07d6084c981bc, type: 2}
+  - {fileID: 11400000, guid: 1dfc5165a4d94da4a83928622f18e4f8, type: 2}
+  - {fileID: 11400000, guid: 7530341a18b1ea041bedc956bde7bfb4, type: 2}
+  - {fileID: 11400000, guid: d609f0045d5d40f4392a3221899322b6, type: 2}
+  minDamage: 0
+  maxDamage: 0

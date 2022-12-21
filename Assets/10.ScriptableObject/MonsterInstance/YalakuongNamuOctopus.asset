@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37c76b00560aba741ba89cc61b45a31c, type: 3}
+  m_Name: YalakuongNamuOctopus
+  m_EditorClassIdentifier: 
+  monsterName: "\uC584\uB77C\uAFCD \uB098\uBBA4\uBB38\uC5B4"
+  descriptionList:
+  - "\uC584\uB77C\uAFCD \uB098\uBBA4\uBB38\uC5B4\uB294 \uC584\uB77C\uAFCD \uBB38\uC5B4\uC758
+    \uD55C \uC885\uB958\uC785\uB2C8\uB2E4."
+  - "\uBCF4\uB77C\uC0C9 \uC584\uB77C\uAFCD \uBB38\uC5B4\uBCF4\uB2E4 \uD06C\uAE30\uAC00
+    \uD06C\uACE0, \uCCB4\uB825\uC774 \uB9CE\uC740 \uAC83\uC774 \uD2B9\uC9D5\uC785\uB2C8\uB2E4."
+  - "\uB098\uBBA4\uBB38\uC5B4\uB294 \uAC15\uC2EC\uC7A5\uC774\uB77C \uB9AC\uC2A4\uD06C\uAC00
+    \uC788\uC9C0\uB9CC \uD070 \uB300\uBBF8\uC9C0\uB97C \uC904 \uC218 \uC788\uB294
+    \uC8FC\uC0AC\uC704\uB97C \uC0AC\uC6A9\uD569\uB2C8\uB2E4."
+  - "\uB098\uBBA4\uBB38\uC5B4\uB294 '\uC9DD\uC218' \uACF5\uACA9\uB9CC \uBC1B\uC2B5\uB2C8\uB2E4."
+  monsterType: 1
+  monsterPrefab: {fileID: 3778554376556754478, guid: 802012b326ce94b4898be4b51d90dc3b, type: 3}
+  Max_Hp: 200
+  monsterDices:
+  - {fileID: 11400000, guid: 1dfc5165a4d94da4a83928622f18e4f8, type: 2}
+  - {fileID: 11400000, guid: 1dfc5165a4d94da4a83928622f18e4f8, type: 2}
+  - {fileID: 11400000, guid: 1dfc5165a4d94da4a83928622f18e4f8, type: 2}
+  - {fileID: 11400000, guid: d84c888f0b0d6ad478f3d192c68ae9dc, type: 2}
+  minDamage: 1
+  maxDamage: 100
