@@ -83,6 +83,8 @@ public class GameManager : MonoSingleton<GameManager>
 
     public static int maxDeal = 0;
     public float DamageWeight { get; set; } = 1;
+
+    public List<string> ClearMonsters { get; set; } = new List<string>();
     #endregion
 
     protected override void Awake()
@@ -141,6 +143,7 @@ public class GameManager : MonoSingleton<GameManager>
         maxDeal = 0;
         DamageWeight = 1f;
         stage = 1;
+        ClearMonsters = new List<string>();
     }
 
     private void OnDestroy()

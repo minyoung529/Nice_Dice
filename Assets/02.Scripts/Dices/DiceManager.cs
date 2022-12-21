@@ -39,9 +39,6 @@ public class DiceManager : MonoBehaviour
         List<int> arr = new List<int>();
         bool isSkill = false;
 
-        Debug.Log(GameManager.Instance.Data.CurrentUser.deck.Count);
-        Debug.Log(GameManager.Instance.Data.CurrentUser.inventory.Count);
-
         for (int i = 0; i < Define.DICE_SELECT_COUNT; i++)
         {
             int n = Random.Range(0, GameManager.Instance.Deck.Count);

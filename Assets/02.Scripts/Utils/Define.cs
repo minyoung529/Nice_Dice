@@ -28,8 +28,8 @@ public class Define
     public const int ON_HIT = 111;
     #endregion
 
-    public const int MAX_NUMBER_DICE = 4;
-    public const int MAX_SKILL_DICE = 1;
+    public const int MAX_NUMBER_DICE = 3;
+    public const int MAX_SKILL_DICE = 2;
     public const int MAX_MULTIPLY_DICE = 1;
     public const int DICE_SELECT_COUNT = 3;
 

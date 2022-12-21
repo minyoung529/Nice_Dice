@@ -40,7 +40,7 @@ public class DieState : StateBase
 
         if (character.CompareTag("Player")) // ∞‘¿” ≥°
         {
-            GameManager.Instance.UI.WinUI.UpdateUI(true, GameManager.Instance.Enemy.GetComponent<AIEnemyController>().monsterData.MonsterName, GameManager.maxDeal);
+            GameManager.Instance.UI.WinUI.UpdateUI();
             EventManager.TriggerEvent(Define.ON_END_GAME);
         }
         else
@@ -51,7 +51,9 @@ public class DieState : StateBase
             GameManager.Instance.stage++;
             EventManager.TriggerEvent(Define.ON_NEXT_STAGE);
             GameManager.Instance.UI.HeaderUI.UpdateUI();
-            
+
+            AIEnemyController controller = character.GetComponent<AIEnemyController>();
+            GameManager.Instance.ClearMonsters.Add(controller.monsterData.MonsterName);
         }
 
         //isCallOnce = true;

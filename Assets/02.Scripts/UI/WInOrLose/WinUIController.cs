@@ -15,16 +15,21 @@ public class WinUIController : MonoBehaviour
 
     public Image winPanel;
 
-    public void UpdateUI(bool isHighScore, string boss, int maxDamage)
+    public void UpdateUI()
     {
         panel.gameObject.SetActive(true);
+        string bosses = string.Join(", ", GameManager.Instance.ClearMonsters);
+        int bossCnt = bosses.Split(',').Length;
 
-        int bossCnt = boss.Split(',').Length;
+        if (GameManager.Instance.Data.CurrentUser.SetHighScore(bossCnt))
+        {
+            highScore.SetActive(true);
+        }
 
-        highScore.SetActive(isHighScore);
+        clearText.text = "";
+        clearText.DOText($"{GameManager.Instance.ClearMonsters.Count} Monsters Clear!", 1f);
 
-        clearText.DOText($"{bossCnt} Monsters Clear!", 1f);
-        bossText.text = $"처치한 보스: {boss}";
-        maxDamageText.text = $"최고 한방 대미지: {maxDamage}";
+        bossText.text = $"처치한 보스: {bosses}";
+        maxDamageText.text = $"최고 한방 대미지: {GameManager.maxDeal}";
     }
 }
