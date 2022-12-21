@@ -82,7 +82,9 @@ public class RandomMachine : MonoBehaviour
                 SoundManager.Instance.PlayOneshot(specialDiceSound);
             }
 
-            GameObject dice = Instantiate(diceData.DicePrefab, diceSpawn.position, Quaternion.identity, transform);
+            GameObject dice = GameManager.Instance.Pool.Pop(diceData.DicePrefab);
+            dice.transform.SetParent(transform);
+            dice.transform.SetPositionAndRotation(diceSpawn.position, Quaternion.identity);
             dice.transform.localScale = DICE_SCALE;
 
             dice.AddComponent<RandomDiceObject>().Init(wayPoints, lastPointa[i]);

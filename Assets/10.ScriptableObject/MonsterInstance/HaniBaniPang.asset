@@ -32,6 +32,6 @@ MonoBehaviour:
   monsterDices:
   - {fileID: 11400000, guid: 8ca776f5fe0000c4d8e192c18996bf5f, type: 2}
   - {fileID: 11400000, guid: 8ca776f5fe0000c4d8e192c18996bf5f, type: 2}
-  - {fileID: 11400000, guid: 7530341a18b1ea041bedc956bde7bfb4, type: 2}
+  - {fileID: 11400000, guid: 9379141848a9f9d4aa086d262d759fce, type: 2}
   minDamage: 1
   maxDamage: 100

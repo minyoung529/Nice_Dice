@@ -103,7 +103,8 @@ public class DiceManager : MonoBehaviour
 
             position.z -= z;
 
-            GameObject dice = Instantiate(dices[i].DicePrefab, position, Quaternion.identity);
+            GameObject dice = GameManager.Instance.Pool.Pop(dices[i].DicePrefab);
+            dice.transform.SetPositionAndRotation(position, Quaternion.identity);
             diceObjects.Add(dice);
         }
     }

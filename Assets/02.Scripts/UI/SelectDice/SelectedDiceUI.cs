@@ -38,7 +38,8 @@ public class SelectedDiceUI : MonoBehaviour
         {
             Vector3 pos = dicePanel[i].transform.position;
             pos.z -= 1f;
-            GameObject newObject = Instantiate(GameManager.Instance.Dice.SelectedDice[i].DicePrefab, pos, Quaternion.identity, null);
+            GameObject newObject = GameManager.Instance.Pool.Pop(GameManager.Instance.Dice.SelectedDice[i].DicePrefab);
+            newObject.transform.SetPositionAndRotation(pos, Quaternion.identity);
             newObject.transform.localScale = Vector3.one * 0.5f;
             newObject.AddComponent<Roll>();
             newObject.GetComponent<DiceControl>().enabled = false;
@@ -50,7 +51,8 @@ public class SelectedDiceUI : MonoBehaviour
     {
         for (int i = 0; i < /*dicePanel.Length*/diceObjects.Count; i++)
         {
-            Destroy(diceObjects[i]);
+            diceObjects[i].transform.localScale = Vector3.one;
+            GameManager.Instance.Pool.Push(diceObjects[i]);
         }
         diceObjects.Clear();
     }
