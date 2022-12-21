@@ -10,6 +10,7 @@ public class GameManager : MonoSingleton<GameManager>
     #region Contoller
     private UIManager uiManager = new UIManager();
     private DataManager dataManager = new DataManager();
+    private PoolManager poolManager = new PoolManager();
     private DiceManager diceManager;
 
     private CameraMove mainCam;
@@ -25,6 +26,7 @@ public class GameManager : MonoSingleton<GameManager>
         }
     }
     public DataManager Data => dataManager;
+    public PoolManager Pool => poolManager;
     public CameraMove MainCam
     {
         get
@@ -46,7 +48,7 @@ public class GameManager : MonoSingleton<GameManager>
 
     #region Game
     public int stage = 1;
-   [SerializeField]  private bool playerTurn = false;
+    [SerializeField] private bool playerTurn = false;
 
     private Character player;
     private Character enemy;
@@ -92,6 +94,7 @@ public class GameManager : MonoSingleton<GameManager>
         base.Awake();
         // controllers에 컨트롤러들을 넣는다.
         controllers.Add(uiManager);
+        controllers.Add(poolManager);
         controllers.Add(dataManager);
 
         EventManager.StartListening(Define.ON_RELOAD_GAME, ResetValue);

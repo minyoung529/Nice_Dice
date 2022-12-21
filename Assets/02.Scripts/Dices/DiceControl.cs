@@ -101,7 +101,8 @@ public class DiceControl : MonoBehaviour
 
     private void DiceDestroy()
     {
-        Destroy(gameObject);
+        transform.localScale = Vector3.one;
+        GameManager.Instance.Pool.Push(gameObject);
     }
     private void OnDestroy()
     {
