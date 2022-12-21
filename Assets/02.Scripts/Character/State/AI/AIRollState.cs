@@ -15,8 +15,6 @@ public class AIRollState : RollState
     {
         DiceManager diceManager = GameManager.Instance.Dice;
 
-        Debug.Log("ROLL");
-
         List<KeyValuePair<Dice, int>> selectedSides 
             = diceManager.RollRandomDice(Random.Range(0,12), character.transform.position, false, monsterData.MonsterDices);
 
