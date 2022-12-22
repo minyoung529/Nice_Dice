@@ -14,20 +14,17 @@ public class Roll : MonoBehaviour
     private Vector3 rot = new Vector3(-22.5f, 45f, -22.5f);
     private Vector3 rot2 = new Vector3(19.5f, 127f, 156f);
 
-    [SerializeField]
-    RotateMode rotmode;
-
     private void OnEnable()
     {
         transform.eulerAngles = rot;
 
         seq = DOTween.Sequence();
 
-        seq.Append(transform.DORotate(rot, duration, rotmode));
+        seq.Append(transform.DORotate(rot, duration, RotateMode.FastBeyond360));
         seq.AppendCallback(() => transform.eulerAngles = rot);
         seq.AppendInterval(stopInverval);
 
-        seq.Append(transform.DORotate(rot2 + Vector3.one * 360f, duration, rotmode));
+        seq.Append(transform.DORotate(rot2 + Vector3.one * 360f, duration, RotateMode.FastBeyond360));
         seq.AppendCallback(() => transform.eulerAngles = rot2);
         seq.AppendInterval(stopInverval);
 

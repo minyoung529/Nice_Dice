@@ -34,10 +34,13 @@ public class SelectedDiceUI : MonoBehaviour
 
     private void CreateDice()
     {
+        Debug.Log(string.Join(", ", GameManager.Instance.Dice.SelectedDice));
+
         for (int i = 0; i < dicePanel.Length; i++)
         {
             Vector3 pos = dicePanel[i].transform.position;
             pos.z -= 1f;
+
             GameObject newObject = GameManager.Instance.Pool.Pop(GameManager.Instance.Dice.SelectedDice[i].DicePrefab);
             newObject.transform.SetPositionAndRotation(pos, Quaternion.identity);
             newObject.transform.localScale = Vector3.one * 0.5f;

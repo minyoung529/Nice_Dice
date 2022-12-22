@@ -135,7 +135,7 @@ public class GameManager : MonoSingleton<GameManager>
     {
         playerTurn = !playerTurn;
         //SelectedDices = deck.RandomSelect(Define.DICE_SELECT_COUNT);
-        Dice.DiceSelect();
+        Dice.SelectPlayerDice();
 
         // 현재는 플레이어의 덱에서만 꺼내온다
         if (playerTurn)

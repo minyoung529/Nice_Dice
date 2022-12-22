@@ -15,8 +15,10 @@ public class AIRollState : RollState
     {
         DiceManager diceManager = GameManager.Instance.Dice;
 
-        List<KeyValuePair<Dice, int>> selectedSides 
-            = diceManager.RollRandomDice(Random.Range(0,12), character.transform.position, false, monsterData.MonsterDices);
+        List<Dice> selected = GameManager.Instance.Dice.DiceSelect(monsterData.MonsterDices);
+
+        List<KeyValuePair<Dice, int>> selectedSides
+            = diceManager.RollRandomDice(Random.Range(0, 12), character.transform.position, false, selected);
 
         // 주사위와 면 이벤트로 보내기
         EventManager<List<KeyValuePair<Dice, int>>>.TriggerEvent(Define.ON_END_ROLL, selectedSides);

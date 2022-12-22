@@ -36,7 +36,7 @@ public class Character : MonoBehaviour
     }
 
     [SerializeField] private int maxHp;
-    public int MaxHp { get => maxHp; }
+    public int MaxHp { get => maxHp; set => maxHp = value; }
 
     [field: SerializeField]
     public bool IsPlayer { get; set; }
@@ -69,7 +69,6 @@ public class Character : MonoBehaviour
         }
 
         ChangeState(CharacterState.Idle);
-
         hp = maxHp;
     }
 
@@ -100,6 +99,11 @@ public class Character : MonoBehaviour
     }
 
     protected virtual void ChildDestroy()
+    {
+
+    }
+
+    protected virtual void ChildStart()
     {
 
     }

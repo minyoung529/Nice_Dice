@@ -12,6 +12,9 @@ public class AIEnemyController : Character
 
         EventManager.StartListening(Define.ON_START_MONSTER_TURN, MonsterTurn);
 
+        MaxHp = monsterData.MAX_HP;
+        Hp = MaxHp;
+
         stateActions[CharacterState.BeforeRoll] = new AIBeforeRollState(this);
         stateActions[CharacterState.Roll] = new AIRollState(this);
         stateActions[CharacterState.Attack] = new AIAttackState(this);

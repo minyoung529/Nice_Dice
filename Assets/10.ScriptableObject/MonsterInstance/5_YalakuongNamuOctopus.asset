@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 37c76b00560aba741ba89cc61b45a31c, type: 3}
-  m_Name: YalakuongNamuOctopus
+  m_Name: 5_YalakuongNamuOctopus
   m_EditorClassIdentifier: 
   monsterName: "\uC584\uB77C\uAFCD \uB098\uBBA4\uBB38\uC5B4"
   descriptionList:
@@ -26,9 +26,11 @@ MonoBehaviour:
   monsterPrefab: {fileID: 3778554376556754478, guid: 802012b326ce94b4898be4b51d90dc3b, type: 3}
   Max_Hp: 200
   monsterDices:
+  - {fileID: 11400000, guid: 538fef370e6d335499d07d6084c981bc, type: 2}
+  - {fileID: 11400000, guid: 9379141848a9f9d4aa086d262d759fce, type: 2}
+  - {fileID: 11400000, guid: d609f0045d5d40f4392a3221899322b6, type: 2}
+  - {fileID: 11400000, guid: 92880cdf210b52b49bae6d4ddfdb3a13, type: 2}
+  - {fileID: 11400000, guid: 538fef370e6d335499d07d6084c981bc, type: 2}
   - {fileID: 11400000, guid: 1dfc5165a4d94da4a83928622f18e4f8, type: 2}
-  - {fileID: 11400000, guid: 1dfc5165a4d94da4a83928622f18e4f8, type: 2}
-  - {fileID: 11400000, guid: 1dfc5165a4d94da4a83928622f18e4f8, type: 2}
-  - {fileID: 11400000, guid: d84c888f0b0d6ad478f3d192c68ae9dc, type: 2}
   minDamage: 1
   maxDamage: 100

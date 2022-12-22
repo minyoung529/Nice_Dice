@@ -10,7 +10,7 @@ using System;
 public class AttackState : StateBase
 {
     private readonly int attackHash = Animator.StringToHash("Attack");
-    private const float ATTACK_TIME = 0.63f;
+    private const float ATTACK_TIME = 1.15f;
     private float timer = ATTACK_TIME;
     private bool isEffect;
     private AttackEffect effect;
@@ -30,7 +30,7 @@ public class AttackState : StateBase
 
         if (SkillManager.CurrentSkill)
         {
-            timer += 2f;
+            timer = ATTACK_TIME;
         }
 
         ChildStart();

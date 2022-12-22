@@ -35,27 +35,33 @@ public class DiceManager : MonoBehaviour
     /// Dice를 덱에서 골라주는 함수. 스킬, 가중치 주사위 확률 적용 필요. 
     /// </summary>
     [ContextMenu("DiceSelect")]
-    public void DiceSelect()
+    public List<Dice> DiceSelect(IReadOnlyList<Dice> list)
     {
-        selectedDice.Clear();
         List<int> arr = new List<int>();
+        List<Dice> result = new List<Dice>();
         bool isSkill = false;
 
         for (int i = 0; i < Define.DICE_SELECT_COUNT; i++)
         {
-            int n = Random.Range(0, GameManager.Instance.Deck.Count);
+            int n = Random.Range(0, list.Count);
 
-            while (arr.Contains(n) || (isSkill && GameManager.Instance.Deck[n].DiceType == DiceType.Skill))
+            while (arr.Contains(n) || (isSkill && list[n].DiceType == DiceType.Skill))
             {
-                n = Random.Range(0, GameManager.Instance.Deck.Count);
+                n = Random.Range(0, list.Count);
             }
 
-            if (GameManager.Instance.Deck[n].DiceType == DiceType.Skill)
+            if (list[n].DiceType == DiceType.Skill)
                 isSkill = true;
 
-            arr.Add(n);
-            selectedDice.Add(GameManager.Instance.Deck[n]);
+            result.Add(list[n]);
         }
+
+        return result;
+    }
+
+    public void SelectPlayerDice()
+    {
+        selectedDice = DiceSelect(GameManager.Instance.Deck);
     }
 
     /// <summary>
@@ -78,7 +84,7 @@ public class DiceManager : MonoBehaviour
 
         Debug.Assert(!(sideIdx >= max) || sideIdx > 0, $"val({sideIdx}) is out of index. grade({grade}), section({section})"); // 인덱스에서 벗어나는 경우의 예외처리
 
-        if (Random.Range(0, 100) > 40)
+        if (Random.Range(0, 100) > 30)
         {
             sideIdx = Random.Range(0, max);
         }
