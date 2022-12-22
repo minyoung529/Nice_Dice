@@ -51,12 +51,12 @@ public class PoolManager : ControllerBase
     public void Push(GameObject obj)
     {
         Object.Destroy(obj);
-        if (!pools.ContainsKey(obj.name)) return;
+        //if (!pools.ContainsKey(obj.name)) return;
 
-        obj.transform.localScale = Vector3.one;
+        //obj.transform.localScale = Vector3.one;
 
-        pools[obj.name].Push(obj);
-        obj.transform.SetParent(Root);
-        obj.gameObject.SetActive(false);
+        //pools[obj.name].Push(obj);
+        //obj.transform.SetParent(Root);
+        //obj.gameObject.SetActive(false);
     }
 }

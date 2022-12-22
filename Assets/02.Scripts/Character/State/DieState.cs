@@ -51,6 +51,12 @@ public class DieState : StateBase
             GameManager.Instance.stage++;
             EventManager.TriggerEvent(Define.ON_NEXT_STAGE);
             GameManager.Instance.UI.HeaderUI.UpdateUI();
+            
+            GameManager.Instance.Player.Hp += 10;
+            if(GameManager.Instance.Player.Hp> GameManager.Instance.Player.MaxHp)
+            {
+                GameManager.Instance.Player.Hp = GameManager.Instance.Player.MaxHp;
+            }
 
             AIEnemyController controller = character.GetComponent<AIEnemyController>();
             GameManager.Instance.ClearMonsters.Add(controller.monsterData.MonsterName);

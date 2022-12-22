@@ -88,7 +88,6 @@ public class AttackState : StateBase
         if (damage == 0)
         {
             effect.ActiveEffect(EffectType.Miss);
-            Debug.Log("MISS");
         }
         else
             effect.ActiveEffect(effectType);
