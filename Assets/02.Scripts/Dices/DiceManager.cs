@@ -85,7 +85,7 @@ public class DiceManager : MonoBehaviour
 
         Debug.Assert(!(sideIdx >= max) || sideIdx > 0, $"val({sideIdx}) is out of index. grade({grade}), section({section})"); // 인덱스에서 벗어나는 경우의 예외처리
 
-        if (Random.Range(0, 100) > 30)
+        if (Random.Range(0, 100) > 45)
         {
             sideIdx = Random.Range(0, max);
         }
