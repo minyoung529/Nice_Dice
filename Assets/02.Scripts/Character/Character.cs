@@ -48,6 +48,9 @@ public class Character : MonoBehaviour
     public bool MustHit { get; set; } = false;
     #endregion
 
+    [field:SerializeField]
+    public bool HaveBlock { get; set; } = false;
+
     private void Awake()
     {
         Animator = GetComponent<Animator>();

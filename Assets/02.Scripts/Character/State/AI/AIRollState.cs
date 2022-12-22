@@ -17,8 +17,36 @@ public class AIRollState : RollState
 
         List<Dice> selected = GameManager.Instance.Dice.DiceSelect(monsterData.MonsterDices);
 
-        List<KeyValuePair<Dice, int>> selectedSides
-            = diceManager.RollRandomDice(Random.Range(0, 12), character.transform.position, false, selected);
+        List<KeyValuePair<Dice, int>> selectedSides;
+        bool isHaveBlock = false;
+
+        int cnt = 0;
+
+        do
+        {
+            selectedSides = diceManager.RollRandomDice(Random.Range(0, 12), character.transform.position, false, selected);
+
+            if (selected.Find(x => x.DiceName.Contains("봉쇄")))
+            {
+                if (character.HaveBlock)
+                {
+                    isHaveBlock = true;
+                    character.HaveBlock = false;
+                }
+                else
+                {
+                    character.HaveBlock = true;
+                    isHaveBlock = false;
+                }
+            }
+            else
+                character.HaveBlock = false;
+
+            if (cnt++ > 10)
+                break;
+
+        } while (isHaveBlock);
+
 
         // 주사위와 면 이벤트로 보내기
         EventManager<List<KeyValuePair<Dice, int>>>.TriggerEvent(Define.ON_END_ROLL, selectedSides);

@@ -1,26 +1,33 @@
 ﻿{
     "maxMonster": 0,
     "sInventory": [],
-    "sDeck": [],
-    "inventory": [
-        {
-            "instanceID": 30478
-        },
-        {
-            "instanceID": 30478
-        },
-        {
-            "instanceID": 30478
-        },
-        {
-            "instanceID": 35772
-        },
-        {
-            "instanceID": 30498
-        },
-        {
-            "instanceID": 30500
-        }
+    "sDeck": [
+        "일반 주사위",
+        "일반 주사위",
+        "일반 주사위",
+        "곱셈 주사위",
+        "벌처럼 쏜다!",
+        "말랑 방어막"
     ],
-    "deck": []
+    "inventory": [],
+    "deck": [
+        {
+            "instanceID": 31520
+        },
+        {
+            "instanceID": 31520
+        },
+        {
+            "instanceID": 31520
+        },
+        {
+            "instanceID": 31518
+        },
+        {
+            "instanceID": 31526
+        },
+        {
+            "instanceID": 31528
+        }
+    ]
 }

@@ -18,11 +18,14 @@ public class HpSliderUI : MonoBehaviour
 
     int prevHp;
 
+    Vector3 originalPos;
+
     private readonly float TEXT_MOVE_DIST = 0.2f;
 
     private void Start()
     {
         prevHp = character.Hp;
+        originalPos = damageText.transform.position;
     }
 
     public Character Character { set { character = value; } }
@@ -33,8 +36,8 @@ public class HpSliderUI : MonoBehaviour
 
         if (prevHp != character.Hp)
         {
-            TextAnimation();
             damageText.text = (character.Hp - prevHp).ToString();
+            TextAnimation();
             prevHp = character.Hp;
         }
     }
@@ -47,7 +50,7 @@ public class HpSliderUI : MonoBehaviour
         seq.Append(damageText.DOColor(Color.clear, 0.3f));
 
         seq.AppendCallback(() => damageText.text = "");
-        seq.Append(damageText.transform.DOMoveY(damageText.transform.position.y + TEXT_MOVE_DIST, 0f));
-        seq.Append(damageText.DOColor(Color.white, 0f));
+        seq.AppendCallback(() => damageText.transform.position = originalPos);
+        seq.AppendCallback(() => damageText.color = Color.white);
     }
 }
