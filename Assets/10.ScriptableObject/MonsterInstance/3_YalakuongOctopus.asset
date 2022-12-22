@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 37c76b00560aba741ba89cc61b45a31c, type: 3}
-  m_Name: 2_YalakuongOctopus
+  m_Name: 3_YalakuongOctopus
   m_EditorClassIdentifier: 
   monsterName: "\uC584\uB77C\uAFCD \uBB38\uC5B4"
   descriptionList:
@@ -31,9 +31,8 @@ MonoBehaviour:
   monsterDices:
   - {fileID: 11400000, guid: 8ca776f5fe0000c4d8e192c18996bf5f, type: 2}
   - {fileID: 11400000, guid: 8ca776f5fe0000c4d8e192c18996bf5f, type: 2}
-  - {fileID: 11400000, guid: d84c888f0b0d6ad478f3d192c68ae9dc, type: 2}
-  - {fileID: 11400000, guid: 92880cdf210b52b49bae6d4ddfdb3a13, type: 2}
   - {fileID: 11400000, guid: 8ca776f5fe0000c4d8e192c18996bf5f, type: 2}
   - {fileID: 11400000, guid: 538fef370e6d335499d07d6084c981bc, type: 2}
+  - {fileID: 11400000, guid: 7530341a18b1ea041bedc956bde7bfb4, type: 2}
   minDamage: 1
   maxDamage: 100
