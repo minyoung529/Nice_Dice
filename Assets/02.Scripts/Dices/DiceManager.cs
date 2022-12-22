@@ -112,6 +112,8 @@ public class DiceManager : MonoBehaviour
                 z *= -1f;
 
             position.z -= z;
+            position.y = -1.5f;
+            if (position.x >= 3.0f) position.x = 3.0f;
 
             GameObject dice = GameManager.Instance.Pool.Pop(dices[i].DicePrefab);
 
