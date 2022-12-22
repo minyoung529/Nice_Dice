@@ -56,7 +56,7 @@ public class InventoryPanel : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
         EquipPanel equipPanel = DeckUIController.CurrentEquipPanel;
 
         // 장착할 수 있으면
-        if (equipPanel != null && equipPanel.EquipDice(dice, index, true))
+        if (equipPanel != null && equipPanel.EquipDice(dice, index, true, this))
         {
             Equip(equipPanel);
         }

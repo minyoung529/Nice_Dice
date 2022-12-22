@@ -27,7 +27,7 @@ MonoBehaviour:
     '\uD640\uC218' \uACF5\uACA9\uB9CC \uBC1B\uC2B5\uB2C8\uB2E4."
   monsterType: 0
   monsterPrefab: {fileID: 3778554376556754478, guid: 802012b326ce94b4898be4b51d90dc3b, type: 3}
-  Max_Hp: 30
+  Max_Hp: 25
   monsterDices:
   - {fileID: 11400000, guid: 8ca776f5fe0000c4d8e192c18996bf5f, type: 2}
   - {fileID: 11400000, guid: 8ca776f5fe0000c4d8e192c18996bf5f, type: 2}

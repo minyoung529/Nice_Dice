@@ -721,7 +721,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 501127985871149226, guid: 6c67c81bcb2d54e42a3e93620f07aec1, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -368
       objectReference: {fileID: 0}
     - target: {fileID: 501127985871149226, guid: 6c67c81bcb2d54e42a3e93620f07aec1, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1329,8 +1329,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   monsters:
   - {fileID: 11400000, guid: f01a6af4014dd5c4c94f599804606450, type: 2}
-  - {fileID: 11400000, guid: feaab1ba12c27a74aaa35cee843c03cf, type: 2}
   - {fileID: 11400000, guid: df47f371bf78836408442fd6bfccef4a, type: 2}
+  - {fileID: 11400000, guid: feaab1ba12c27a74aaa35cee843c03cf, type: 2}
   - {fileID: 11400000, guid: cf2eac655fcf60442ab67f3f2cfe9b2d, type: 2}
   - {fileID: 11400000, guid: a6c867bdd911497428b6231620fa52e9, type: 2}
   monsterHpUI: {fileID: 9181497100817084416}

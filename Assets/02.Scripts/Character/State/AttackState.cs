@@ -10,7 +10,7 @@ using System;
 public class AttackState : StateBase
 {
     private readonly int attackHash = Animator.StringToHash("Attack");
-    private const float ATTACK_TIME = 1.15f;
+    private const float ATTACK_TIME = 1f;
     private float timer = ATTACK_TIME;
     private bool isEffect;
     private AttackEffect effect;
@@ -44,7 +44,7 @@ public class AttackState : StateBase
 
         timer -= Time.deltaTime;
 
-        if (timer < ATTACK_TIME / 2f && !isEffect)
+        if (timer < 0.325f && !isEffect)
         {
             character.StartCoroutine(Effect());
         }

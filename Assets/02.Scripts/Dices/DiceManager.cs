@@ -54,6 +54,7 @@ public class DiceManager : MonoBehaviour
                 isSkill = true;
 
             result.Add(list[n]);
+            arr.Add(n);
         }
 
         return result;

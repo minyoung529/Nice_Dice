@@ -45,14 +45,20 @@ public class EquipPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     #endregion
 
     #region Equip
-    public bool EquipDice(Dice dice, int index, bool isAdd = false)
+    public bool EquipDice(Dice dice, int index, bool isAdd = false, InventoryPanel panel = null)
     {
         if (dice == null || dice.DiceType != equipDiceType) return false;
 
         // type이 같고 max 개수를 넘지 않았을 때
-        if (dice.DiceType == DiceType.Number && DiceCount(DiceType.Number) > Define.MAX_NUMBER_DICE) return false;
-        if (dice.DiceType == DiceType.Skill && DiceCount(DiceType.Skill) > Define.MAX_SKILL_DICE) return false;
-        if (dice.DiceType == DiceType.Multiply && DiceCount(DiceType.Multiply) > Define.MAX_MULTIPLY_DICE) return false;
+        if (dice.DiceType != equipDiceType   /*&& DiceCount(DiceType.Number) > Define.MAX_NUMBER_DICE    */) return false;
+        //if (dice.DiceType != DiceType.Skill    /*&& DiceCount(DiceType.Skill) > Define.MAX_SKILL_DICE      */) return false;
+        //if (dice.DiceType != DiceType.Multiply /*&& DiceCount(DiceType.Multiply) > Define.MAX_MULTIPLY_DICE*/) return false;
+
+        if(this.dice)
+        {
+            GameManager.Instance.Deck.Remove(this.dice);
+            GameManager.Instance.Inventory.Add(this.dice);
+        }
 
         DelsetcItem();
 
