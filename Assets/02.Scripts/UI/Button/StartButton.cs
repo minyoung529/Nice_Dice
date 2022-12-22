@@ -45,6 +45,7 @@ public class StartButton : MonoBehaviour, IPointerClickHandler, IPointerEnterHan
                 break;
 
             case ButtonType.Exit:
+                GameManager.Instance.Data.SaveToJson();
                 Application.Quit();
                 break;
 

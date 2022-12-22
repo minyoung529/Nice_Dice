@@ -113,7 +113,7 @@ public class GameManager : MonoSingleton<GameManager>
             controller.OnStart();
         }
 
-        InvokeRepeating("SaveData", 1f, 30f);
+        InvokeRepeating("SaveData", 1f, 20f);
 
         //NextTurn();
     }
