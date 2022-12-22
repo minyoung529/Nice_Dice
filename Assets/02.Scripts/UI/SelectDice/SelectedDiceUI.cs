@@ -41,7 +41,13 @@ public class SelectedDiceUI : MonoBehaviour
             GameObject newObject = GameManager.Instance.Pool.Pop(GameManager.Instance.Dice.SelectedDice[i].DicePrefab);
             newObject.transform.SetPositionAndRotation(pos, Quaternion.identity);
             newObject.transform.localScale = Vector3.one * 0.5f;
-            newObject.AddComponent<Roll>();
+
+            Roll roll = newObject.GetComponent<Roll>();
+
+            if (!roll)
+            {
+                newObject.AddComponent<Roll>();
+            }
             newObject.GetComponent<DiceControl>().enabled = false;
             diceObjects.Add(newObject);
         }

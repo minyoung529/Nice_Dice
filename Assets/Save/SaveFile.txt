@@ -1,0 +1,33 @@
+﻿{
+    "maxMonster": 0,
+    "sInventory": [],
+    "sDeck": [
+        "일반 주사위",
+        "일반 주사위",
+        "일반 주사위",
+        "곱셈 주사위",
+        "벌처럼 쏜다!",
+        "말랑 방어막"
+    ],
+    "inventory": [],
+    "deck": [
+        {
+            "instanceID": 31566
+        },
+        {
+            "instanceID": 31566
+        },
+        {
+            "instanceID": 31566
+        },
+        {
+            "instanceID": 31432
+        },
+        {
+            "instanceID": 32176
+        },
+        {
+            "instanceID": 32270
+        }
+    ]
+}

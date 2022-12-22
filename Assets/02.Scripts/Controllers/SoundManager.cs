@@ -40,6 +40,8 @@ public class SoundManager : MonoSingleton<SoundManager>
     protected override void Awake()
     {
         FirstSetting();
+
+        Mute = false;
     }
 
     public void PlayOneshot(AudioClip clip, AudioType audio = AudioType.Effect, float volume = 1f)
@@ -57,7 +59,6 @@ public class SoundManager : MonoSingleton<SoundManager>
         FirstSetting();
         audios[(int)audio].clip = clip;
         audios[(int)audio].Play();
-        Debug.Log("PLAYER_BGM");
     }
 
     public void Stop(AudioType audio)

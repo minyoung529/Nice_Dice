@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using UnityEditor.Rendering;
 using UnityEngine;
 
 public class DiceManager : MonoBehaviour
@@ -76,11 +78,12 @@ public class DiceManager : MonoBehaviour
 
         Debug.Assert(!(sideIdx >= max) || sideIdx > 0, $"val({sideIdx}) is out of index. grade({grade}), section({section})"); // 인덱스에서 벗어나는 경우의 예외처리
 
-        if (Random.Range(0, 100) > 30)
+        if (Random.Range(0, 100) > 40)
         {
             sideIdx = Random.Range(0, max);
         }
 
+        //sideIdx => 낮을수록 높은
         return sideIdx;
     }
 
@@ -104,6 +107,14 @@ public class DiceManager : MonoBehaviour
             position.z -= z;
 
             GameObject dice = GameManager.Instance.Pool.Pop(dices[i].DicePrefab);
+
+            Roll roll = dice.GetComponent<Roll>();
+
+            if (roll)
+            {
+                Destroy(roll);
+            }
+
             dice.transform.SetPositionAndRotation(position, Quaternion.identity);
             diceObjects.Add(dice);
         }
@@ -122,6 +133,10 @@ public class DiceManager : MonoBehaviour
         {
             DiceShape shape = dices[i].DiceShape;
             int side = DiceSideSelect(shape, grade);
+
+            Dice dice = dices[i];
+            var sorted = dice.numbers.List.OrderByDescending(x => x);
+            side = dice.numbers.List.IndexOf(sorted.ElementAt(side));
 
             DiceControl control = DiceObjects[i].GetComponent<DiceControl>();
             control.SetValue(shape, side);

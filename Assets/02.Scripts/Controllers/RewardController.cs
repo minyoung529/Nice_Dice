@@ -68,7 +68,13 @@ public class RewardController : MonoBehaviour
 
             gameObject.transform.localScale = Vector3.one * 2.5f;
             gameObject.GetComponent<DiceControl>().enabled = false;
-            gameObject.AddComponent<Roll>();
+
+            Roll roll = gameObject.GetComponent<Roll>();
+
+            if (!roll)
+            {
+                gameObject.AddComponent<Roll>();
+            }
             nameTexts[i].text = rewards[i].DiceName;
             diceObject.Add(gameObject);
         }

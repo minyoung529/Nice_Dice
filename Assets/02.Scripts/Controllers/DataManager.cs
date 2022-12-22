@@ -44,7 +44,7 @@ public class DataManager : ControllerBase
             string json = File.ReadAllText(SAVE_PATH + SAVE_FILENAME);
             user = JsonUtility.FromJson<User>(json);
 
-            if (user.sDeck.Count != 0 && user.sInventory.Count != 0)
+            if (user.sDeck.Count != 0 || user.sInventory.Count != 0)
                 DiceSetting();
         }
         else
