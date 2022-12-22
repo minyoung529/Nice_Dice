@@ -159,6 +159,11 @@ public class DiceManager : MonoBehaviour
     {
         selectedDice.Clear();
         diceObjects.Clear();
+
+        foreach (GameObject obj in diceObjects)
+        {
+            GameManager.Instance.Pool.Push(obj);
+        }
     }
 
     private void OnDestroy()

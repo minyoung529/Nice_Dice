@@ -7,6 +7,7 @@ using TMPro;
 public class DamageText : MonoBehaviour
 {
     private TMP_Text damageText;
+    private bool isShowing = true;
 
     private void Start()
     {
@@ -15,6 +16,7 @@ public class DamageText : MonoBehaviour
 
     public void Text(string text)
     {
+        StopAllCoroutines();
         StartCoroutine(TextCoroutine(text));
     }
 

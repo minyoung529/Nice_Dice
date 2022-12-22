@@ -52,6 +52,7 @@ public class SkillBase : MonoBehaviour
         EventManager.StopListening(Define.ON_START_MONSTER_TURN, OnNextTurn);
         EventManager.StopListening(Define.ON_START_PLAYER_TURN, OnNextTurn);
         EventManager.StopListening(Define.ON_ACT_SKILL, OnActSkill);
+        ChildOnDestroy();
         SkillManager.CurrentSkill = null;
     }
 }

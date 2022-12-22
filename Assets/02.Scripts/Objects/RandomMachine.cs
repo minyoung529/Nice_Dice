@@ -83,6 +83,13 @@ public class RandomMachine : MonoBehaviour
             }
 
             GameObject dice = GameManager.Instance.Pool.Pop(diceData.DicePrefab);
+            Roll roll = dice.GetComponent<Roll>();
+
+            if (roll)
+            {
+                Destroy(roll);
+            }
+
             dice.transform.SetParent(transform);
             dice.transform.SetPositionAndRotation(diceSpawn.position, Quaternion.identity);
             dice.transform.localScale = DICE_SCALE;

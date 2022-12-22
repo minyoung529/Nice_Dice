@@ -1,39 +1,26 @@
 ﻿{
     "maxMonster": 0,
-    "sInventory": [
-        "모 아니면 도"
-    ],
-    "sDeck": [
-        "일반 주사위",
-        "곱셈 주사위",
-        "일반 주사위",
-        "일반 주사위",
-        "벌처럼 쏜다!",
-        "말랑 방어막"
-    ],
+    "sInventory": [],
+    "sDeck": [],
     "inventory": [
         {
-            "instanceID": 30482
-        }
-    ],
-    "deck": [
-        {
-            "instanceID": 30476
+            "instanceID": 30478
         },
         {
-            "instanceID": 35678
+            "instanceID": 30478
         },
         {
-            "instanceID": 30476
+            "instanceID": 30478
         },
         {
-            "instanceID": 30476
-        },
-        {
-            "instanceID": 30496
+            "instanceID": 35772
         },
         {
             "instanceID": 30498
+        },
+        {
+            "instanceID": 30500
         }
-    ]
+    ],
+    "deck": []
 }
