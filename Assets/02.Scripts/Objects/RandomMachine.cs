@@ -50,7 +50,7 @@ public class RandomMachine : MonoBehaviour
         seq.Append(GameManager.Instance.MainCam.transform.DOShakePosition(0.4f));
         seq.AppendInterval(0.5f);
         seq.AppendCallback(() => GameManager.Instance.MainCam.MoveDrawPos());
-        seq.AppendInterval(1.5f);
+        seq.AppendInterval(1.2f);
         seq.AppendCallback(() =>
         {
             StopAllCoroutines();
@@ -96,7 +96,7 @@ public class RandomMachine : MonoBehaviour
 
             dice.AddComponent<RandomDiceObject>().Init(wayPoints, lastPointa[i]);
 
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(0.6f);
         }
 
         yield return new WaitForSeconds(1f);

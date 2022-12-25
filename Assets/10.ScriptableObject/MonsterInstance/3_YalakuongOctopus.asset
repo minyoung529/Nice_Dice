@@ -25,7 +25,7 @@ MonoBehaviour:
     \uB2E4\uC591\uD569\uB2C8\uB2E4. "
   - "\uBCF4\uD1B5\uC758 \uBCF4\uB77C\uC0C9 \uC584\uB77C\uAFCD \uBB38\uC5B4\uB294
     '\uD640\uC218' \uACF5\uACA9\uB9CC \uBC1B\uC2B5\uB2C8\uB2E4."
-  monsterType: 0
+  monsterType: 1
   monsterPrefab: {fileID: 3778554376556754478, guid: 802012b326ce94b4898be4b51d90dc3b, type: 3}
   Max_Hp: 25
   monsterDices:

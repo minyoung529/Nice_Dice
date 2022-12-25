@@ -6,7 +6,7 @@ public class SelectedDiceUI : MonoBehaviour
 {
     private GameObject diceUI = null;
     private GameObject[] dicePanel = new GameObject[3];
-    private List<GameObject> diceObjects = new List<GameObject>();
+    [SerializeField] private List<GameObject> diceObjects = new List<GameObject>();
 
     private void Awake()
     {
@@ -53,6 +53,7 @@ public class SelectedDiceUI : MonoBehaviour
     {
         for (int i = 0; i < /*dicePanel.Length*/diceObjects.Count; i++)
         {
+            if (diceObjects[i] == null) { continue; }
             diceObjects[i].transform.localScale = Vector3.one;
             GameManager.Instance.Pool.Push(diceObjects[i]);
         }

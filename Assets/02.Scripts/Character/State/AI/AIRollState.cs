@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class AIRollState : RollState
@@ -15,38 +16,24 @@ public class AIRollState : RollState
     {
         DiceManager diceManager = GameManager.Instance.Dice;
 
-        List<Dice> selected = GameManager.Instance.Dice.DiceSelect(monsterData.MonsterDices);
+        List<Dice> selected;
+        List<Dice> monsterDice = new List<Dice>(monsterData.MonsterDices);
 
-        List<KeyValuePair<Dice, int>> selectedSides;
-        bool isHaveBlock = false;
-
-        int cnt = 0;
-
-        do
+        if (character.HaveBlock)
         {
-            selectedSides = diceManager.RollRandomDice(Random.Range(0, 12), character.transform.position, false, selected);
+            Dice block = monsterDice.Find(x => x.DiceName.Contains("∫¿º‚"));
+            monsterDice.Remove(block);
+            character.HaveBlock = false;
+        }
 
-            if (selected.Find(x => x.DiceName.Contains("∫¿º‚")))
-            {
-                if (character.HaveBlock)
-                {
-                    isHaveBlock = true;
-                    character.HaveBlock = false;
-                }
-                else
-                {
-                    character.HaveBlock = true;
-                    isHaveBlock = false;
-                }
-            }
-            else
-                character.HaveBlock = false;
+        selected = GameManager.Instance.Dice.DiceSelect(monsterDice);
 
-            if (cnt++ > 10)
-                break;
+        if(selected.Find(x=>x.DiceName.Contains("∫¿º‚")))
+        {
+            character.HaveBlock = true;
+        }
 
-        } while (isHaveBlock);
-
+        List<KeyValuePair<Dice, int>> selectedSides = diceManager.RollRandomDice(Random.Range(0, 12), character.transform.position, false, selected);
 
         // ¡÷ªÁ¿ßøÕ ∏È ¿Ã∫•∆Æ∑Œ ∫∏≥ª±‚
         EventManager<List<KeyValuePair<Dice, int>>>.TriggerEvent(Define.ON_END_ROLL, selectedSides);
