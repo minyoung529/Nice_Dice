@@ -32,8 +32,8 @@
 
 <br>
 <br>
-![image](https://user-images.githubusercontent.com/77655318/210703666-3a4864a0-f690-4f35-868b-f70d6bcea8ab.png)
 
+![image](https://user-images.githubusercontent.com/77655318/210703666-3a4864a0-f690-4f35-868b-f70d6bcea8ab.png)
 
 여러 종류의 **주사위**를 얻고,
 
